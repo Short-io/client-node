@@ -1,0 +1,35 @@
+{
+    "name": "@short.io/client-node",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "type": "module",
+    "private": false,
+    "scripts": {
+        "compile": "tsc",
+        "format": "eslint --cache --ext .ts . && prettier --write \"src/**/*.ts\"",
+        "prepare": "npm run compile",
+        "prepublishOnly": "npm run format && npm version patch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Short-io/client-node.git"
+    },
+    "keywords": [
+        "short.io",
+        "api"
+    ],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Short-io/client-node/issues"
+    },
+    "homepage": "https://github.com/Short-io/client-node#readme",
+    "prettier": "@short.io/eslint-config/prettier",
+    "devDependencies": {
+        "@short.io/eslint-config": "npm:@short.io/style-guide@^1.5.0",
+        "@types/node": "^18.14.0",
+        "eslint": "^8.34.0",
+        "typescript": "^4.9.5"
+    }
+}

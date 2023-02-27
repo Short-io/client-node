@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "module": "ESNext",
+        "target": "ESNext",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "incremental": true,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "noUnusedLocals": true,
+        "sourceMap": true,
+        "inlineSources": true,
+        "strictNullChecks": true
+    }
+}
