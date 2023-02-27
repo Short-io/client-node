@@ -30,8 +30,6 @@ export interface TopByColumnRes {
     name: string;
 }
 
-
-
 export interface GetLastClicksOptions
     extends StartEndDate,
         Pick<LimitOffset, "limit">,
