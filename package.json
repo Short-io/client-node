@@ -5,6 +5,7 @@
     "main": "dist/index.js",
     "type": "module",
     "private": false,
+    "types": "dist/index.d.ts",
     "scripts": {
         "compile": "tsc",
         "format": "eslint --cache --ext .ts . && prettier --write \"src/**/*.ts\"",
