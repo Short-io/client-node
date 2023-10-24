@@ -29,7 +29,7 @@
     "prettier": "@short.io/eslint-config/prettier",
     "devDependencies": {
         "@short.io/eslint-config": "npm:@short.io/style-guide@^1.5.0",
-        "@types/node": "^18.14.0",
+        "@types/node": "^20.0.0",
         "eslint": "^8.34.0",
         "typescript": "^5.0.0"
     }
