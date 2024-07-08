@@ -10,7 +10,7 @@
         "compile": "tsc",
         "format": "eslint --cache --ext .ts . && prettier --write \"src/**/*.ts\"",
         "prepare": "npm run compile",
-        "prepublishOnly": "npm run format && npm version patch"
+        "prepublishOnly": "npm run format"
     },
     "repository": {
         "type": "git",
