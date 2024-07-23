@@ -178,7 +178,7 @@ generates path by algorithm, chosen in domain settings.
          * Encode original URL, then shorten it with public key and create a new short link.
          * If parameter "path" in the options is omitted, it generates path by algorithm, chosen in domain settings.
          * To decrypt and navigate the long original URL add the returned key in base64 format to the short link as a hash.
-         * 
+         *
          * **Note that secure links feature usage is available only for Team and Enterprise plans.**
          *
          * API reference: https://developers.short.io/reference/linkspostsecure
@@ -193,9 +193,7 @@ generates path by algorithm, chosen in domain settings.
             originalURL: Link["originalURL"],
             publicAPIKey: string,
             options?: LinkCreateOptions,
-        ): Promise<
-            Link | ErrorResBody
-        > => {
+        ): Promise<Link | ErrorResBody> => {
             const cryptoKey = await crypto.subtle.generateKey(
                 {
                     name: "AES-GCM",
@@ -217,7 +215,9 @@ generates path by algorithm, chosen in domain settings.
             const encryptedUrlBase64 = Buffer.from(encryptedUrl).toString("base64");
             const encryptedIvBase64 = Buffer.from(iv).toString("base64");
             const encryptedData = `shortsecure://${encryptedUrlBase64}?${encryptedIvBase64}`;
-            const link = await this.link.createPublic(hostname, encryptedData, publicAPIKey, options) as Link | (SuccessResBody & ErrorResBody);
+            const link = (await this.link.createPublic(hostname, encryptedData, publicAPIKey, options)) as
+                | Link
+                | (SuccessResBody & ErrorResBody);
             if ("error" in link) {
                 return {
                     error: link.error,
