@@ -194,13 +194,7 @@ generates path by algorithm, chosen in domain settings.
             publicAPIKey: string,
             options?: LinkCreateOptions,
         ): Promise<
-            | {
-                  link: Link;
-                  keyBase64: string;
-              }
-            | (ErrorResBody & {
-                  keyBase64: null;
-              })
+            Link | ErrorResBody
         > => {
             const cryptoKey = await crypto.subtle.generateKey(
                 {
@@ -223,19 +217,17 @@ generates path by algorithm, chosen in domain settings.
             const encryptedUrlBase64 = Buffer.from(encryptedUrl).toString("base64");
             const encryptedIvBase64 = Buffer.from(iv).toString("base64");
             const encryptedData = `shortsecure://${encryptedUrlBase64}?${encryptedIvBase64}`;
-            const link = await this.link.createPublic(hostname, encryptedData, publicAPIKey, options);
+            const link = await this.link.createPublic(hostname, encryptedData, publicAPIKey, options) as Link | (SuccessResBody & ErrorResBody);
             if ("error" in link) {
                 return {
                     error: link.error,
-                    keyBase64: null,
-                };
+                } as ErrorResBody;
             }
             const exportedKey = await crypto.subtle.exportKey("raw", cryptoKey);
             const keyBase64 = Buffer.from(new Uint8Array(exportedKey)).toString("base64");
-            return {
-                link,
-                keyBase64,
-            };
+            link.shortURL += `#${keyBase64}`;
+            link.secureShortURL += `#${keyBase64}`;
+            return link;
         },
 
         /**

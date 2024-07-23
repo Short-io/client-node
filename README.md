@@ -48,3 +48,28 @@ Get the link statistics of the first link above:
 ```js
 const stats = await shortio.statistics.getByLink(links[0].idString);
 ```
+
+Create links:
+
+```js
+const link = await shortio.link.create({
+  domain: "link.example.com",
+  path: "example",
+  originalURL: "https://example.com",
+});
+console.log(link.shortURL); // https://link.example.com/example
+
+const publicLink = await shortio.link.createPublic({
+  domain: "link.example.com",
+  originalURL: "https://example.com",
+  publicAPIKey: "PUBLIC_API_KEY",
+});
+console.log(publicLink.shortURL); // https://link.example.com/a83t48
+
+const secureLink = await shortio.link.createSecure({
+  domain: "link.example.com",
+  publicAPIKey: "PUBLIC_API_KEY",
+  originalURL: "https://example.com",
+});
+console.log(secureLink.shortURL); // https://link.example.com/a83t48#ta95me8
+```
