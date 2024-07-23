@@ -13,9 +13,9 @@ import {
     LinkRegion,
     LinkRegionCreateOptions,
     LinkRegionDeleteOptions,
-    LinksAndCount,
     LinkUpdateOptions,
     LinkWithUser,
+    LinksAndCount,
     UpdateLinkErrorRes,
 } from "./types/link.js";
 import {
@@ -150,7 +150,7 @@ generates path by algorithm, chosen in domain settings.
          * @param originalURL Original URL of the link
          * @param publicAPIKey Public API key
          * @param options Options for the request
-         * @returns Shortened link
+         * @returns Created link or error response
          */
         createPublic: async (
             hostname: Domain["hostname"],
@@ -170,8 +170,72 @@ generates path by algorithm, chosen in domain settings.
                     ...options,
                 }),
             });
-            const link = await linkRes.json();
+            const link = (await linkRes.json()) as Link | (SuccessResBody & ErrorResBody);
             return link;
+        },
+
+        /**
+         * Encode original URL, then shorten it with public key and create a new short link.
+         * If parameter "path" in the options is omitted, it generates path by algorithm, chosen in domain settings.
+         * To decrypt and navigate the long original URL add the returned key in base64 format to the short link as a hash.
+         * 
+         * **Note that secure links feature usage is available only for Team and Enterprise plans.**
+         *
+         * API reference: https://developers.short.io/reference/linkspostsecure
+         * @param hostname Domain hostname
+         * @param originalURL Original URL of the link
+         * @param publicAPIKey Public API key
+         * @param options Options for the request
+         * @returns Created link with the keyBase64 or error response
+         */
+        createSecure: async (
+            hostname: Domain["hostname"],
+            originalURL: Link["originalURL"],
+            publicAPIKey: string,
+            options?: LinkCreateOptions,
+        ): Promise<
+            | {
+                  link: Link;
+                  keyBase64: string;
+              }
+            | (ErrorResBody & {
+                  keyBase64: null;
+              })
+        > => {
+            const cryptoKey = await crypto.subtle.generateKey(
+                {
+                    name: "AES-GCM",
+                    length: 128,
+                },
+                true,
+                ["encrypt", "decrypt"],
+            );
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+            const urlData = new TextEncoder().encode(originalURL);
+            const encryptedUrl = await crypto.subtle.encrypt(
+                {
+                    name: "AES-GCM",
+                    iv,
+                },
+                cryptoKey,
+                urlData,
+            );
+            const encryptedUrlBase64 = Buffer.from(encryptedUrl).toString("base64");
+            const encryptedIvBase64 = Buffer.from(iv).toString("base64");
+            const encryptedData = `shortsecure://${encryptedUrlBase64}?${encryptedIvBase64}`;
+            const link = await this.link.createPublic(hostname, encryptedData, publicAPIKey, options);
+            if ("error" in link) {
+                return {
+                    error: link.error,
+                    keyBase64: null,
+                };
+            }
+            const exportedKey = await crypto.subtle.exportKey("raw", cryptoKey);
+            const keyBase64 = Buffer.from(new Uint8Array(exportedKey)).toString("base64");
+            return {
+                link,
+                keyBase64,
+            };
         },
 
         /**
