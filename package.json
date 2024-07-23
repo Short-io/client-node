@@ -1,6 +1,6 @@
 {
     "name": "@short.io/client-node",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "description": "",
     "main": "dist/index.js",
     "type": "module",
@@ -10,7 +10,7 @@
         "compile": "tsc",
         "format": "eslint --cache --ext .ts . && prettier --write \"src/**/*.ts\"",
         "prepare": "npm run compile",
-        "prepublishOnly": "npm run format && npm version patch"
+        "prepublishOnly": "npm run format"
     },
     "repository": {
         "type": "git",
