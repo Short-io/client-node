@@ -16,5 +16,9 @@
         "inlineSources": true,
         "strictNullChecks": true,
         "declaration": true
+    },
+    "include": ["src/**/*"],
+    "tsc-alias": {
+        "resolveFullPaths": true
     }
 }
