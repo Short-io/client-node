@@ -24,7 +24,6 @@ Then you need to set the configuration for the client:
 import { client } from "@short.io/client-node";
 
 client.setConfig({
-    baseUrl: "https://api.short.io",
     headers: {
         Authorization: "YOUR_API_KEY",
     },
