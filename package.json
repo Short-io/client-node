@@ -1,15 +1,17 @@
 {
     "name": "@short.io/client-node",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "",
     "main": "dist/index.js",
     "type": "module",
     "private": false,
     "types": "dist/index.d.ts",
+    "files": ["dist/**"],
     "scripts": {
-        "generate": "node --experimental-strip-types openapi/fetch.ts && openapi-ts -f openapi/config.ts",
-        "compile": "tsc && tsc-alias",
-        "prepare": "npm run compile"
+        "generate": "openapi-ts -f openapi/config.ts && sed -i 's/createConfig\\(\\)/createConfig({\"baseUrl\": \"https:\\/\\/api.short.io\"})/' src/sdk.gen.ts",
+        "compile": "tsc --build . && tsc-alias",
+        "prepare": "npm run compile",
+	"prepublishOnly": "npm run compile"
     },
     "repository": {
         "type": "git",
@@ -23,7 +25,7 @@
         "sdk"
     ],
     "author": "",
-    "license": "ISC",
+    "license": "FSL",
     "bugs": {
         "url": "https://github.com/Short-io/client-node/issues"
     },

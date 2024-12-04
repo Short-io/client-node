@@ -7,7 +7,7 @@ export type GetLinksOpengraphByDomainIdByLinkIdData = {
         linkId: string;
     };
     query?: never;
-    url: "/links/opengraph/{domainId}/{linkId}";
+    url: '/links/opengraph/{domainId}/{linkId}';
 };
 
 export type GetLinksOpengraphByDomainIdByLinkIdResponses = {
@@ -18,85 +18,16 @@ export type GetLinksOpengraphByDomainIdByLinkIdResponses = {
 };
 
 export type PutLinksOpengraphByDomainIdByLinkIdData = {
-    body?: Array<
-        [
-            (
-                | "title"
-                | "type"
-                | "image"
-                | "url"
-                | "audio"
-                | "description"
-                | "determiner"
-                | "locale"
-                | "locale:alternate"
-                | "site_name"
-                | "video"
-                | "image:url"
-                | "image:secure_url"
-                | "image:type"
-                | "image:width"
-                | "image:height"
-                | "image:alt"
-                | "music:duration"
-                | "music:album"
-                | "music:album:disc"
-                | "music:album:track"
-                | "music:musician"
-                | "music:song"
-                | "music:song:disc"
-                | "music:song:track"
-                | "music:release_date"
-                | "music:creator"
-                | "video:actor"
-                | "video:actor:role"
-                | "video:director"
-                | "video:writer"
-                | "video:duration"
-                | "video:release_date"
-                | "video:tag"
-                | "video:series"
-                | "book:author"
-                | "book:isbn"
-                | "book:release_date"
-                | "book:tag"
-                | "profile:first_name"
-                | "profile:last_name"
-                | "profile:username"
-                | "profile:gender"
-                | "twitter:card"
-                | "twitter:site"
-                | "twitter:site:id"
-                | "twitter:creator"
-                | "twitter:creator:id"
-                | "twitter:description"
-                | "twitter:title"
-                | "twitter:image"
-                | "twitter:image:alt"
-                | "twitter:player"
-                | "twitter:player:width"
-                | "twitter:player:height"
-                | "twitter:player:stream"
-                | "twitter:app:name:iphone"
-                | "twitter:app:id:iphone"
-                | "twitter:app:url:iphone"
-                | "twitter:app:name:ipad"
-                | "twitter:app:id:ipad"
-                | "twitter:app:url:ipad"
-                | "twitter:app:name:googleplay"
-                | "twitter:app:id:googleplay"
-                | "twitter:app:url:googleplay"
-                | "twitter:app:country"
-            ),
-            string,
-        ]
-    >;
+    body?: Array<[
+        'title' | 'type' | 'image' | 'url' | 'audio' | 'description' | 'determiner' | 'locale' | 'locale:alternate' | 'site_name' | 'video' | 'image:url' | 'image:secure_url' | 'image:type' | 'image:width' | 'image:height' | 'image:alt' | 'music:duration' | 'music:album' | 'music:album:disc' | 'music:album:track' | 'music:musician' | 'music:song' | 'music:song:disc' | 'music:song:track' | 'music:release_date' | 'music:creator' | 'video:actor' | 'video:actor:role' | 'video:director' | 'video:writer' | 'video:duration' | 'video:release_date' | 'video:tag' | 'video:series' | 'book:author' | 'book:isbn' | 'book:release_date' | 'book:tag' | 'profile:first_name' | 'profile:last_name' | 'profile:username' | 'profile:gender' | 'twitter:card' | 'twitter:site' | 'twitter:site:id' | 'twitter:creator' | 'twitter:creator:id' | 'twitter:description' | 'twitter:title' | 'twitter:image' | 'twitter:image:alt' | 'twitter:player' | 'twitter:player:width' | 'twitter:player:height' | 'twitter:player:stream' | 'twitter:app:name:iphone' | 'twitter:app:id:iphone' | 'twitter:app:url:iphone' | 'twitter:app:name:ipad' | 'twitter:app:id:ipad' | 'twitter:app:url:ipad' | 'twitter:app:name:googleplay' | 'twitter:app:id:googleplay' | 'twitter:app:url:googleplay' | 'twitter:app:country',
+        string
+    ]>;
     path: {
         domainId: number;
         linkId: string;
     };
     query?: never;
-    url: "/links/opengraph/{domainId}/{linkId}";
+    url: '/links/opengraph/{domainId}/{linkId}';
 };
 
 export type PutLinksOpengraphByDomainIdByLinkIdResponses = {
@@ -114,7 +45,7 @@ export type GetLinkCountryByLinkIdData = {
     query?: {
         domainId?: string;
     };
-    url: "/link_country/{linkId}";
+    url: '/link_country/{linkId}';
 };
 
 export type GetLinkCountryByLinkIdResponses = {
@@ -129,257 +60,7 @@ export type PostLinkCountryByLinkIdData = {
         /**
          * Country code
          */
-        country:
-            | "AD"
-            | "AE"
-            | "AF"
-            | "AG"
-            | "AI"
-            | "AL"
-            | "AM"
-            | "AO"
-            | "AQ"
-            | "AR"
-            | "AS"
-            | "AT"
-            | "AU"
-            | "AW"
-            | "AX"
-            | "AZ"
-            | "BA"
-            | "BB"
-            | "BD"
-            | "BE"
-            | "BF"
-            | "BG"
-            | "BH"
-            | "BI"
-            | "BJ"
-            | "BL"
-            | "BM"
-            | "BN"
-            | "BO"
-            | "BQ"
-            | "BR"
-            | "BS"
-            | "BT"
-            | "BV"
-            | "BW"
-            | "BY"
-            | "BZ"
-            | "CA"
-            | "CC"
-            | "CD"
-            | "CF"
-            | "CG"
-            | "CH"
-            | "CI"
-            | "CK"
-            | "CL"
-            | "CM"
-            | "CN"
-            | "CO"
-            | "CR"
-            | "CU"
-            | "CV"
-            | "CW"
-            | "CX"
-            | "CY"
-            | "CZ"
-            | "DE"
-            | "DJ"
-            | "DK"
-            | "DM"
-            | "DO"
-            | "DZ"
-            | "EC"
-            | "EE"
-            | "EG"
-            | "EH"
-            | "ER"
-            | "ES"
-            | "ET"
-            | "FI"
-            | "FJ"
-            | "FK"
-            | "FM"
-            | "FO"
-            | "FR"
-            | "GA"
-            | "GB"
-            | "GD"
-            | "GE"
-            | "GF"
-            | "GG"
-            | "GH"
-            | "GI"
-            | "GL"
-            | "GM"
-            | "GN"
-            | "GP"
-            | "GQ"
-            | "GR"
-            | "GS"
-            | "GT"
-            | "GU"
-            | "GW"
-            | "GY"
-            | "HK"
-            | "HM"
-            | "HN"
-            | "HR"
-            | "HT"
-            | "HU"
-            | "ID"
-            | "IE"
-            | "IL"
-            | "IM"
-            | "IN"
-            | "IO"
-            | "IQ"
-            | "IR"
-            | "IS"
-            | "IT"
-            | "JE"
-            | "JM"
-            | "JO"
-            | "JP"
-            | "KE"
-            | "KG"
-            | "KH"
-            | "KI"
-            | "KM"
-            | "KN"
-            | "KP"
-            | "KR"
-            | "KW"
-            | "KY"
-            | "KZ"
-            | "LA"
-            | "LB"
-            | "LC"
-            | "LI"
-            | "LK"
-            | "LR"
-            | "LS"
-            | "LT"
-            | "LU"
-            | "LV"
-            | "LY"
-            | "MA"
-            | "MC"
-            | "MD"
-            | "ME"
-            | "MF"
-            | "MG"
-            | "MH"
-            | "MK"
-            | "ML"
-            | "MM"
-            | "MN"
-            | "MO"
-            | "MP"
-            | "MQ"
-            | "MR"
-            | "MS"
-            | "MT"
-            | "MU"
-            | "MV"
-            | "MW"
-            | "MX"
-            | "MY"
-            | "MZ"
-            | "NA"
-            | "NC"
-            | "NE"
-            | "NF"
-            | "NG"
-            | "NI"
-            | "NL"
-            | "NO"
-            | "NP"
-            | "NR"
-            | "NU"
-            | "NZ"
-            | "OM"
-            | "PA"
-            | "PE"
-            | "PF"
-            | "PG"
-            | "PH"
-            | "PK"
-            | "PL"
-            | "PM"
-            | "PN"
-            | "PR"
-            | "PS"
-            | "PT"
-            | "PW"
-            | "PY"
-            | "QA"
-            | "RE"
-            | "RO"
-            | "RS"
-            | "RU"
-            | "RW"
-            | "SA"
-            | "SB"
-            | "SC"
-            | "SD"
-            | "SE"
-            | "SG"
-            | "SH"
-            | "SI"
-            | "SJ"
-            | "SK"
-            | "SL"
-            | "SM"
-            | "SN"
-            | "SO"
-            | "SR"
-            | "SS"
-            | "ST"
-            | "SV"
-            | "SX"
-            | "SY"
-            | "SZ"
-            | "TC"
-            | "TD"
-            | "TF"
-            | "TG"
-            | "TH"
-            | "TJ"
-            | "TK"
-            | "TL"
-            | "TM"
-            | "TN"
-            | "TO"
-            | "TR"
-            | "TT"
-            | "TV"
-            | "TW"
-            | "TZ"
-            | "UA"
-            | "UG"
-            | "UM"
-            | "US"
-            | "UY"
-            | "UZ"
-            | "VA"
-            | "VC"
-            | "VE"
-            | "VG"
-            | "VI"
-            | "VN"
-            | "VU"
-            | "WF"
-            | "WS"
-            | "YE"
-            | "YT"
-            | "ZA"
-            | "ZM"
-            | "ZW"
-            | "XK";
+        country: 'AD' | 'AE' | 'AF' | 'AG' | 'AI' | 'AL' | 'AM' | 'AO' | 'AQ' | 'AR' | 'AS' | 'AT' | 'AU' | 'AW' | 'AX' | 'AZ' | 'BA' | 'BB' | 'BD' | 'BE' | 'BF' | 'BG' | 'BH' | 'BI' | 'BJ' | 'BL' | 'BM' | 'BN' | 'BO' | 'BQ' | 'BR' | 'BS' | 'BT' | 'BV' | 'BW' | 'BY' | 'BZ' | 'CA' | 'CC' | 'CD' | 'CF' | 'CG' | 'CH' | 'CI' | 'CK' | 'CL' | 'CM' | 'CN' | 'CO' | 'CR' | 'CU' | 'CV' | 'CW' | 'CX' | 'CY' | 'CZ' | 'DE' | 'DJ' | 'DK' | 'DM' | 'DO' | 'DZ' | 'EC' | 'EE' | 'EG' | 'EH' | 'ER' | 'ES' | 'ET' | 'FI' | 'FJ' | 'FK' | 'FM' | 'FO' | 'FR' | 'GA' | 'GB' | 'GD' | 'GE' | 'GF' | 'GG' | 'GH' | 'GI' | 'GL' | 'GM' | 'GN' | 'GP' | 'GQ' | 'GR' | 'GS' | 'GT' | 'GU' | 'GW' | 'GY' | 'HK' | 'HM' | 'HN' | 'HR' | 'HT' | 'HU' | 'ID' | 'IE' | 'IL' | 'IM' | 'IN' | 'IO' | 'IQ' | 'IR' | 'IS' | 'IT' | 'JE' | 'JM' | 'JO' | 'JP' | 'KE' | 'KG' | 'KH' | 'KI' | 'KM' | 'KN' | 'KP' | 'KR' | 'KW' | 'KY' | 'KZ' | 'LA' | 'LB' | 'LC' | 'LI' | 'LK' | 'LR' | 'LS' | 'LT' | 'LU' | 'LV' | 'LY' | 'MA' | 'MC' | 'MD' | 'ME' | 'MF' | 'MG' | 'MH' | 'MK' | 'ML' | 'MM' | 'MN' | 'MO' | 'MP' | 'MQ' | 'MR' | 'MS' | 'MT' | 'MU' | 'MV' | 'MW' | 'MX' | 'MY' | 'MZ' | 'NA' | 'NC' | 'NE' | 'NF' | 'NG' | 'NI' | 'NL' | 'NO' | 'NP' | 'NR' | 'NU' | 'NZ' | 'OM' | 'PA' | 'PE' | 'PF' | 'PG' | 'PH' | 'PK' | 'PL' | 'PM' | 'PN' | 'PR' | 'PS' | 'PT' | 'PW' | 'PY' | 'QA' | 'RE' | 'RO' | 'RS' | 'RU' | 'RW' | 'SA' | 'SB' | 'SC' | 'SD' | 'SE' | 'SG' | 'SH' | 'SI' | 'SJ' | 'SK' | 'SL' | 'SM' | 'SN' | 'SO' | 'SR' | 'SS' | 'ST' | 'SV' | 'SX' | 'SY' | 'SZ' | 'TC' | 'TD' | 'TF' | 'TG' | 'TH' | 'TJ' | 'TK' | 'TL' | 'TM' | 'TN' | 'TO' | 'TR' | 'TT' | 'TV' | 'TW' | 'TZ' | 'UA' | 'UG' | 'UM' | 'US' | 'UY' | 'UZ' | 'VA' | 'VC' | 'VE' | 'VG' | 'VI' | 'VN' | 'VU' | 'WF' | 'WS' | 'YE' | 'YT' | 'ZA' | 'ZM' | 'ZW' | 'XK';
         originalURL: string;
     };
     path: {
@@ -388,7 +69,7 @@ export type PostLinkCountryByLinkIdData = {
     query?: {
         domainId?: string;
     };
-    url: "/link_country/{linkId}";
+    url: '/link_country/{linkId}';
 };
 
 export type PostLinkCountryByLinkIdResponses = {
@@ -403,257 +84,7 @@ export type PostLinkCountryBulkByLinkIdData = {
         /**
          * Country code
          */
-        country:
-            | "AD"
-            | "AE"
-            | "AF"
-            | "AG"
-            | "AI"
-            | "AL"
-            | "AM"
-            | "AO"
-            | "AQ"
-            | "AR"
-            | "AS"
-            | "AT"
-            | "AU"
-            | "AW"
-            | "AX"
-            | "AZ"
-            | "BA"
-            | "BB"
-            | "BD"
-            | "BE"
-            | "BF"
-            | "BG"
-            | "BH"
-            | "BI"
-            | "BJ"
-            | "BL"
-            | "BM"
-            | "BN"
-            | "BO"
-            | "BQ"
-            | "BR"
-            | "BS"
-            | "BT"
-            | "BV"
-            | "BW"
-            | "BY"
-            | "BZ"
-            | "CA"
-            | "CC"
-            | "CD"
-            | "CF"
-            | "CG"
-            | "CH"
-            | "CI"
-            | "CK"
-            | "CL"
-            | "CM"
-            | "CN"
-            | "CO"
-            | "CR"
-            | "CU"
-            | "CV"
-            | "CW"
-            | "CX"
-            | "CY"
-            | "CZ"
-            | "DE"
-            | "DJ"
-            | "DK"
-            | "DM"
-            | "DO"
-            | "DZ"
-            | "EC"
-            | "EE"
-            | "EG"
-            | "EH"
-            | "ER"
-            | "ES"
-            | "ET"
-            | "FI"
-            | "FJ"
-            | "FK"
-            | "FM"
-            | "FO"
-            | "FR"
-            | "GA"
-            | "GB"
-            | "GD"
-            | "GE"
-            | "GF"
-            | "GG"
-            | "GH"
-            | "GI"
-            | "GL"
-            | "GM"
-            | "GN"
-            | "GP"
-            | "GQ"
-            | "GR"
-            | "GS"
-            | "GT"
-            | "GU"
-            | "GW"
-            | "GY"
-            | "HK"
-            | "HM"
-            | "HN"
-            | "HR"
-            | "HT"
-            | "HU"
-            | "ID"
-            | "IE"
-            | "IL"
-            | "IM"
-            | "IN"
-            | "IO"
-            | "IQ"
-            | "IR"
-            | "IS"
-            | "IT"
-            | "JE"
-            | "JM"
-            | "JO"
-            | "JP"
-            | "KE"
-            | "KG"
-            | "KH"
-            | "KI"
-            | "KM"
-            | "KN"
-            | "KP"
-            | "KR"
-            | "KW"
-            | "KY"
-            | "KZ"
-            | "LA"
-            | "LB"
-            | "LC"
-            | "LI"
-            | "LK"
-            | "LR"
-            | "LS"
-            | "LT"
-            | "LU"
-            | "LV"
-            | "LY"
-            | "MA"
-            | "MC"
-            | "MD"
-            | "ME"
-            | "MF"
-            | "MG"
-            | "MH"
-            | "MK"
-            | "ML"
-            | "MM"
-            | "MN"
-            | "MO"
-            | "MP"
-            | "MQ"
-            | "MR"
-            | "MS"
-            | "MT"
-            | "MU"
-            | "MV"
-            | "MW"
-            | "MX"
-            | "MY"
-            | "MZ"
-            | "NA"
-            | "NC"
-            | "NE"
-            | "NF"
-            | "NG"
-            | "NI"
-            | "NL"
-            | "NO"
-            | "NP"
-            | "NR"
-            | "NU"
-            | "NZ"
-            | "OM"
-            | "PA"
-            | "PE"
-            | "PF"
-            | "PG"
-            | "PH"
-            | "PK"
-            | "PL"
-            | "PM"
-            | "PN"
-            | "PR"
-            | "PS"
-            | "PT"
-            | "PW"
-            | "PY"
-            | "QA"
-            | "RE"
-            | "RO"
-            | "RS"
-            | "RU"
-            | "RW"
-            | "SA"
-            | "SB"
-            | "SC"
-            | "SD"
-            | "SE"
-            | "SG"
-            | "SH"
-            | "SI"
-            | "SJ"
-            | "SK"
-            | "SL"
-            | "SM"
-            | "SN"
-            | "SO"
-            | "SR"
-            | "SS"
-            | "ST"
-            | "SV"
-            | "SX"
-            | "SY"
-            | "SZ"
-            | "TC"
-            | "TD"
-            | "TF"
-            | "TG"
-            | "TH"
-            | "TJ"
-            | "TK"
-            | "TL"
-            | "TM"
-            | "TN"
-            | "TO"
-            | "TR"
-            | "TT"
-            | "TV"
-            | "TW"
-            | "TZ"
-            | "UA"
-            | "UG"
-            | "UM"
-            | "US"
-            | "UY"
-            | "UZ"
-            | "VA"
-            | "VC"
-            | "VE"
-            | "VG"
-            | "VI"
-            | "VN"
-            | "VU"
-            | "WF"
-            | "WS"
-            | "YE"
-            | "YT"
-            | "ZA"
-            | "ZM"
-            | "ZW"
-            | "XK";
+        country: 'AD' | 'AE' | 'AF' | 'AG' | 'AI' | 'AL' | 'AM' | 'AO' | 'AQ' | 'AR' | 'AS' | 'AT' | 'AU' | 'AW' | 'AX' | 'AZ' | 'BA' | 'BB' | 'BD' | 'BE' | 'BF' | 'BG' | 'BH' | 'BI' | 'BJ' | 'BL' | 'BM' | 'BN' | 'BO' | 'BQ' | 'BR' | 'BS' | 'BT' | 'BV' | 'BW' | 'BY' | 'BZ' | 'CA' | 'CC' | 'CD' | 'CF' | 'CG' | 'CH' | 'CI' | 'CK' | 'CL' | 'CM' | 'CN' | 'CO' | 'CR' | 'CU' | 'CV' | 'CW' | 'CX' | 'CY' | 'CZ' | 'DE' | 'DJ' | 'DK' | 'DM' | 'DO' | 'DZ' | 'EC' | 'EE' | 'EG' | 'EH' | 'ER' | 'ES' | 'ET' | 'FI' | 'FJ' | 'FK' | 'FM' | 'FO' | 'FR' | 'GA' | 'GB' | 'GD' | 'GE' | 'GF' | 'GG' | 'GH' | 'GI' | 'GL' | 'GM' | 'GN' | 'GP' | 'GQ' | 'GR' | 'GS' | 'GT' | 'GU' | 'GW' | 'GY' | 'HK' | 'HM' | 'HN' | 'HR' | 'HT' | 'HU' | 'ID' | 'IE' | 'IL' | 'IM' | 'IN' | 'IO' | 'IQ' | 'IR' | 'IS' | 'IT' | 'JE' | 'JM' | 'JO' | 'JP' | 'KE' | 'KG' | 'KH' | 'KI' | 'KM' | 'KN' | 'KP' | 'KR' | 'KW' | 'KY' | 'KZ' | 'LA' | 'LB' | 'LC' | 'LI' | 'LK' | 'LR' | 'LS' | 'LT' | 'LU' | 'LV' | 'LY' | 'MA' | 'MC' | 'MD' | 'ME' | 'MF' | 'MG' | 'MH' | 'MK' | 'ML' | 'MM' | 'MN' | 'MO' | 'MP' | 'MQ' | 'MR' | 'MS' | 'MT' | 'MU' | 'MV' | 'MW' | 'MX' | 'MY' | 'MZ' | 'NA' | 'NC' | 'NE' | 'NF' | 'NG' | 'NI' | 'NL' | 'NO' | 'NP' | 'NR' | 'NU' | 'NZ' | 'OM' | 'PA' | 'PE' | 'PF' | 'PG' | 'PH' | 'PK' | 'PL' | 'PM' | 'PN' | 'PR' | 'PS' | 'PT' | 'PW' | 'PY' | 'QA' | 'RE' | 'RO' | 'RS' | 'RU' | 'RW' | 'SA' | 'SB' | 'SC' | 'SD' | 'SE' | 'SG' | 'SH' | 'SI' | 'SJ' | 'SK' | 'SL' | 'SM' | 'SN' | 'SO' | 'SR' | 'SS' | 'ST' | 'SV' | 'SX' | 'SY' | 'SZ' | 'TC' | 'TD' | 'TF' | 'TG' | 'TH' | 'TJ' | 'TK' | 'TL' | 'TM' | 'TN' | 'TO' | 'TR' | 'TT' | 'TV' | 'TW' | 'TZ' | 'UA' | 'UG' | 'UM' | 'US' | 'UY' | 'UZ' | 'VA' | 'VC' | 'VE' | 'VG' | 'VI' | 'VN' | 'VU' | 'WF' | 'WS' | 'YE' | 'YT' | 'ZA' | 'ZM' | 'ZW' | 'XK';
         originalURL: string;
     }>;
     path: {
@@ -662,7 +93,7 @@ export type PostLinkCountryBulkByLinkIdData = {
     query?: {
         domainId?: string;
     };
-    url: "/link_country/bulk/{linkId}";
+    url: '/link_country/bulk/{linkId}';
 };
 
 export type PostLinkCountryBulkByLinkIdResponses = {
@@ -679,262 +110,12 @@ export type DeleteLinkCountryByLinkIdByCountryData = {
         /**
          * Country code
          */
-        country:
-            | "AD"
-            | "AE"
-            | "AF"
-            | "AG"
-            | "AI"
-            | "AL"
-            | "AM"
-            | "AO"
-            | "AQ"
-            | "AR"
-            | "AS"
-            | "AT"
-            | "AU"
-            | "AW"
-            | "AX"
-            | "AZ"
-            | "BA"
-            | "BB"
-            | "BD"
-            | "BE"
-            | "BF"
-            | "BG"
-            | "BH"
-            | "BI"
-            | "BJ"
-            | "BL"
-            | "BM"
-            | "BN"
-            | "BO"
-            | "BQ"
-            | "BR"
-            | "BS"
-            | "BT"
-            | "BV"
-            | "BW"
-            | "BY"
-            | "BZ"
-            | "CA"
-            | "CC"
-            | "CD"
-            | "CF"
-            | "CG"
-            | "CH"
-            | "CI"
-            | "CK"
-            | "CL"
-            | "CM"
-            | "CN"
-            | "CO"
-            | "CR"
-            | "CU"
-            | "CV"
-            | "CW"
-            | "CX"
-            | "CY"
-            | "CZ"
-            | "DE"
-            | "DJ"
-            | "DK"
-            | "DM"
-            | "DO"
-            | "DZ"
-            | "EC"
-            | "EE"
-            | "EG"
-            | "EH"
-            | "ER"
-            | "ES"
-            | "ET"
-            | "FI"
-            | "FJ"
-            | "FK"
-            | "FM"
-            | "FO"
-            | "FR"
-            | "GA"
-            | "GB"
-            | "GD"
-            | "GE"
-            | "GF"
-            | "GG"
-            | "GH"
-            | "GI"
-            | "GL"
-            | "GM"
-            | "GN"
-            | "GP"
-            | "GQ"
-            | "GR"
-            | "GS"
-            | "GT"
-            | "GU"
-            | "GW"
-            | "GY"
-            | "HK"
-            | "HM"
-            | "HN"
-            | "HR"
-            | "HT"
-            | "HU"
-            | "ID"
-            | "IE"
-            | "IL"
-            | "IM"
-            | "IN"
-            | "IO"
-            | "IQ"
-            | "IR"
-            | "IS"
-            | "IT"
-            | "JE"
-            | "JM"
-            | "JO"
-            | "JP"
-            | "KE"
-            | "KG"
-            | "KH"
-            | "KI"
-            | "KM"
-            | "KN"
-            | "KP"
-            | "KR"
-            | "KW"
-            | "KY"
-            | "KZ"
-            | "LA"
-            | "LB"
-            | "LC"
-            | "LI"
-            | "LK"
-            | "LR"
-            | "LS"
-            | "LT"
-            | "LU"
-            | "LV"
-            | "LY"
-            | "MA"
-            | "MC"
-            | "MD"
-            | "ME"
-            | "MF"
-            | "MG"
-            | "MH"
-            | "MK"
-            | "ML"
-            | "MM"
-            | "MN"
-            | "MO"
-            | "MP"
-            | "MQ"
-            | "MR"
-            | "MS"
-            | "MT"
-            | "MU"
-            | "MV"
-            | "MW"
-            | "MX"
-            | "MY"
-            | "MZ"
-            | "NA"
-            | "NC"
-            | "NE"
-            | "NF"
-            | "NG"
-            | "NI"
-            | "NL"
-            | "NO"
-            | "NP"
-            | "NR"
-            | "NU"
-            | "NZ"
-            | "OM"
-            | "PA"
-            | "PE"
-            | "PF"
-            | "PG"
-            | "PH"
-            | "PK"
-            | "PL"
-            | "PM"
-            | "PN"
-            | "PR"
-            | "PS"
-            | "PT"
-            | "PW"
-            | "PY"
-            | "QA"
-            | "RE"
-            | "RO"
-            | "RS"
-            | "RU"
-            | "RW"
-            | "SA"
-            | "SB"
-            | "SC"
-            | "SD"
-            | "SE"
-            | "SG"
-            | "SH"
-            | "SI"
-            | "SJ"
-            | "SK"
-            | "SL"
-            | "SM"
-            | "SN"
-            | "SO"
-            | "SR"
-            | "SS"
-            | "ST"
-            | "SV"
-            | "SX"
-            | "SY"
-            | "SZ"
-            | "TC"
-            | "TD"
-            | "TF"
-            | "TG"
-            | "TH"
-            | "TJ"
-            | "TK"
-            | "TL"
-            | "TM"
-            | "TN"
-            | "TO"
-            | "TR"
-            | "TT"
-            | "TV"
-            | "TW"
-            | "TZ"
-            | "UA"
-            | "UG"
-            | "UM"
-            | "US"
-            | "UY"
-            | "UZ"
-            | "VA"
-            | "VC"
-            | "VE"
-            | "VG"
-            | "VI"
-            | "VN"
-            | "VU"
-            | "WF"
-            | "WS"
-            | "YE"
-            | "YT"
-            | "ZA"
-            | "ZM"
-            | "ZW"
-            | "XK";
+        country: 'AD' | 'AE' | 'AF' | 'AG' | 'AI' | 'AL' | 'AM' | 'AO' | 'AQ' | 'AR' | 'AS' | 'AT' | 'AU' | 'AW' | 'AX' | 'AZ' | 'BA' | 'BB' | 'BD' | 'BE' | 'BF' | 'BG' | 'BH' | 'BI' | 'BJ' | 'BL' | 'BM' | 'BN' | 'BO' | 'BQ' | 'BR' | 'BS' | 'BT' | 'BV' | 'BW' | 'BY' | 'BZ' | 'CA' | 'CC' | 'CD' | 'CF' | 'CG' | 'CH' | 'CI' | 'CK' | 'CL' | 'CM' | 'CN' | 'CO' | 'CR' | 'CU' | 'CV' | 'CW' | 'CX' | 'CY' | 'CZ' | 'DE' | 'DJ' | 'DK' | 'DM' | 'DO' | 'DZ' | 'EC' | 'EE' | 'EG' | 'EH' | 'ER' | 'ES' | 'ET' | 'FI' | 'FJ' | 'FK' | 'FM' | 'FO' | 'FR' | 'GA' | 'GB' | 'GD' | 'GE' | 'GF' | 'GG' | 'GH' | 'GI' | 'GL' | 'GM' | 'GN' | 'GP' | 'GQ' | 'GR' | 'GS' | 'GT' | 'GU' | 'GW' | 'GY' | 'HK' | 'HM' | 'HN' | 'HR' | 'HT' | 'HU' | 'ID' | 'IE' | 'IL' | 'IM' | 'IN' | 'IO' | 'IQ' | 'IR' | 'IS' | 'IT' | 'JE' | 'JM' | 'JO' | 'JP' | 'KE' | 'KG' | 'KH' | 'KI' | 'KM' | 'KN' | 'KP' | 'KR' | 'KW' | 'KY' | 'KZ' | 'LA' | 'LB' | 'LC' | 'LI' | 'LK' | 'LR' | 'LS' | 'LT' | 'LU' | 'LV' | 'LY' | 'MA' | 'MC' | 'MD' | 'ME' | 'MF' | 'MG' | 'MH' | 'MK' | 'ML' | 'MM' | 'MN' | 'MO' | 'MP' | 'MQ' | 'MR' | 'MS' | 'MT' | 'MU' | 'MV' | 'MW' | 'MX' | 'MY' | 'MZ' | 'NA' | 'NC' | 'NE' | 'NF' | 'NG' | 'NI' | 'NL' | 'NO' | 'NP' | 'NR' | 'NU' | 'NZ' | 'OM' | 'PA' | 'PE' | 'PF' | 'PG' | 'PH' | 'PK' | 'PL' | 'PM' | 'PN' | 'PR' | 'PS' | 'PT' | 'PW' | 'PY' | 'QA' | 'RE' | 'RO' | 'RS' | 'RU' | 'RW' | 'SA' | 'SB' | 'SC' | 'SD' | 'SE' | 'SG' | 'SH' | 'SI' | 'SJ' | 'SK' | 'SL' | 'SM' | 'SN' | 'SO' | 'SR' | 'SS' | 'ST' | 'SV' | 'SX' | 'SY' | 'SZ' | 'TC' | 'TD' | 'TF' | 'TG' | 'TH' | 'TJ' | 'TK' | 'TL' | 'TM' | 'TN' | 'TO' | 'TR' | 'TT' | 'TV' | 'TW' | 'TZ' | 'UA' | 'UG' | 'UM' | 'US' | 'UY' | 'UZ' | 'VA' | 'VC' | 'VE' | 'VG' | 'VI' | 'VN' | 'VU' | 'WF' | 'WS' | 'YE' | 'YT' | 'ZA' | 'ZM' | 'ZW' | 'XK';
     };
     query?: {
         domainId?: string;
     };
-    url: "/link_country/{linkId}/{country}";
+    url: '/link_country/{linkId}/{country}';
 };
 
 export type DeleteLinkCountryByLinkIdByCountryResponses = {
@@ -952,7 +133,7 @@ export type GetLinkRegionByLinkIdData = {
     query?: {
         domainId?: string;
     };
-    url: "/link_region/{linkId}";
+    url: '/link_region/{linkId}';
 };
 
 export type GetLinkRegionByLinkIdResponses = {
@@ -967,257 +148,7 @@ export type PostLinkRegionByLinkIdData = {
         /**
          * Country code
          */
-        country:
-            | "AD"
-            | "AE"
-            | "AF"
-            | "AG"
-            | "AI"
-            | "AL"
-            | "AM"
-            | "AO"
-            | "AQ"
-            | "AR"
-            | "AS"
-            | "AT"
-            | "AU"
-            | "AW"
-            | "AX"
-            | "AZ"
-            | "BA"
-            | "BB"
-            | "BD"
-            | "BE"
-            | "BF"
-            | "BG"
-            | "BH"
-            | "BI"
-            | "BJ"
-            | "BL"
-            | "BM"
-            | "BN"
-            | "BO"
-            | "BQ"
-            | "BR"
-            | "BS"
-            | "BT"
-            | "BV"
-            | "BW"
-            | "BY"
-            | "BZ"
-            | "CA"
-            | "CC"
-            | "CD"
-            | "CF"
-            | "CG"
-            | "CH"
-            | "CI"
-            | "CK"
-            | "CL"
-            | "CM"
-            | "CN"
-            | "CO"
-            | "CR"
-            | "CU"
-            | "CV"
-            | "CW"
-            | "CX"
-            | "CY"
-            | "CZ"
-            | "DE"
-            | "DJ"
-            | "DK"
-            | "DM"
-            | "DO"
-            | "DZ"
-            | "EC"
-            | "EE"
-            | "EG"
-            | "EH"
-            | "ER"
-            | "ES"
-            | "ET"
-            | "FI"
-            | "FJ"
-            | "FK"
-            | "FM"
-            | "FO"
-            | "FR"
-            | "GA"
-            | "GB"
-            | "GD"
-            | "GE"
-            | "GF"
-            | "GG"
-            | "GH"
-            | "GI"
-            | "GL"
-            | "GM"
-            | "GN"
-            | "GP"
-            | "GQ"
-            | "GR"
-            | "GS"
-            | "GT"
-            | "GU"
-            | "GW"
-            | "GY"
-            | "HK"
-            | "HM"
-            | "HN"
-            | "HR"
-            | "HT"
-            | "HU"
-            | "ID"
-            | "IE"
-            | "IL"
-            | "IM"
-            | "IN"
-            | "IO"
-            | "IQ"
-            | "IR"
-            | "IS"
-            | "IT"
-            | "JE"
-            | "JM"
-            | "JO"
-            | "JP"
-            | "KE"
-            | "KG"
-            | "KH"
-            | "KI"
-            | "KM"
-            | "KN"
-            | "KP"
-            | "KR"
-            | "KW"
-            | "KY"
-            | "KZ"
-            | "LA"
-            | "LB"
-            | "LC"
-            | "LI"
-            | "LK"
-            | "LR"
-            | "LS"
-            | "LT"
-            | "LU"
-            | "LV"
-            | "LY"
-            | "MA"
-            | "MC"
-            | "MD"
-            | "ME"
-            | "MF"
-            | "MG"
-            | "MH"
-            | "MK"
-            | "ML"
-            | "MM"
-            | "MN"
-            | "MO"
-            | "MP"
-            | "MQ"
-            | "MR"
-            | "MS"
-            | "MT"
-            | "MU"
-            | "MV"
-            | "MW"
-            | "MX"
-            | "MY"
-            | "MZ"
-            | "NA"
-            | "NC"
-            | "NE"
-            | "NF"
-            | "NG"
-            | "NI"
-            | "NL"
-            | "NO"
-            | "NP"
-            | "NR"
-            | "NU"
-            | "NZ"
-            | "OM"
-            | "PA"
-            | "PE"
-            | "PF"
-            | "PG"
-            | "PH"
-            | "PK"
-            | "PL"
-            | "PM"
-            | "PN"
-            | "PR"
-            | "PS"
-            | "PT"
-            | "PW"
-            | "PY"
-            | "QA"
-            | "RE"
-            | "RO"
-            | "RS"
-            | "RU"
-            | "RW"
-            | "SA"
-            | "SB"
-            | "SC"
-            | "SD"
-            | "SE"
-            | "SG"
-            | "SH"
-            | "SI"
-            | "SJ"
-            | "SK"
-            | "SL"
-            | "SM"
-            | "SN"
-            | "SO"
-            | "SR"
-            | "SS"
-            | "ST"
-            | "SV"
-            | "SX"
-            | "SY"
-            | "SZ"
-            | "TC"
-            | "TD"
-            | "TF"
-            | "TG"
-            | "TH"
-            | "TJ"
-            | "TK"
-            | "TL"
-            | "TM"
-            | "TN"
-            | "TO"
-            | "TR"
-            | "TT"
-            | "TV"
-            | "TW"
-            | "TZ"
-            | "UA"
-            | "UG"
-            | "UM"
-            | "US"
-            | "UY"
-            | "UZ"
-            | "VA"
-            | "VC"
-            | "VE"
-            | "VG"
-            | "VI"
-            | "VN"
-            | "VU"
-            | "WF"
-            | "WS"
-            | "YE"
-            | "YT"
-            | "ZA"
-            | "ZM"
-            | "ZW"
-            | "XK";
+        country: 'AD' | 'AE' | 'AF' | 'AG' | 'AI' | 'AL' | 'AM' | 'AO' | 'AQ' | 'AR' | 'AS' | 'AT' | 'AU' | 'AW' | 'AX' | 'AZ' | 'BA' | 'BB' | 'BD' | 'BE' | 'BF' | 'BG' | 'BH' | 'BI' | 'BJ' | 'BL' | 'BM' | 'BN' | 'BO' | 'BQ' | 'BR' | 'BS' | 'BT' | 'BV' | 'BW' | 'BY' | 'BZ' | 'CA' | 'CC' | 'CD' | 'CF' | 'CG' | 'CH' | 'CI' | 'CK' | 'CL' | 'CM' | 'CN' | 'CO' | 'CR' | 'CU' | 'CV' | 'CW' | 'CX' | 'CY' | 'CZ' | 'DE' | 'DJ' | 'DK' | 'DM' | 'DO' | 'DZ' | 'EC' | 'EE' | 'EG' | 'EH' | 'ER' | 'ES' | 'ET' | 'FI' | 'FJ' | 'FK' | 'FM' | 'FO' | 'FR' | 'GA' | 'GB' | 'GD' | 'GE' | 'GF' | 'GG' | 'GH' | 'GI' | 'GL' | 'GM' | 'GN' | 'GP' | 'GQ' | 'GR' | 'GS' | 'GT' | 'GU' | 'GW' | 'GY' | 'HK' | 'HM' | 'HN' | 'HR' | 'HT' | 'HU' | 'ID' | 'IE' | 'IL' | 'IM' | 'IN' | 'IO' | 'IQ' | 'IR' | 'IS' | 'IT' | 'JE' | 'JM' | 'JO' | 'JP' | 'KE' | 'KG' | 'KH' | 'KI' | 'KM' | 'KN' | 'KP' | 'KR' | 'KW' | 'KY' | 'KZ' | 'LA' | 'LB' | 'LC' | 'LI' | 'LK' | 'LR' | 'LS' | 'LT' | 'LU' | 'LV' | 'LY' | 'MA' | 'MC' | 'MD' | 'ME' | 'MF' | 'MG' | 'MH' | 'MK' | 'ML' | 'MM' | 'MN' | 'MO' | 'MP' | 'MQ' | 'MR' | 'MS' | 'MT' | 'MU' | 'MV' | 'MW' | 'MX' | 'MY' | 'MZ' | 'NA' | 'NC' | 'NE' | 'NF' | 'NG' | 'NI' | 'NL' | 'NO' | 'NP' | 'NR' | 'NU' | 'NZ' | 'OM' | 'PA' | 'PE' | 'PF' | 'PG' | 'PH' | 'PK' | 'PL' | 'PM' | 'PN' | 'PR' | 'PS' | 'PT' | 'PW' | 'PY' | 'QA' | 'RE' | 'RO' | 'RS' | 'RU' | 'RW' | 'SA' | 'SB' | 'SC' | 'SD' | 'SE' | 'SG' | 'SH' | 'SI' | 'SJ' | 'SK' | 'SL' | 'SM' | 'SN' | 'SO' | 'SR' | 'SS' | 'ST' | 'SV' | 'SX' | 'SY' | 'SZ' | 'TC' | 'TD' | 'TF' | 'TG' | 'TH' | 'TJ' | 'TK' | 'TL' | 'TM' | 'TN' | 'TO' | 'TR' | 'TT' | 'TV' | 'TW' | 'TZ' | 'UA' | 'UG' | 'UM' | 'US' | 'UY' | 'UZ' | 'VA' | 'VC' | 'VE' | 'VG' | 'VI' | 'VN' | 'VU' | 'WF' | 'WS' | 'YE' | 'YT' | 'ZA' | 'ZM' | 'ZW' | 'XK';
         /**
          * ISO 3166-2 region code
          */
@@ -1233,7 +164,7 @@ export type PostLinkRegionByLinkIdData = {
          */
         domainId?: number;
     };
-    url: "/link_region/{linkId}";
+    url: '/link_region/{linkId}';
 };
 
 export type PostLinkRegionByLinkIdResponses = {
@@ -1249,260 +180,10 @@ export type GetLinkRegionListByCountryData = {
         /**
          * Country code
          */
-        country:
-            | "AD"
-            | "AE"
-            | "AF"
-            | "AG"
-            | "AI"
-            | "AL"
-            | "AM"
-            | "AO"
-            | "AQ"
-            | "AR"
-            | "AS"
-            | "AT"
-            | "AU"
-            | "AW"
-            | "AX"
-            | "AZ"
-            | "BA"
-            | "BB"
-            | "BD"
-            | "BE"
-            | "BF"
-            | "BG"
-            | "BH"
-            | "BI"
-            | "BJ"
-            | "BL"
-            | "BM"
-            | "BN"
-            | "BO"
-            | "BQ"
-            | "BR"
-            | "BS"
-            | "BT"
-            | "BV"
-            | "BW"
-            | "BY"
-            | "BZ"
-            | "CA"
-            | "CC"
-            | "CD"
-            | "CF"
-            | "CG"
-            | "CH"
-            | "CI"
-            | "CK"
-            | "CL"
-            | "CM"
-            | "CN"
-            | "CO"
-            | "CR"
-            | "CU"
-            | "CV"
-            | "CW"
-            | "CX"
-            | "CY"
-            | "CZ"
-            | "DE"
-            | "DJ"
-            | "DK"
-            | "DM"
-            | "DO"
-            | "DZ"
-            | "EC"
-            | "EE"
-            | "EG"
-            | "EH"
-            | "ER"
-            | "ES"
-            | "ET"
-            | "FI"
-            | "FJ"
-            | "FK"
-            | "FM"
-            | "FO"
-            | "FR"
-            | "GA"
-            | "GB"
-            | "GD"
-            | "GE"
-            | "GF"
-            | "GG"
-            | "GH"
-            | "GI"
-            | "GL"
-            | "GM"
-            | "GN"
-            | "GP"
-            | "GQ"
-            | "GR"
-            | "GS"
-            | "GT"
-            | "GU"
-            | "GW"
-            | "GY"
-            | "HK"
-            | "HM"
-            | "HN"
-            | "HR"
-            | "HT"
-            | "HU"
-            | "ID"
-            | "IE"
-            | "IL"
-            | "IM"
-            | "IN"
-            | "IO"
-            | "IQ"
-            | "IR"
-            | "IS"
-            | "IT"
-            | "JE"
-            | "JM"
-            | "JO"
-            | "JP"
-            | "KE"
-            | "KG"
-            | "KH"
-            | "KI"
-            | "KM"
-            | "KN"
-            | "KP"
-            | "KR"
-            | "KW"
-            | "KY"
-            | "KZ"
-            | "LA"
-            | "LB"
-            | "LC"
-            | "LI"
-            | "LK"
-            | "LR"
-            | "LS"
-            | "LT"
-            | "LU"
-            | "LV"
-            | "LY"
-            | "MA"
-            | "MC"
-            | "MD"
-            | "ME"
-            | "MF"
-            | "MG"
-            | "MH"
-            | "MK"
-            | "ML"
-            | "MM"
-            | "MN"
-            | "MO"
-            | "MP"
-            | "MQ"
-            | "MR"
-            | "MS"
-            | "MT"
-            | "MU"
-            | "MV"
-            | "MW"
-            | "MX"
-            | "MY"
-            | "MZ"
-            | "NA"
-            | "NC"
-            | "NE"
-            | "NF"
-            | "NG"
-            | "NI"
-            | "NL"
-            | "NO"
-            | "NP"
-            | "NR"
-            | "NU"
-            | "NZ"
-            | "OM"
-            | "PA"
-            | "PE"
-            | "PF"
-            | "PG"
-            | "PH"
-            | "PK"
-            | "PL"
-            | "PM"
-            | "PN"
-            | "PR"
-            | "PS"
-            | "PT"
-            | "PW"
-            | "PY"
-            | "QA"
-            | "RE"
-            | "RO"
-            | "RS"
-            | "RU"
-            | "RW"
-            | "SA"
-            | "SB"
-            | "SC"
-            | "SD"
-            | "SE"
-            | "SG"
-            | "SH"
-            | "SI"
-            | "SJ"
-            | "SK"
-            | "SL"
-            | "SM"
-            | "SN"
-            | "SO"
-            | "SR"
-            | "SS"
-            | "ST"
-            | "SV"
-            | "SX"
-            | "SY"
-            | "SZ"
-            | "TC"
-            | "TD"
-            | "TF"
-            | "TG"
-            | "TH"
-            | "TJ"
-            | "TK"
-            | "TL"
-            | "TM"
-            | "TN"
-            | "TO"
-            | "TR"
-            | "TT"
-            | "TV"
-            | "TW"
-            | "TZ"
-            | "UA"
-            | "UG"
-            | "UM"
-            | "US"
-            | "UY"
-            | "UZ"
-            | "VA"
-            | "VC"
-            | "VE"
-            | "VG"
-            | "VI"
-            | "VN"
-            | "VU"
-            | "WF"
-            | "WS"
-            | "YE"
-            | "YT"
-            | "ZA"
-            | "ZM"
-            | "ZW"
-            | "XK";
+        country: 'AD' | 'AE' | 'AF' | 'AG' | 'AI' | 'AL' | 'AM' | 'AO' | 'AQ' | 'AR' | 'AS' | 'AT' | 'AU' | 'AW' | 'AX' | 'AZ' | 'BA' | 'BB' | 'BD' | 'BE' | 'BF' | 'BG' | 'BH' | 'BI' | 'BJ' | 'BL' | 'BM' | 'BN' | 'BO' | 'BQ' | 'BR' | 'BS' | 'BT' | 'BV' | 'BW' | 'BY' | 'BZ' | 'CA' | 'CC' | 'CD' | 'CF' | 'CG' | 'CH' | 'CI' | 'CK' | 'CL' | 'CM' | 'CN' | 'CO' | 'CR' | 'CU' | 'CV' | 'CW' | 'CX' | 'CY' | 'CZ' | 'DE' | 'DJ' | 'DK' | 'DM' | 'DO' | 'DZ' | 'EC' | 'EE' | 'EG' | 'EH' | 'ER' | 'ES' | 'ET' | 'FI' | 'FJ' | 'FK' | 'FM' | 'FO' | 'FR' | 'GA' | 'GB' | 'GD' | 'GE' | 'GF' | 'GG' | 'GH' | 'GI' | 'GL' | 'GM' | 'GN' | 'GP' | 'GQ' | 'GR' | 'GS' | 'GT' | 'GU' | 'GW' | 'GY' | 'HK' | 'HM' | 'HN' | 'HR' | 'HT' | 'HU' | 'ID' | 'IE' | 'IL' | 'IM' | 'IN' | 'IO' | 'IQ' | 'IR' | 'IS' | 'IT' | 'JE' | 'JM' | 'JO' | 'JP' | 'KE' | 'KG' | 'KH' | 'KI' | 'KM' | 'KN' | 'KP' | 'KR' | 'KW' | 'KY' | 'KZ' | 'LA' | 'LB' | 'LC' | 'LI' | 'LK' | 'LR' | 'LS' | 'LT' | 'LU' | 'LV' | 'LY' | 'MA' | 'MC' | 'MD' | 'ME' | 'MF' | 'MG' | 'MH' | 'MK' | 'ML' | 'MM' | 'MN' | 'MO' | 'MP' | 'MQ' | 'MR' | 'MS' | 'MT' | 'MU' | 'MV' | 'MW' | 'MX' | 'MY' | 'MZ' | 'NA' | 'NC' | 'NE' | 'NF' | 'NG' | 'NI' | 'NL' | 'NO' | 'NP' | 'NR' | 'NU' | 'NZ' | 'OM' | 'PA' | 'PE' | 'PF' | 'PG' | 'PH' | 'PK' | 'PL' | 'PM' | 'PN' | 'PR' | 'PS' | 'PT' | 'PW' | 'PY' | 'QA' | 'RE' | 'RO' | 'RS' | 'RU' | 'RW' | 'SA' | 'SB' | 'SC' | 'SD' | 'SE' | 'SG' | 'SH' | 'SI' | 'SJ' | 'SK' | 'SL' | 'SM' | 'SN' | 'SO' | 'SR' | 'SS' | 'ST' | 'SV' | 'SX' | 'SY' | 'SZ' | 'TC' | 'TD' | 'TF' | 'TG' | 'TH' | 'TJ' | 'TK' | 'TL' | 'TM' | 'TN' | 'TO' | 'TR' | 'TT' | 'TV' | 'TW' | 'TZ' | 'UA' | 'UG' | 'UM' | 'US' | 'UY' | 'UZ' | 'VA' | 'VC' | 'VE' | 'VG' | 'VI' | 'VN' | 'VU' | 'WF' | 'WS' | 'YE' | 'YT' | 'ZA' | 'ZM' | 'ZW' | 'XK';
     };
     query?: never;
-    url: "/link_region/list/{country}";
+    url: '/link_region/list/{country}';
 };
 
 export type GetLinkRegionListByCountryResponses = {
@@ -1517,257 +198,7 @@ export type PostLinkRegionBulkByLinkIdData = {
         /**
          * Country code
          */
-        country:
-            | "AD"
-            | "AE"
-            | "AF"
-            | "AG"
-            | "AI"
-            | "AL"
-            | "AM"
-            | "AO"
-            | "AQ"
-            | "AR"
-            | "AS"
-            | "AT"
-            | "AU"
-            | "AW"
-            | "AX"
-            | "AZ"
-            | "BA"
-            | "BB"
-            | "BD"
-            | "BE"
-            | "BF"
-            | "BG"
-            | "BH"
-            | "BI"
-            | "BJ"
-            | "BL"
-            | "BM"
-            | "BN"
-            | "BO"
-            | "BQ"
-            | "BR"
-            | "BS"
-            | "BT"
-            | "BV"
-            | "BW"
-            | "BY"
-            | "BZ"
-            | "CA"
-            | "CC"
-            | "CD"
-            | "CF"
-            | "CG"
-            | "CH"
-            | "CI"
-            | "CK"
-            | "CL"
-            | "CM"
-            | "CN"
-            | "CO"
-            | "CR"
-            | "CU"
-            | "CV"
-            | "CW"
-            | "CX"
-            | "CY"
-            | "CZ"
-            | "DE"
-            | "DJ"
-            | "DK"
-            | "DM"
-            | "DO"
-            | "DZ"
-            | "EC"
-            | "EE"
-            | "EG"
-            | "EH"
-            | "ER"
-            | "ES"
-            | "ET"
-            | "FI"
-            | "FJ"
-            | "FK"
-            | "FM"
-            | "FO"
-            | "FR"
-            | "GA"
-            | "GB"
-            | "GD"
-            | "GE"
-            | "GF"
-            | "GG"
-            | "GH"
-            | "GI"
-            | "GL"
-            | "GM"
-            | "GN"
-            | "GP"
-            | "GQ"
-            | "GR"
-            | "GS"
-            | "GT"
-            | "GU"
-            | "GW"
-            | "GY"
-            | "HK"
-            | "HM"
-            | "HN"
-            | "HR"
-            | "HT"
-            | "HU"
-            | "ID"
-            | "IE"
-            | "IL"
-            | "IM"
-            | "IN"
-            | "IO"
-            | "IQ"
-            | "IR"
-            | "IS"
-            | "IT"
-            | "JE"
-            | "JM"
-            | "JO"
-            | "JP"
-            | "KE"
-            | "KG"
-            | "KH"
-            | "KI"
-            | "KM"
-            | "KN"
-            | "KP"
-            | "KR"
-            | "KW"
-            | "KY"
-            | "KZ"
-            | "LA"
-            | "LB"
-            | "LC"
-            | "LI"
-            | "LK"
-            | "LR"
-            | "LS"
-            | "LT"
-            | "LU"
-            | "LV"
-            | "LY"
-            | "MA"
-            | "MC"
-            | "MD"
-            | "ME"
-            | "MF"
-            | "MG"
-            | "MH"
-            | "MK"
-            | "ML"
-            | "MM"
-            | "MN"
-            | "MO"
-            | "MP"
-            | "MQ"
-            | "MR"
-            | "MS"
-            | "MT"
-            | "MU"
-            | "MV"
-            | "MW"
-            | "MX"
-            | "MY"
-            | "MZ"
-            | "NA"
-            | "NC"
-            | "NE"
-            | "NF"
-            | "NG"
-            | "NI"
-            | "NL"
-            | "NO"
-            | "NP"
-            | "NR"
-            | "NU"
-            | "NZ"
-            | "OM"
-            | "PA"
-            | "PE"
-            | "PF"
-            | "PG"
-            | "PH"
-            | "PK"
-            | "PL"
-            | "PM"
-            | "PN"
-            | "PR"
-            | "PS"
-            | "PT"
-            | "PW"
-            | "PY"
-            | "QA"
-            | "RE"
-            | "RO"
-            | "RS"
-            | "RU"
-            | "RW"
-            | "SA"
-            | "SB"
-            | "SC"
-            | "SD"
-            | "SE"
-            | "SG"
-            | "SH"
-            | "SI"
-            | "SJ"
-            | "SK"
-            | "SL"
-            | "SM"
-            | "SN"
-            | "SO"
-            | "SR"
-            | "SS"
-            | "ST"
-            | "SV"
-            | "SX"
-            | "SY"
-            | "SZ"
-            | "TC"
-            | "TD"
-            | "TF"
-            | "TG"
-            | "TH"
-            | "TJ"
-            | "TK"
-            | "TL"
-            | "TM"
-            | "TN"
-            | "TO"
-            | "TR"
-            | "TT"
-            | "TV"
-            | "TW"
-            | "TZ"
-            | "UA"
-            | "UG"
-            | "UM"
-            | "US"
-            | "UY"
-            | "UZ"
-            | "VA"
-            | "VC"
-            | "VE"
-            | "VG"
-            | "VI"
-            | "VN"
-            | "VU"
-            | "WF"
-            | "WS"
-            | "YE"
-            | "YT"
-            | "ZA"
-            | "ZM"
-            | "ZW"
-            | "XK";
+        country: 'AD' | 'AE' | 'AF' | 'AG' | 'AI' | 'AL' | 'AM' | 'AO' | 'AQ' | 'AR' | 'AS' | 'AT' | 'AU' | 'AW' | 'AX' | 'AZ' | 'BA' | 'BB' | 'BD' | 'BE' | 'BF' | 'BG' | 'BH' | 'BI' | 'BJ' | 'BL' | 'BM' | 'BN' | 'BO' | 'BQ' | 'BR' | 'BS' | 'BT' | 'BV' | 'BW' | 'BY' | 'BZ' | 'CA' | 'CC' | 'CD' | 'CF' | 'CG' | 'CH' | 'CI' | 'CK' | 'CL' | 'CM' | 'CN' | 'CO' | 'CR' | 'CU' | 'CV' | 'CW' | 'CX' | 'CY' | 'CZ' | 'DE' | 'DJ' | 'DK' | 'DM' | 'DO' | 'DZ' | 'EC' | 'EE' | 'EG' | 'EH' | 'ER' | 'ES' | 'ET' | 'FI' | 'FJ' | 'FK' | 'FM' | 'FO' | 'FR' | 'GA' | 'GB' | 'GD' | 'GE' | 'GF' | 'GG' | 'GH' | 'GI' | 'GL' | 'GM' | 'GN' | 'GP' | 'GQ' | 'GR' | 'GS' | 'GT' | 'GU' | 'GW' | 'GY' | 'HK' | 'HM' | 'HN' | 'HR' | 'HT' | 'HU' | 'ID' | 'IE' | 'IL' | 'IM' | 'IN' | 'IO' | 'IQ' | 'IR' | 'IS' | 'IT' | 'JE' | 'JM' | 'JO' | 'JP' | 'KE' | 'KG' | 'KH' | 'KI' | 'KM' | 'KN' | 'KP' | 'KR' | 'KW' | 'KY' | 'KZ' | 'LA' | 'LB' | 'LC' | 'LI' | 'LK' | 'LR' | 'LS' | 'LT' | 'LU' | 'LV' | 'LY' | 'MA' | 'MC' | 'MD' | 'ME' | 'MF' | 'MG' | 'MH' | 'MK' | 'ML' | 'MM' | 'MN' | 'MO' | 'MP' | 'MQ' | 'MR' | 'MS' | 'MT' | 'MU' | 'MV' | 'MW' | 'MX' | 'MY' | 'MZ' | 'NA' | 'NC' | 'NE' | 'NF' | 'NG' | 'NI' | 'NL' | 'NO' | 'NP' | 'NR' | 'NU' | 'NZ' | 'OM' | 'PA' | 'PE' | 'PF' | 'PG' | 'PH' | 'PK' | 'PL' | 'PM' | 'PN' | 'PR' | 'PS' | 'PT' | 'PW' | 'PY' | 'QA' | 'RE' | 'RO' | 'RS' | 'RU' | 'RW' | 'SA' | 'SB' | 'SC' | 'SD' | 'SE' | 'SG' | 'SH' | 'SI' | 'SJ' | 'SK' | 'SL' | 'SM' | 'SN' | 'SO' | 'SR' | 'SS' | 'ST' | 'SV' | 'SX' | 'SY' | 'SZ' | 'TC' | 'TD' | 'TF' | 'TG' | 'TH' | 'TJ' | 'TK' | 'TL' | 'TM' | 'TN' | 'TO' | 'TR' | 'TT' | 'TV' | 'TW' | 'TZ' | 'UA' | 'UG' | 'UM' | 'US' | 'UY' | 'UZ' | 'VA' | 'VC' | 'VE' | 'VG' | 'VI' | 'VN' | 'VU' | 'WF' | 'WS' | 'YE' | 'YT' | 'ZA' | 'ZM' | 'ZW' | 'XK';
         /**
          * ISO 3166-2 region code
          */
@@ -1780,7 +211,7 @@ export type PostLinkRegionBulkByLinkIdData = {
     query?: {
         domainId?: number;
     };
-    url: "/link_region/bulk/{linkId}";
+    url: '/link_region/bulk/{linkId}';
 };
 
 export type PostLinkRegionBulkByLinkIdResponses = {
@@ -1797,263 +228,13 @@ export type DeleteLinkRegionByLinkIdByCountryByRegionData = {
         /**
          * Country code
          */
-        country:
-            | "AD"
-            | "AE"
-            | "AF"
-            | "AG"
-            | "AI"
-            | "AL"
-            | "AM"
-            | "AO"
-            | "AQ"
-            | "AR"
-            | "AS"
-            | "AT"
-            | "AU"
-            | "AW"
-            | "AX"
-            | "AZ"
-            | "BA"
-            | "BB"
-            | "BD"
-            | "BE"
-            | "BF"
-            | "BG"
-            | "BH"
-            | "BI"
-            | "BJ"
-            | "BL"
-            | "BM"
-            | "BN"
-            | "BO"
-            | "BQ"
-            | "BR"
-            | "BS"
-            | "BT"
-            | "BV"
-            | "BW"
-            | "BY"
-            | "BZ"
-            | "CA"
-            | "CC"
-            | "CD"
-            | "CF"
-            | "CG"
-            | "CH"
-            | "CI"
-            | "CK"
-            | "CL"
-            | "CM"
-            | "CN"
-            | "CO"
-            | "CR"
-            | "CU"
-            | "CV"
-            | "CW"
-            | "CX"
-            | "CY"
-            | "CZ"
-            | "DE"
-            | "DJ"
-            | "DK"
-            | "DM"
-            | "DO"
-            | "DZ"
-            | "EC"
-            | "EE"
-            | "EG"
-            | "EH"
-            | "ER"
-            | "ES"
-            | "ET"
-            | "FI"
-            | "FJ"
-            | "FK"
-            | "FM"
-            | "FO"
-            | "FR"
-            | "GA"
-            | "GB"
-            | "GD"
-            | "GE"
-            | "GF"
-            | "GG"
-            | "GH"
-            | "GI"
-            | "GL"
-            | "GM"
-            | "GN"
-            | "GP"
-            | "GQ"
-            | "GR"
-            | "GS"
-            | "GT"
-            | "GU"
-            | "GW"
-            | "GY"
-            | "HK"
-            | "HM"
-            | "HN"
-            | "HR"
-            | "HT"
-            | "HU"
-            | "ID"
-            | "IE"
-            | "IL"
-            | "IM"
-            | "IN"
-            | "IO"
-            | "IQ"
-            | "IR"
-            | "IS"
-            | "IT"
-            | "JE"
-            | "JM"
-            | "JO"
-            | "JP"
-            | "KE"
-            | "KG"
-            | "KH"
-            | "KI"
-            | "KM"
-            | "KN"
-            | "KP"
-            | "KR"
-            | "KW"
-            | "KY"
-            | "KZ"
-            | "LA"
-            | "LB"
-            | "LC"
-            | "LI"
-            | "LK"
-            | "LR"
-            | "LS"
-            | "LT"
-            | "LU"
-            | "LV"
-            | "LY"
-            | "MA"
-            | "MC"
-            | "MD"
-            | "ME"
-            | "MF"
-            | "MG"
-            | "MH"
-            | "MK"
-            | "ML"
-            | "MM"
-            | "MN"
-            | "MO"
-            | "MP"
-            | "MQ"
-            | "MR"
-            | "MS"
-            | "MT"
-            | "MU"
-            | "MV"
-            | "MW"
-            | "MX"
-            | "MY"
-            | "MZ"
-            | "NA"
-            | "NC"
-            | "NE"
-            | "NF"
-            | "NG"
-            | "NI"
-            | "NL"
-            | "NO"
-            | "NP"
-            | "NR"
-            | "NU"
-            | "NZ"
-            | "OM"
-            | "PA"
-            | "PE"
-            | "PF"
-            | "PG"
-            | "PH"
-            | "PK"
-            | "PL"
-            | "PM"
-            | "PN"
-            | "PR"
-            | "PS"
-            | "PT"
-            | "PW"
-            | "PY"
-            | "QA"
-            | "RE"
-            | "RO"
-            | "RS"
-            | "RU"
-            | "RW"
-            | "SA"
-            | "SB"
-            | "SC"
-            | "SD"
-            | "SE"
-            | "SG"
-            | "SH"
-            | "SI"
-            | "SJ"
-            | "SK"
-            | "SL"
-            | "SM"
-            | "SN"
-            | "SO"
-            | "SR"
-            | "SS"
-            | "ST"
-            | "SV"
-            | "SX"
-            | "SY"
-            | "SZ"
-            | "TC"
-            | "TD"
-            | "TF"
-            | "TG"
-            | "TH"
-            | "TJ"
-            | "TK"
-            | "TL"
-            | "TM"
-            | "TN"
-            | "TO"
-            | "TR"
-            | "TT"
-            | "TV"
-            | "TW"
-            | "TZ"
-            | "UA"
-            | "UG"
-            | "UM"
-            | "US"
-            | "UY"
-            | "UZ"
-            | "VA"
-            | "VC"
-            | "VE"
-            | "VG"
-            | "VI"
-            | "VN"
-            | "VU"
-            | "WF"
-            | "WS"
-            | "YE"
-            | "YT"
-            | "ZA"
-            | "ZM"
-            | "ZW"
-            | "XK";
+        country: 'AD' | 'AE' | 'AF' | 'AG' | 'AI' | 'AL' | 'AM' | 'AO' | 'AQ' | 'AR' | 'AS' | 'AT' | 'AU' | 'AW' | 'AX' | 'AZ' | 'BA' | 'BB' | 'BD' | 'BE' | 'BF' | 'BG' | 'BH' | 'BI' | 'BJ' | 'BL' | 'BM' | 'BN' | 'BO' | 'BQ' | 'BR' | 'BS' | 'BT' | 'BV' | 'BW' | 'BY' | 'BZ' | 'CA' | 'CC' | 'CD' | 'CF' | 'CG' | 'CH' | 'CI' | 'CK' | 'CL' | 'CM' | 'CN' | 'CO' | 'CR' | 'CU' | 'CV' | 'CW' | 'CX' | 'CY' | 'CZ' | 'DE' | 'DJ' | 'DK' | 'DM' | 'DO' | 'DZ' | 'EC' | 'EE' | 'EG' | 'EH' | 'ER' | 'ES' | 'ET' | 'FI' | 'FJ' | 'FK' | 'FM' | 'FO' | 'FR' | 'GA' | 'GB' | 'GD' | 'GE' | 'GF' | 'GG' | 'GH' | 'GI' | 'GL' | 'GM' | 'GN' | 'GP' | 'GQ' | 'GR' | 'GS' | 'GT' | 'GU' | 'GW' | 'GY' | 'HK' | 'HM' | 'HN' | 'HR' | 'HT' | 'HU' | 'ID' | 'IE' | 'IL' | 'IM' | 'IN' | 'IO' | 'IQ' | 'IR' | 'IS' | 'IT' | 'JE' | 'JM' | 'JO' | 'JP' | 'KE' | 'KG' | 'KH' | 'KI' | 'KM' | 'KN' | 'KP' | 'KR' | 'KW' | 'KY' | 'KZ' | 'LA' | 'LB' | 'LC' | 'LI' | 'LK' | 'LR' | 'LS' | 'LT' | 'LU' | 'LV' | 'LY' | 'MA' | 'MC' | 'MD' | 'ME' | 'MF' | 'MG' | 'MH' | 'MK' | 'ML' | 'MM' | 'MN' | 'MO' | 'MP' | 'MQ' | 'MR' | 'MS' | 'MT' | 'MU' | 'MV' | 'MW' | 'MX' | 'MY' | 'MZ' | 'NA' | 'NC' | 'NE' | 'NF' | 'NG' | 'NI' | 'NL' | 'NO' | 'NP' | 'NR' | 'NU' | 'NZ' | 'OM' | 'PA' | 'PE' | 'PF' | 'PG' | 'PH' | 'PK' | 'PL' | 'PM' | 'PN' | 'PR' | 'PS' | 'PT' | 'PW' | 'PY' | 'QA' | 'RE' | 'RO' | 'RS' | 'RU' | 'RW' | 'SA' | 'SB' | 'SC' | 'SD' | 'SE' | 'SG' | 'SH' | 'SI' | 'SJ' | 'SK' | 'SL' | 'SM' | 'SN' | 'SO' | 'SR' | 'SS' | 'ST' | 'SV' | 'SX' | 'SY' | 'SZ' | 'TC' | 'TD' | 'TF' | 'TG' | 'TH' | 'TJ' | 'TK' | 'TL' | 'TM' | 'TN' | 'TO' | 'TR' | 'TT' | 'TV' | 'TW' | 'TZ' | 'UA' | 'UG' | 'UM' | 'US' | 'UY' | 'UZ' | 'VA' | 'VC' | 'VE' | 'VG' | 'VI' | 'VN' | 'VU' | 'WF' | 'WS' | 'YE' | 'YT' | 'ZA' | 'ZM' | 'ZW' | 'XK';
         region: string;
     };
     query?: {
         domainId?: string;
     };
-    url: "/link_region/{linkId}/{country}/{region}";
+    url: '/link_region/{linkId}/{country}/{region}';
 };
 
 export type DeleteLinkRegionByLinkIdByCountryByRegionResponses = {
@@ -2070,7 +251,7 @@ export type GetLinksPermissionsByDomainIdByLinkIdData = {
         linkId: string;
     };
     query?: never;
-    url: "/links/permissions/{domainId}/{linkId}";
+    url: '/links/permissions/{domainId}/{linkId}';
 };
 
 export type GetLinksPermissionsByDomainIdByLinkIdErrors = {
@@ -2082,8 +263,7 @@ export type GetLinksPermissionsByDomainIdByLinkIdErrors = {
     };
 };
 
-export type GetLinksPermissionsByDomainIdByLinkIdError =
-    GetLinksPermissionsByDomainIdByLinkIdErrors[keyof GetLinksPermissionsByDomainIdByLinkIdErrors];
+export type GetLinksPermissionsByDomainIdByLinkIdError = GetLinksPermissionsByDomainIdByLinkIdErrors[keyof GetLinksPermissionsByDomainIdByLinkIdErrors];
 
 export type GetLinksPermissionsByDomainIdByLinkIdResponses = {
     /**
@@ -2097,8 +277,7 @@ export type GetLinksPermissionsByDomainIdByLinkIdResponses = {
     }>;
 };
 
-export type GetLinksPermissionsByDomainIdByLinkIdResponse =
-    GetLinksPermissionsByDomainIdByLinkIdResponses[keyof GetLinksPermissionsByDomainIdByLinkIdResponses];
+export type GetLinksPermissionsByDomainIdByLinkIdResponse = GetLinksPermissionsByDomainIdByLinkIdResponses[keyof GetLinksPermissionsByDomainIdByLinkIdResponses];
 
 export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdData = {
     body?: never;
@@ -2108,7 +287,7 @@ export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdData = {
         userId: string;
     };
     query?: never;
-    url: "/links/permissions/{domainId}/{linkId}/{userId}";
+    url: '/links/permissions/{domainId}/{linkId}/{userId}';
 };
 
 export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdErrors = {
@@ -2126,8 +305,7 @@ export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdErrors = {
     };
 };
 
-export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdError =
-    DeleteLinksPermissionsByDomainIdByLinkIdByUserIdErrors[keyof DeleteLinksPermissionsByDomainIdByLinkIdByUserIdErrors];
+export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdError = DeleteLinksPermissionsByDomainIdByLinkIdByUserIdErrors[keyof DeleteLinksPermissionsByDomainIdByLinkIdByUserIdErrors];
 
 export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponses = {
     /**
@@ -2138,8 +316,7 @@ export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponses = {
     };
 };
 
-export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponse =
-    DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponses[keyof DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponses];
+export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponse = DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponses[keyof DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponses];
 
 export type PostLinksPermissionsByDomainIdByLinkIdByUserIdData = {
     body?: never;
@@ -2152,7 +329,7 @@ export type PostLinksPermissionsByDomainIdByLinkIdByUserIdData = {
         userId: string;
     };
     query?: never;
-    url: "/links/permissions/{domainId}/{linkId}/{userId}";
+    url: '/links/permissions/{domainId}/{linkId}/{userId}';
 };
 
 export type PostLinksPermissionsByDomainIdByLinkIdByUserIdErrors = {
@@ -2176,8 +353,7 @@ export type PostLinksPermissionsByDomainIdByLinkIdByUserIdErrors = {
     };
 };
 
-export type PostLinksPermissionsByDomainIdByLinkIdByUserIdError =
-    PostLinksPermissionsByDomainIdByLinkIdByUserIdErrors[keyof PostLinksPermissionsByDomainIdByLinkIdByUserIdErrors];
+export type PostLinksPermissionsByDomainIdByLinkIdByUserIdError = PostLinksPermissionsByDomainIdByLinkIdByUserIdErrors[keyof PostLinksPermissionsByDomainIdByLinkIdByUserIdErrors];
 
 export type PostLinksPermissionsByDomainIdByLinkIdByUserIdResponses = {
     /**
@@ -2194,8 +370,7 @@ export type PostLinksPermissionsByDomainIdByLinkIdByUserIdResponses = {
     };
 };
 
-export type PostLinksPermissionsByDomainIdByLinkIdByUserIdResponse =
-    PostLinksPermissionsByDomainIdByLinkIdByUserIdResponses[keyof PostLinksPermissionsByDomainIdByLinkIdByUserIdResponses];
+export type PostLinksPermissionsByDomainIdByLinkIdByUserIdResponse = PostLinksPermissionsByDomainIdByLinkIdByUserIdResponses[keyof PostLinksPermissionsByDomainIdByLinkIdByUserIdResponses];
 
 export type GetApiLinksData = {
     body?: never;
@@ -2210,11 +385,11 @@ export type GetApiLinksData = {
         createdAt?: string;
         beforeDate?: string;
         afterDate?: string;
-        dateSortOrder?: "asc" | "desc";
+        dateSortOrder?: 'asc' | 'desc';
         pageToken?: string;
         folderId?: string;
     };
-    url: "/api/links";
+    url: '/api/links';
 };
 
 export type GetApiLinksErrors = {
@@ -2359,7 +534,7 @@ export type GetApiLinksResponses = {
             /**
              * HTTP code for redirect
              */
-            redirectType?: "301" | "302" | "307" | "308";
+            redirectType?: '301' | '302' | '307' | '308';
             /**
              * Folder ID
              */
@@ -2379,7 +554,7 @@ export type GetApiLinksResponses = {
             /**
              * Link source
              */
-            source?: "website" | "api" | "public" | "spreadsheets" | "slack" | "telegram";
+            source?: 'website' | 'api' | 'public' | 'spreadsheets' | 'slack' | 'telegram';
             User?: {
                 /**
                  * Creator user ID
@@ -2410,7 +585,7 @@ export type PostLinksQrByLinkIdStringData = {
         color?: string;
         backgroundColor?: string;
         size?: number;
-        type?: "png" | "svg";
+        type?: 'png' | 'svg';
         useDomainSettings: boolean;
     };
     path: {
@@ -2420,7 +595,7 @@ export type PostLinksQrByLinkIdStringData = {
         linkIdString: string;
     };
     query?: never;
-    url: "/links/qr/{linkIdString}";
+    url: '/links/qr/{linkIdString}';
 };
 
 export type PostLinksQrByLinkIdStringResponses = {
@@ -2435,13 +610,13 @@ export type PostLinksQrBulkData = {
         color?: string;
         backgroundColor?: string;
         size?: number;
-        type: "png" | "svg";
+        type: 'png' | 'svg';
         useDomainSettings: boolean;
         noExcavate?: boolean;
         linkIds: Array<string>;
         domainId?: string;
     };
-    url: "/links/qr/bulk";
+    url: '/links/qr/bulk';
 };
 
 export type PostLinksQrBulkResponses = {
@@ -2462,7 +637,7 @@ export type DeleteLinksByLinkIdData = {
         link_id: string;
     };
     query?: never;
-    url: "/links/{link_id}";
+    url: '/links/{link_id}';
 };
 
 export type DeleteLinksByLinkIdResponses = {
@@ -2485,7 +660,7 @@ export type DeleteLinksDeleteBulkData = {
     body: {
         link_ids: Array<string>;
     };
-    url: "/links/delete_bulk";
+    url: '/links/delete_bulk';
 };
 
 export type DeleteLinksDeleteBulkResponses = {
@@ -2505,7 +680,7 @@ export type PostLinksArchiveData = {
         link_id: string;
         domain_id?: string;
     };
-    url: "/links/archive";
+    url: '/links/archive';
 };
 
 export type PostLinksArchiveErrors = {
@@ -2537,7 +712,7 @@ export type PostLinksArchiveBulkData = {
         link_ids: Array<string>;
         domain_id?: string;
     };
-    url: "/links/archive_bulk";
+    url: '/links/archive_bulk';
 };
 
 export type PostLinksArchiveBulkErrors = {
@@ -2569,7 +744,7 @@ export type PostLinksUnarchiveData = {
         link_id: string;
         domain_id?: string;
     };
-    url: "/links/unarchive";
+    url: '/links/unarchive';
 };
 
 export type PostLinksUnarchiveErrors = {
@@ -2601,7 +776,7 @@ export type PostLinksUnarchiveBulkData = {
         link_ids: Array<string>;
         domain_id?: string;
     };
-    url: "/links/unarchive_bulk";
+    url: '/links/unarchive_bulk';
 };
 
 export type PostLinksUnarchiveBulkErrors = {
@@ -2639,7 +814,7 @@ export type GetLinksByLinkIdData = {
          */
         domainId?: string;
     };
-    url: "/links/{linkId}";
+    url: '/links/{linkId}';
 };
 
 export type GetLinksByLinkIdErrors = {
@@ -2782,7 +957,7 @@ export type GetLinksByLinkIdResponses = {
         /**
          * HTTP code for redirect
          */
-        redirectType?: "301" | "302" | "307" | "308";
+        redirectType?: '301' | '302' | '307' | '308';
         /**
          * Folder ID
          */
@@ -2802,7 +977,7 @@ export type GetLinksByLinkIdResponses = {
         /**
          * Link source
          */
-        source?: "website" | "api" | "public" | "spreadsheets" | "slack" | "telegram";
+        source?: 'website' | 'api' | 'public' | 'spreadsheets' | 'slack' | 'telegram';
         User?: {
             /**
              * Creator user ID
@@ -2944,7 +1119,7 @@ export type PostLinksByLinkIdData = {
     query?: {
         domain_id?: string;
     };
-    url: "/links/{linkId}";
+    url: '/links/{linkId}';
 };
 
 export type PostLinksByLinkIdErrors = {
@@ -3094,7 +1269,7 @@ export type PostLinksByLinkIdResponses = {
         /**
          * HTTP code for redirect
          */
-        redirectType?: "301" | "302" | "307" | "308";
+        redirectType?: '301' | '302' | '307' | '308';
         /**
          * Folder ID
          */
@@ -3114,7 +1289,7 @@ export type PostLinksByLinkIdResponses = {
         /**
          * Link source
          */
-        source?: "website" | "api" | "public" | "spreadsheets" | "slack" | "telegram";
+        source?: 'website' | 'api' | 'public' | 'spreadsheets' | 'slack' | 'telegram';
         User?: {
             /**
              * Creator user ID
@@ -3151,7 +1326,7 @@ export type GetLinksExpandData = {
          */
         path: string;
     };
-    url: "/links/expand";
+    url: '/links/expand';
 };
 
 export type GetLinksExpandErrors = {
@@ -3294,7 +1469,7 @@ export type GetLinksExpandResponses = {
         /**
          * HTTP code for redirect
          */
-        redirectType?: "301" | "302" | "307" | "308";
+        redirectType?: '301' | '302' | '307' | '308';
         /**
          * Folder ID
          */
@@ -3314,7 +1489,7 @@ export type GetLinksExpandResponses = {
         /**
          * Link source
          */
-        source?: "website" | "api" | "public" | "spreadsheets" | "slack" | "telegram";
+        source?: 'website' | 'api' | 'public' | 'spreadsheets' | 'slack' | 'telegram';
         User?: {
             /**
              * Creator user ID
@@ -3351,7 +1526,7 @@ export type GetLinksByOriginalUrlData = {
          */
         originalURL: string;
     };
-    url: "/links/by-original-url";
+    url: '/links/by-original-url';
 };
 
 export type GetLinksByOriginalUrlResponses = {
@@ -3374,7 +1549,7 @@ export type GetLinksMultipleByUrlData = {
          */
         originalURL: string;
     };
-    url: "/links/multiple-by-url";
+    url: '/links/multiple-by-url';
 };
 
 export type GetLinksMultipleByUrlResponses = {
@@ -3508,7 +1683,7 @@ export type PostLinksData = {
          */
         folderId?: string;
     };
-    url: "/links";
+    url: '/links';
 };
 
 export type PostLinksErrors = {
@@ -3654,7 +1829,7 @@ export type PostLinksResponses = {
         /**
          * HTTP code for redirect
          */
-        redirectType?: "301" | "302" | "307" | "308";
+        redirectType?: '301' | '302' | '307' | '308';
         /**
          * Folder ID
          */
@@ -3674,7 +1849,7 @@ export type PostLinksResponses = {
         /**
          * Link source
          */
-        source?: "website" | "api" | "public" | "spreadsheets" | "slack" | "telegram";
+        source?: 'website' | 'api' | 'public' | 'spreadsheets' | 'slack' | 'telegram';
         User?: {
             /**
              * Creator user ID
@@ -3729,7 +1904,7 @@ export type GetLinksTweetbotData = {
          */
         apiKey: string;
     };
-    url: "/links/tweetbot";
+    url: '/links/tweetbot';
 };
 
 export type GetLinksTweetbotResponses = {
@@ -3856,7 +2031,7 @@ export type PostLinksPublicData = {
         domain: string;
         folderId?: string;
     };
-    url: "/links/public";
+    url: '/links/public';
 };
 
 export type PostLinksPublicErrors = {
@@ -4002,7 +2177,7 @@ export type PostLinksPublicResponses = {
         /**
          * HTTP code for redirect
          */
-        redirectType?: "301" | "302" | "307" | "308";
+        redirectType?: '301' | '302' | '307' | '308';
         /**
          * Folder ID
          */
@@ -4022,7 +2197,7 @@ export type PostLinksPublicResponses = {
         /**
          * Link source
          */
-        source?: "website" | "api" | "public" | "spreadsheets" | "slack" | "telegram";
+        source?: 'website' | 'api' | 'public' | 'spreadsheets' | 'slack' | 'telegram';
         User?: {
             /**
              * Creator user ID
@@ -4172,7 +2347,7 @@ export type PostLinksBulkData = {
          */
         folderId?: string;
     };
-    url: "/links/bulk";
+    url: '/links/bulk';
 };
 
 export type PostLinksBulkResponses = {
@@ -4192,7 +2367,7 @@ export type GetApiDomainsData = {
         pattern?: string;
         teamId?: number;
     };
-    url: "/api/domains";
+    url: '/api/domains';
 };
 
 export type GetApiDomainsResponses = {
@@ -4206,20 +2381,14 @@ export type GetApiDomainsResponses = {
         id: number;
         hostname: string;
         unicodeHostname: string;
-        state:
-            | "extra_records"
-            | "not_registered"
-            | "configured"
-            | "not_configured"
-            | "registration_pending"
-            | "not_verified";
+        state: 'extra_records' | 'not_registered' | 'configured' | 'not_configured' | 'registration_pending' | 'not_verified';
         createdAt: string;
         updatedAt: string;
         TeamId?: number;
         hasFavicon: boolean;
         segmentKey?: string;
         hideReferer: boolean;
-        linkType: "increment" | "random" | "secure" | "four-char" | "eight-char" | "ten-char";
+        linkType: 'increment' | 'random' | 'secure' | 'four-char' | 'eight-char' | 'ten-char';
         /**
          * Enable cloaking for all links on the domain
          */
@@ -4232,7 +2401,7 @@ export type GetApiDomainsResponses = {
          * Enable AI for all links on the domain
          */
         enableAI: boolean;
-        httpsLevel: "none" | "redirect" | "hsts";
+        httpsLevel: 'none' | 'redirect' | 'hsts';
         httpsLinks: boolean;
         webhookURL?: string;
         integrationGA?: string;
@@ -4242,7 +2411,7 @@ export type GetApiDomainsResponses = {
         clientStorage: {};
         caseSensitive: boolean;
         incrementCounter: string;
-        robots: "allow" | "disallow" | "noindex";
+        robots: 'allow' | 'disallow' | 'noindex';
         sslCertExpirationDate?: string;
         sslCertInstalledSuccess?: boolean;
         domainRegistrationId?: number;
@@ -4260,7 +2429,7 @@ export type GetDomainsByDomainIdData = {
         domainId: number;
     };
     query?: never;
-    url: "/domains/{domainId}";
+    url: '/domains/{domainId}';
 };
 
 export type GetDomainsByDomainIdErrors = {
@@ -4285,20 +2454,14 @@ export type GetDomainsByDomainIdResponses = {
         id: number;
         hostname: string;
         unicodeHostname: string;
-        state:
-            | "extra_records"
-            | "not_registered"
-            | "configured"
-            | "not_configured"
-            | "registration_pending"
-            | "not_verified";
+        state: 'extra_records' | 'not_registered' | 'configured' | 'not_configured' | 'registration_pending' | 'not_verified';
         createdAt: string;
         updatedAt: string;
         TeamId?: number;
         hasFavicon: boolean;
         segmentKey?: string;
         hideReferer: boolean;
-        linkType: "increment" | "random" | "secure" | "four-char" | "eight-char" | "ten-char";
+        linkType: 'increment' | 'random' | 'secure' | 'four-char' | 'eight-char' | 'ten-char';
         /**
          * Enable cloaking for all links on the domain
          */
@@ -4311,7 +2474,7 @@ export type GetDomainsByDomainIdResponses = {
          * Enable AI for all links on the domain
          */
         enableAI: boolean;
-        httpsLevel: "none" | "redirect" | "hsts";
+        httpsLevel: 'none' | 'redirect' | 'hsts';
         httpsLinks: boolean;
         webhookURL?: string;
         integrationGA?: string;
@@ -4321,14 +2484,14 @@ export type GetDomainsByDomainIdResponses = {
         clientStorage: {};
         caseSensitive: boolean;
         incrementCounter: string;
-        robots: "allow" | "disallow" | "noindex";
+        robots: 'allow' | 'disallow' | 'noindex';
         sslCertExpirationDate?: string;
         sslCertInstalledSuccess?: boolean;
         domainRegistrationId?: number;
         UserId?: number;
         exportEnabled: boolean;
         ipExclusions: Array<string>;
-        userPlan: "tiny" | "hobby" | "small" | "standard" | "large";
+        userPlan: 'tiny' | 'hobby' | 'small' | 'standard' | 'large';
     };
 };
 
@@ -4341,9 +2504,9 @@ export type PostDomainsData = {
          */
         hostname: string;
         hideReferer?: boolean;
-        linkType?: "increment" | "random" | "secure" | "four-char" | "eight-char" | "ten-char";
+        linkType?: 'increment' | 'random' | 'secure' | 'four-char' | 'eight-char' | 'ten-char';
     };
-    url: "/domains";
+    url: '/domains';
 };
 
 export type PostDomainsErrors = {
@@ -4380,20 +2543,14 @@ export type PostDomainsResponses = {
         id: number;
         hostname: string;
         unicodeHostname: string;
-        state:
-            | "extra_records"
-            | "not_registered"
-            | "configured"
-            | "not_configured"
-            | "registration_pending"
-            | "not_verified";
+        state: 'extra_records' | 'not_registered' | 'configured' | 'not_configured' | 'registration_pending' | 'not_verified';
         createdAt: string;
         updatedAt: string;
         TeamId?: number;
         hasFavicon: boolean;
         segmentKey?: string;
         hideReferer: boolean;
-        linkType: "increment" | "random" | "secure" | "four-char" | "eight-char" | "ten-char";
+        linkType: 'increment' | 'random' | 'secure' | 'four-char' | 'eight-char' | 'ten-char';
         /**
          * Enable cloaking for all links on the domain
          */
@@ -4406,7 +2563,7 @@ export type PostDomainsResponses = {
          * Enable AI for all links on the domain
          */
         enableAI: boolean;
-        httpsLevel: "none" | "redirect" | "hsts";
+        httpsLevel: 'none' | 'redirect' | 'hsts';
         httpsLinks: boolean;
         webhookURL?: string;
         integrationGA?: string;
@@ -4416,7 +2573,7 @@ export type PostDomainsResponses = {
         clientStorage: {};
         caseSensitive: boolean;
         incrementCounter: string;
-        robots: "allow" | "disallow" | "noindex";
+        robots: 'allow' | 'disallow' | 'noindex';
         sslCertExpirationDate?: string;
         sslCertInstalledSuccess?: boolean;
         domainRegistrationId?: number;
@@ -4429,10 +2586,10 @@ export type PostDomainsResponse = PostDomainsResponses[keyof PostDomainsResponse
 
 export type PostDomainsSettingsByDomainIdData = {
     body?: {
-        httpsLevel?: "none" | "redirect" | "hsts";
-        robots?: "allow" | "disallow" | "noindex";
+        httpsLevel?: 'none' | 'redirect' | 'hsts';
+        robots?: 'allow' | 'disallow' | 'noindex';
         segmentKey?: string;
-        linkType?: "increment" | "random" | "secure" | "four-char" | "eight-char" | "ten-char";
+        linkType?: 'increment' | 'random' | 'secure' | 'four-char' | 'eight-char' | 'ten-char';
         /**
          * Enable cloaking for all links on the domain
          */
@@ -4469,7 +2626,7 @@ export type PostDomainsSettingsByDomainIdData = {
         domainId: number;
     };
     query?: never;
-    url: "/domains/settings/{domainId}";
+    url: '/domains/settings/{domainId}';
 };
 
 export type PostDomainsSettingsByDomainIdResponses = {
@@ -4484,7 +2641,7 @@ export type PostTagsBulkData = {
         tag: string;
         link_ids: Array<string>;
     };
-    url: "/tags/bulk";
+    url: '/tags/bulk';
 };
 
 export type PostTagsBulkResponses = {
@@ -4500,7 +2657,7 @@ export type GetLinksFoldersByDomainIdData = {
         domainId: number;
     };
     query?: never;
-    url: "/links/folders/{domainId}";
+    url: '/links/folders/{domainId}';
 };
 
 export type GetLinksFoldersByDomainIdResponses = {
@@ -4517,7 +2674,7 @@ export type GetLinksFoldersByDomainIdByFolderIdData = {
         folderId: string;
     };
     query?: never;
-    url: "/links/folders/{domainId}/{folderId}";
+    url: '/links/folders/{domainId}/{folderId}';
 };
 
 export type GetLinksFoldersByDomainIdByFolderIdResponses = {
@@ -4549,7 +2706,7 @@ export type PostLinksFoldersData = {
         icon?: string;
         prefix?: string;
     };
-    url: "/links/folders";
+    url: '/links/folders';
 };
 
 export type PostLinksFoldersResponses = {
