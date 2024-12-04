@@ -9,9 +9,7 @@
     "scripts": {
         "generate": "node --experimental-strip-types openapi/fetch.ts && openapi-ts -f openapi/config.ts",
         "compile": "tsc && tsc-alias",
-        "format": "eslint --cache --ext .ts . && prettier --write \"src/**/*.ts\"",
-        "prepare": "npm run compile",
-        "prepublishOnly": "npm run format"
+        "prepare": "npm run compile"
     },
     "repository": {
         "type": "git",
@@ -32,14 +30,17 @@
     "homepage": "https://github.com/Short-io/client-node#readme",
     "prettier": "@short.io/eslint-config/prettier",
     "devDependencies": {
+        "@eslint/js": "^9.16.0",
         "@hey-api/openapi-ts": "^0.58.0",
-        "@short.io/eslint-config": "npm:@short.io/style-guide@^1.6.1",
         "@types/node": "^22.10.1",
         "eslint": "^9.16.0",
+        "globals": "^15.13.0",
         "tsc-alias": "^1.8.10",
-        "typescript": "^5.7.2"
+        "typescript": "^5.7.2",
+        "typescript-eslint": "^8.17.0"
     },
     "dependencies": {
         "@hey-api/client-fetch": "^0.5.0"
-    }
+    },
+    "packageManager": "yarn@1.22.22+sha256.c17d3797fb9a9115bf375e31bfd30058cac6bc9c3b8807a3d8cb2094794b51ca"
 }
