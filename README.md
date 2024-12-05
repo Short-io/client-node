@@ -36,12 +36,8 @@ import {
     getLinksExpand,
     // and other needed methods
 } from "@short.io/client-node";
-```
 
-Pass created client to the methods:
-
-```js
-const domainsResp = await getApiDomains({ client });
+const domainsResp = await getApiDomains();
 ```
 
 `domainsResp.data` will contain the list of domains.
