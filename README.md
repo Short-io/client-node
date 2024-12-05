@@ -21,14 +21,9 @@ First you need to get your API key from the Short.io dashboard in the [Integrati
 Then you need to set the configuration for the client:
 
 ```js
-import { client } from "@short.io/client-node";
+import { setApiKey } from "@short.io/client-node";
 
-client.setConfig({
-    baseUrl: "https://api.short.io",
-    headers: {
-        Authorization: "YOUR_API_KEY",
-    },
-});
+setApiKey("YOUR_API_KEY");
 ```
 
 ## Usage
@@ -37,7 +32,6 @@ Import the needed methods from the SDK and use them in your code:
 
 ```js
 import {
-    client,
     getApiDomains,
     getLinksExpand,
     // and other needed methods

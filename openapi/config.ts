@@ -3,15 +3,14 @@ import { defineConfig } from "@hey-api/openapi-ts";
 export default defineConfig({
     client: {
         name: "@hey-api/client-fetch",
-	baseUrl: "https://api.short.io",
-	bundle: true,
+        bundle: true,
     },
     experimentalParser: true,
     input: {
         path: "https://api.short.io/openapi.json"
     },
     output: {
-        path: "src",
+        path: "src/generated",
         format: "prettier",
         lint: "eslint",
     },
