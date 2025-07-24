@@ -1,4 +1,15 @@
-import type { Config } from './types';
+import { getAuthToken } from '../core/auth';
+import type {
+  QuerySerializer,
+  QuerySerializerOptions,
+} from '../core/bodySerializer';
+import { jsonBodySerializer } from '../core/bodySerializer';
+import {
+  serializeArrayParam,
+  serializeObjectParam,
+  serializePrimitiveParam,
+} from '../core/pathSerializer';
+import type { Client, ClientOptions, Config, RequestOptions } from './types';
 
 interface PathSerializer {
   path: Record<string, unknown>;
@@ -10,188 +21,6 @@ const PATH_PARAM_RE = /\{[^{}]+\}/g;
 type ArrayStyle = 'form' | 'spaceDelimited' | 'pipeDelimited';
 type MatrixStyle = 'label' | 'matrix' | 'simple';
 type ArraySeparatorStyle = ArrayStyle | MatrixStyle;
-type ObjectStyle = 'form' | 'deepObject';
-type ObjectSeparatorStyle = ObjectStyle | MatrixStyle;
-
-export type QuerySerializer = (query: Record<string, unknown>) => string;
-
-export type BodySerializer = (body: any) => any;
-
-interface SerializerOptions<T> {
-  /**
-   * @default true
-   */
-  explode: boolean;
-  style: T;
-}
-
-interface SerializeOptions<T>
-  extends SerializePrimitiveOptions,
-    SerializerOptions<T> {}
-interface SerializePrimitiveOptions {
-  allowReserved?: boolean;
-  name: string;
-}
-interface SerializePrimitiveParam extends SerializePrimitiveOptions {
-  value: string;
-}
-
-export interface QuerySerializerOptions {
-  allowReserved?: boolean;
-  array?: SerializerOptions<ArrayStyle>;
-  object?: SerializerOptions<ObjectStyle>;
-}
-
-const serializePrimitiveParam = ({
-  allowReserved,
-  name,
-  value,
-}: SerializePrimitiveParam) => {
-  if (value === undefined || value === null) {
-    return '';
-  }
-
-  if (typeof value === 'object') {
-    throw new Error(
-      'Deeply-nested arrays/objects aren’t supported. Provide your own `querySerializer()` to handle these.',
-    );
-  }
-
-  return `${name}=${allowReserved ? value : encodeURIComponent(value)}`;
-};
-
-const separatorArrayExplode = (style: ArraySeparatorStyle) => {
-  switch (style) {
-    case 'label':
-      return '.';
-    case 'matrix':
-      return ';';
-    case 'simple':
-      return ',';
-    default:
-      return '&';
-  }
-};
-
-const separatorArrayNoExplode = (style: ArraySeparatorStyle) => {
-  switch (style) {
-    case 'form':
-      return ',';
-    case 'pipeDelimited':
-      return '|';
-    case 'spaceDelimited':
-      return '%20';
-    default:
-      return ',';
-  }
-};
-
-const separatorObjectExplode = (style: ObjectSeparatorStyle) => {
-  switch (style) {
-    case 'label':
-      return '.';
-    case 'matrix':
-      return ';';
-    case 'simple':
-      return ',';
-    default:
-      return '&';
-  }
-};
-
-const serializeArrayParam = ({
-  allowReserved,
-  explode,
-  name,
-  style,
-  value,
-}: SerializeOptions<ArraySeparatorStyle> & {
-  value: unknown[];
-}) => {
-  if (!explode) {
-    const joinedValues = (
-      allowReserved ? value : value.map((v) => encodeURIComponent(v as string))
-    ).join(separatorArrayNoExplode(style));
-    switch (style) {
-      case 'label':
-        return `.${joinedValues}`;
-      case 'matrix':
-        return `;${name}=${joinedValues}`;
-      case 'simple':
-        return joinedValues;
-      default:
-        return `${name}=${joinedValues}`;
-    }
-  }
-
-  const separator = separatorArrayExplode(style);
-  const joinedValues = value
-    .map((v) => {
-      if (style === 'label' || style === 'simple') {
-        return allowReserved ? v : encodeURIComponent(v as string);
-      }
-
-      return serializePrimitiveParam({
-        allowReserved,
-        name,
-        value: v as string,
-      });
-    })
-    .join(separator);
-  return style === 'label' || style === 'matrix'
-    ? separator + joinedValues
-    : joinedValues;
-};
-
-const serializeObjectParam = ({
-  allowReserved,
-  explode,
-  name,
-  style,
-  value,
-}: SerializeOptions<ObjectSeparatorStyle> & {
-  value: Record<string, unknown> | Date;
-}) => {
-  if (value instanceof Date) {
-    return `${name}=${value.toISOString()}`;
-  }
-
-  if (style !== 'deepObject' && !explode) {
-    let values: string[] = [];
-    Object.entries(value).forEach(([key, v]) => {
-      values = [
-        ...values,
-        key,
-        allowReserved ? (v as string) : encodeURIComponent(v as string),
-      ];
-    });
-    const joinedValues = values.join(',');
-    switch (style) {
-      case 'form':
-        return `${name}=${joinedValues}`;
-      case 'label':
-        return `.${joinedValues}`;
-      case 'matrix':
-        return `;${name}=${joinedValues}`;
-      default:
-        return joinedValues;
-    }
-  }
-
-  const separator = separatorObjectExplode(style);
-  const joinedValues = Object.entries(value)
-    .map(([key, v]) =>
-      serializePrimitiveParam({
-        allowReserved,
-        name: style === 'deepObject' ? `${name}[${key}]` : key,
-        value: v as string,
-      }),
-    )
-    .join(separator);
-  return style === 'label' || style === 'matrix'
-    ? separator + joinedValues
-    : joinedValues;
-};
 
 const defaultPathSerializer = ({ path, url: _url }: PathSerializer) => {
   let url = _url;
@@ -237,6 +66,7 @@ const defaultPathSerializer = ({ path, url: _url }: PathSerializer) => {
             name,
             style,
             value: value as Record<string, unknown>,
+            valueOnly: true,
           }),
         );
         continue;
@@ -268,7 +98,7 @@ export const createQuerySerializer = <T = unknown>({
   object,
 }: QuerySerializerOptions = {}) => {
   const querySerializer = (queryParams: T) => {
-    let search: string[] = [];
+    const search: string[] = [];
     if (queryParams && typeof queryParams === 'object') {
       for (const name in queryParams) {
         const value = queryParams[name];
@@ -278,43 +108,33 @@ export const createQuerySerializer = <T = unknown>({
         }
 
         if (Array.isArray(value)) {
-          search = [
-            ...search,
-            serializeArrayParam({
-              allowReserved,
-              explode: true,
-              name,
-              style: 'form',
-              value,
-              ...array,
-            }),
-          ];
-          continue;
-        }
-
-        if (typeof value === 'object') {
-          search = [
-            ...search,
-            serializeObjectParam({
-              allowReserved,
-              explode: true,
-              name,
-              style: 'deepObject',
-              value: value as Record<string, unknown>,
-              ...object,
-            }),
-          ];
-          continue;
-        }
-
-        search = [
-          ...search,
-          serializePrimitiveParam({
+          const serializedArray = serializeArrayParam({
+            allowReserved,
+            explode: true,
+            name,
+            style: 'form',
+            value,
+            ...array,
+          });
+          if (serializedArray) search.push(serializedArray);
+        } else if (typeof value === 'object') {
+          const serializedObject = serializeObjectParam({
+            allowReserved,
+            explode: true,
+            name,
+            style: 'deepObject',
+            value: value as Record<string, unknown>,
+            ...object,
+          });
+          if (serializedObject) search.push(serializedObject);
+        } else {
+          const serializedPrimitive = serializePrimitiveParam({
             allowReserved,
             name,
             value: value as string,
-          }),
-        ];
+          });
+          if (serializedPrimitive) search.push(serializedPrimitive);
+        }
       }
     }
     return search.join('&');
@@ -327,12 +147,18 @@ export const createQuerySerializer = <T = unknown>({
  */
 export const getParseAs = (
   contentType: string | null,
-): Exclude<Config['parseAs'], 'auto' | 'stream'> => {
+): Exclude<Config['parseAs'], 'auto'> => {
   if (!contentType) {
-    return;
+    // If no Content-Type header is provided, the best we can do is return the raw response body,
+    // which is effectively the same as the 'stream' option.
+    return 'stream';
   }
 
-  const cleanContent = contentType.split(';')[0].trim();
+  const cleanContent = contentType.split(';')[0]?.trim();
+
+  if (!cleanContent) {
+    return;
+  }
 
   if (
     cleanContent.startsWith('application/json') ||
@@ -356,6 +182,58 @@ export const getParseAs = (
   if (cleanContent.startsWith('text/')) {
     return 'text';
   }
+
+  return;
+};
+
+export const setAuthParams = async ({
+  security,
+  ...options
+}: Pick<Required<RequestOptions>, 'security'> &
+  Pick<RequestOptions, 'auth' | 'query'> & {
+    headers: Headers;
+  }) => {
+  for (const auth of security) {
+    const token = await getAuthToken(auth, options.auth);
+
+    if (!token) {
+      continue;
+    }
+
+    const name = auth.name ?? 'Authorization';
+
+    switch (auth.in) {
+      case 'query':
+        if (!options.query) {
+          options.query = {};
+        }
+        options.query[name] = token;
+        break;
+      case 'cookie':
+        options.headers.append('Cookie', `${name}=${token}`);
+        break;
+      case 'header':
+      default:
+        options.headers.set(name, token);
+        break;
+    }
+
+    return;
+  }
+};
+
+export const buildUrl: Client['buildUrl'] = (options) => {
+  const url = getUrl({
+    baseUrl: options.baseUrl as string,
+    path: options.path,
+    query: options.query,
+    querySerializer:
+      typeof options.querySerializer === 'function'
+        ? options.querySerializer
+        : createQuerySerializer(options.querySerializer),
+    url: options.url,
+  });
+  return url;
 };
 
 export const getUrl = ({
@@ -365,14 +243,14 @@ export const getUrl = ({
   querySerializer,
   url: _url,
 }: {
-  baseUrl: string;
+  baseUrl?: string;
   path?: Record<string, unknown>;
   query?: Record<string, unknown>;
   querySerializer: QuerySerializer;
   url: string;
 }) => {
   const pathUrl = _url.startsWith('/') ? _url : `/${_url}`;
-  let url = baseUrl + pathUrl;
+  let url = (baseUrl ?? '') + pathUrl;
   if (path) {
     url = defaultPathSerializer({ path, url });
   }
@@ -397,7 +275,7 @@ export const mergeConfigs = (a: Config, b: Config): Config => {
 
 export const mergeHeaders = (
   ...headers: Array<Required<Config>['headers'] | undefined>
-) => {
+): Headers => {
   const mergedHeaders = new Headers();
   for (const header of headers) {
     if (!header || typeof header !== 'object') {
@@ -446,7 +324,7 @@ type ResInterceptor<Res, Req, Options> = (
 ) => Res | Promise<Res>;
 
 class Interceptors<Interceptor> {
-  _fns: Interceptor[];
+  _fns: (Interceptor | null)[];
 
   constructor() {
     this._fns = [];
@@ -456,19 +334,38 @@ class Interceptors<Interceptor> {
     this._fns = [];
   }
 
-  exists(fn: Interceptor) {
-    return this._fns.indexOf(fn) !== -1;
+  getInterceptorIndex(id: number | Interceptor): number {
+    if (typeof id === 'number') {
+      return this._fns[id] ? id : -1;
+    } else {
+      return this._fns.indexOf(id);
+    }
+  }
+  exists(id: number | Interceptor) {
+    const index = this.getInterceptorIndex(id);
+    return !!this._fns[index];
   }
 
-  eject(fn: Interceptor) {
-    const index = this._fns.indexOf(fn);
-    if (index !== -1) {
-      this._fns = [...this._fns.slice(0, index), ...this._fns.slice(index + 1)];
+  eject(id: number | Interceptor) {
+    const index = this.getInterceptorIndex(id);
+    if (this._fns[index]) {
+      this._fns[index] = null;
+    }
+  }
+
+  update(id: number | Interceptor, fn: Interceptor) {
+    const index = this.getInterceptorIndex(id);
+    if (this._fns[index]) {
+      this._fns[index] = fn;
+      return id;
+    } else {
+      return false;
     }
   }
 
   use(fn: Interceptor) {
     this._fns = [...this._fns, fn];
+    return this._fns.length - 1;
   }
 }
 
@@ -493,72 +390,6 @@ export const createInterceptors = <Req, Res, Err, Options>() => ({
   response: new Interceptors<ResInterceptor<Res, Req, Options>>(),
 });
 
-const serializeFormDataPair = (data: FormData, key: string, value: unknown) => {
-  if (typeof value === 'string' || value instanceof Blob) {
-    data.append(key, value);
-  } else {
-    data.append(key, JSON.stringify(value));
-  }
-};
-
-export const formDataBodySerializer = {
-  bodySerializer: <T extends Record<string, any> | Array<Record<string, any>>>(
-    body: T,
-  ) => {
-    const data = new FormData();
-
-    Object.entries(body).forEach(([key, value]) => {
-      if (value === undefined || value === null) {
-        return;
-      }
-      if (Array.isArray(value)) {
-        value.forEach((v) => serializeFormDataPair(data, key, v));
-      } else {
-        serializeFormDataPair(data, key, value);
-      }
-    });
-
-    return data;
-  },
-};
-
-export const jsonBodySerializer = {
-  bodySerializer: <T>(body: T) => JSON.stringify(body),
-};
-
-const serializeUrlSearchParamsPair = (
-  data: URLSearchParams,
-  key: string,
-  value: unknown,
-) => {
-  if (typeof value === 'string') {
-    data.append(key, value);
-  } else {
-    data.append(key, JSON.stringify(value));
-  }
-};
-
-export const urlSearchParamsBodySerializer = {
-  bodySerializer: <T extends Record<string, any> | Array<Record<string, any>>>(
-    body: T,
-  ) => {
-    const data = new URLSearchParams();
-
-    Object.entries(body).forEach(([key, value]) => {
-      if (value === undefined || value === null) {
-        return;
-      }
-      if (Array.isArray(value)) {
-        value.forEach((v) => serializeUrlSearchParamsPair(data, key, v));
-      } else {
-        serializeUrlSearchParamsPair(data, key, value);
-      }
-    });
-
-    return data;
-  },
-};
-
 const defaultQuerySerializer = createQuerySerializer({
   allowReserved: false,
   array: {
@@ -575,9 +406,10 @@ const defaultHeaders = {
   'Content-Type': 'application/json',
 };
 
-export const createConfig = (override: Config = {}): Config => ({
+export const createConfig = <T extends ClientOptions = ClientOptions>(
+  override: Config<Omit<ClientOptions, keyof T> & T> = {},
+): Config<Omit<ClientOptions, keyof T> & T> => ({
   ...jsonBodySerializer,
-  baseUrl: '',
   headers: defaultHeaders,
   parseAs: 'auto',
   querySerializer: defaultQuerySerializer,
