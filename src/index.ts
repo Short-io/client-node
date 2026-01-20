@@ -1,4 +1,5 @@
-import { client, postLinks } from "./generated"
+import { client, postLinks } from "./generated/client.gen.ts"
+import { postLinks } from "./generated"
 export * from './generated/types.gen';
 export * from './generated/sdk.gen';
 

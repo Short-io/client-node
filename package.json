@@ -1,7 +1,7 @@
 {
     "name": "@short.io/client-node",
-    "version": "2.2.0",
-    "description": "",
+    "version": "2.3.0",
+    "description": "Official Short.io Node.js SDK for URL shortening, link management, QR codes, analytics, and geographic targeting",
     "main": "dist/index.js",
     "type": "module",
     "private": false,
@@ -32,14 +32,14 @@
     "homepage": "https://github.com/Short-io/client-node#readme",
     "prettier": "@short.io/eslint-config/prettier",
     "devDependencies": {
-        "@eslint/js": "^9.31.0",
-        "@hey-api/openapi-ts": "^0.80.0",
-        "@types/node": "^24.1.0",
-        "eslint": "^9.31.0",
-        "globals": "^16.3.0",
+        "@eslint/js": "^9.39.2",
+        "@hey-api/openapi-ts": "^0.90.4",
+        "@types/node": "^25.0.9",
+        "eslint": "^9.39.2",
+        "globals": "^17.0.0",
         "tsc-alias": "^1.8.16",
-        "typescript": "^5.8.3",
-        "typescript-eslint": "^8.38.0"
+        "typescript": "^5.9.3",
+        "typescript-eslint": "^8.53.1"
     },
     "dependencies": {
         "@hey-api/client-fetch": "^0.13.1"
