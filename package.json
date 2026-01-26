@@ -6,12 +6,15 @@
     "type": "module",
     "private": false,
     "types": "dist/index.d.ts",
-    "files": ["dist/**"],
+    "files": [
+        "dist/**"
+    ],
     "scripts": {
         "generate": "openapi-ts -f openapi/config.ts",
         "compile": "tsc --build . && tsc-alias",
         "prepare": "npm run compile",
-	"prepublishOnly": "npm run compile"
+        "prepublishOnly": "npm run compile",
+        "test": "vitest run"
     },
     "repository": {
         "type": "git",
@@ -37,9 +40,11 @@
         "@types/node": "^25.0.9",
         "eslint": "^9.39.2",
         "globals": "^17.0.0",
+        "msw": "^2.12.7",
         "tsc-alias": "^1.8.16",
         "typescript": "^5.9.3",
-        "typescript-eslint": "^8.53.1"
+        "typescript-eslint": "^8.53.1",
+        "vitest": "^4.0.18"
     },
     "dependencies": {
         "zod": "^4.3.6"
