@@ -1,6 +1,6 @@
 {
     "name": "@short.io/client-node",
-    "version": "2.3.0",
+    "version": "3.0.0",
     "description": "Official Short.io Node.js SDK for URL shortening, link management, QR codes, analytics, and geographic targeting",
     "main": "dist/index.js",
     "type": "module",

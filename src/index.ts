@@ -1,5 +1,4 @@
-import { client, postLinks } from "./generated/client.gen.ts"
-import { postLinks } from "./generated"
+import { client } from "./generated/client.gen"
 export * from './generated/types.gen';
 export * from './generated/sdk.gen';
 
@@ -14,5 +13,3 @@ export const setApiKey = (apiKey: string) => {
         }
     })
 }
-
-export const createLink = postLinks;

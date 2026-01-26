@@ -4,7 +4,7 @@ export type ClientOptions = {
     baseUrl: 'https://api.short.io' | (string & {});
 };
 
-export type GetLinksOpengraphByDomainIdByLinkIdData = {
+export type GetLinkOpengraphData = {
     body?: never;
     path: {
         domainId: number;
@@ -14,14 +14,14 @@ export type GetLinksOpengraphByDomainIdByLinkIdData = {
     url: '/links/opengraph/{domainId}/{linkId}';
 };
 
-export type GetLinksOpengraphByDomainIdByLinkIdResponses = {
+export type GetLinkOpengraphResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type PutLinksOpengraphByDomainIdByLinkIdData = {
+export type UpdateLinkOpengraphData = {
     body?: Array<[
         'title' | 'type' | 'image' | 'url' | 'audio' | 'description' | 'determiner' | 'locale' | 'locale:alternate' | 'site_name' | 'video' | 'article:published_time' | 'article:modified_time' | 'article:expiration_time' | 'article:author' | 'article:section' | 'article:tag' | 'updated_time' | 'image:url' | 'image:secure_url' | 'image:type' | 'image:width' | 'image:height' | 'image:alt' | 'music:duration' | 'music:album' | 'music:album:disc' | 'music:album:track' | 'music:musician' | 'music:song' | 'music:song:disc' | 'music:song:track' | 'music:release_date' | 'music:creator' | 'video:actor' | 'video:actor:role' | 'video:director' | 'video:writer' | 'video:duration' | 'video:release_date' | 'video:tag' | 'video:series' | 'book:author' | 'book:isbn' | 'book:release_date' | 'book:tag' | 'product:price:amount' | 'product:price:currency' | 'product:availability' | 'product:condition' | 'product:retailer_item_id' | 'product:brand' | 'product:category' | 'product:color' | 'product:size' | 'product:material' | 'product:pattern' | 'product:shipping_cost:amount' | 'product:shipping_cost:currency' | 'product:shipping_weight:value' | 'product:shipping_weight:units' | 'product:weight:value' | 'product:weight:units' | 'product:sale_price:amount' | 'product:sale_price:currency' | 'product:sale_price_dates:start' | 'product:sale_price_dates:end' | 'product:expiration_time' | 'product:original_price:amount' | 'product:original_price:currency' | 'product:gender' | 'product:age_group' | 'product:target_gender' | 'product:retailer_part_no' | 'product:mfr_part_no' | 'product:upc' | 'product:ean' | 'product:isbn' | 'product:plural_title' | 'product:item_group_id' | 'profile:first_name' | 'profile:last_name' | 'profile:username' | 'profile:gender' | 'twitter:card' | 'twitter:site' | 'twitter:site:id' | 'twitter:creator' | 'twitter:creator:id' | 'twitter:description' | 'twitter:title' | 'twitter:image' | 'twitter:image:alt' | 'twitter:player' | 'twitter:player:width' | 'twitter:player:height' | 'twitter:player:stream' | 'twitter:app:name:iphone' | 'twitter:app:id:iphone' | 'twitter:app:url:iphone' | 'twitter:app:name:ipad' | 'twitter:app:id:ipad' | 'twitter:app:url:ipad' | 'twitter:app:name:googleplay' | 'twitter:app:id:googleplay' | 'twitter:app:url:googleplay' | 'twitter:app:country',
         string
@@ -34,14 +34,14 @@ export type PutLinksOpengraphByDomainIdByLinkIdData = {
     url: '/links/opengraph/{domainId}/{linkId}';
 };
 
-export type PutLinksOpengraphByDomainIdByLinkIdResponses = {
+export type UpdateLinkOpengraphResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type GetLinkCountryByLinkIdData = {
+export type GetLinkCountriesData = {
     body?: never;
     path: {
         linkId: string;
@@ -52,14 +52,14 @@ export type GetLinkCountryByLinkIdData = {
     url: '/link_country/{linkId}';
 };
 
-export type GetLinkCountryByLinkIdResponses = {
+export type GetLinkCountriesResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type PostLinkCountryByLinkIdData = {
+export type CreateLinkCountryData = {
     body: {
         /**
          * Country code
@@ -76,14 +76,14 @@ export type PostLinkCountryByLinkIdData = {
     url: '/link_country/{linkId}';
 };
 
-export type PostLinkCountryByLinkIdResponses = {
+export type CreateLinkCountryResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type PostLinkCountryBulkByLinkIdData = {
+export type CreateLinkCountriesBulkData = {
     body?: Array<{
         /**
          * Country code
@@ -100,14 +100,14 @@ export type PostLinkCountryBulkByLinkIdData = {
     url: '/link_country/bulk/{linkId}';
 };
 
-export type PostLinkCountryBulkByLinkIdResponses = {
+export type CreateLinkCountriesBulkResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type DeleteLinkCountryByLinkIdByCountryData = {
+export type DeleteLinkCountryData = {
     body?: never;
     path: {
         linkId: string;
@@ -122,14 +122,14 @@ export type DeleteLinkCountryByLinkIdByCountryData = {
     url: '/link_country/{linkId}/{country}';
 };
 
-export type DeleteLinkCountryByLinkIdByCountryResponses = {
+export type DeleteLinkCountryResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type GetLinkRegionByLinkIdData = {
+export type GetLinkRegionsData = {
     body?: never;
     path: {
         linkId: string;
@@ -140,14 +140,14 @@ export type GetLinkRegionByLinkIdData = {
     url: '/link_region/{linkId}';
 };
 
-export type GetLinkRegionByLinkIdResponses = {
+export type GetLinkRegionsResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type PostLinkRegionByLinkIdData = {
+export type CreateLinkRegionData = {
     body: {
         /**
          * Country code
@@ -171,14 +171,14 @@ export type PostLinkRegionByLinkIdData = {
     url: '/link_region/{linkId}';
 };
 
-export type PostLinkRegionByLinkIdResponses = {
+export type CreateLinkRegionResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type GetLinkRegionListByCountryData = {
+export type GetRegionsByCountryData = {
     body?: never;
     path: {
         /**
@@ -190,14 +190,14 @@ export type GetLinkRegionListByCountryData = {
     url: '/link_region/list/{country}';
 };
 
-export type GetLinkRegionListByCountryResponses = {
+export type GetRegionsByCountryResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type PostLinkRegionBulkByLinkIdData = {
+export type CreateLinkRegionsBulkData = {
     body?: Array<{
         /**
          * Country code
@@ -218,14 +218,14 @@ export type PostLinkRegionBulkByLinkIdData = {
     url: '/link_region/bulk/{linkId}';
 };
 
-export type PostLinkRegionBulkByLinkIdResponses = {
+export type CreateLinkRegionsBulkResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type DeleteLinkRegionByLinkIdByCountryByRegionData = {
+export type DeleteLinkRegionData = {
     body?: never;
     path: {
         linkId: string;
@@ -241,14 +241,14 @@ export type DeleteLinkRegionByLinkIdByCountryByRegionData = {
     url: '/link_region/{linkId}/{country}/{region}';
 };
 
-export type DeleteLinkRegionByLinkIdByCountryByRegionResponses = {
+export type DeleteLinkRegionResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type GetLinksPermissionsByDomainIdByLinkIdData = {
+export type GetLinkPermissionsData = {
     body?: never;
     path: {
         domainId: string;
@@ -258,7 +258,7 @@ export type GetLinksPermissionsByDomainIdByLinkIdData = {
     url: '/links/permissions/{domainId}/{linkId}';
 };
 
-export type GetLinksPermissionsByDomainIdByLinkIdErrors = {
+export type GetLinkPermissionsErrors = {
     /**
      * Default Response
      */
@@ -273,9 +273,9 @@ export type GetLinksPermissionsByDomainIdByLinkIdErrors = {
     };
 };
 
-export type GetLinksPermissionsByDomainIdByLinkIdError = GetLinksPermissionsByDomainIdByLinkIdErrors[keyof GetLinksPermissionsByDomainIdByLinkIdErrors];
+export type GetLinkPermissionsError = GetLinkPermissionsErrors[keyof GetLinkPermissionsErrors];
 
-export type GetLinksPermissionsByDomainIdByLinkIdResponses = {
+export type GetLinkPermissionsResponses = {
     /**
      * Default Response
      */
@@ -287,9 +287,9 @@ export type GetLinksPermissionsByDomainIdByLinkIdResponses = {
     }>;
 };
 
-export type GetLinksPermissionsByDomainIdByLinkIdResponse = GetLinksPermissionsByDomainIdByLinkIdResponses[keyof GetLinksPermissionsByDomainIdByLinkIdResponses];
+export type GetLinkPermissionsResponse = GetLinkPermissionsResponses[keyof GetLinkPermissionsResponses];
 
-export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdData = {
+export type DeleteLinkPermissionData = {
     body?: never;
     path: {
         domainId: number;
@@ -300,7 +300,7 @@ export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdData = {
     url: '/links/permissions/{domainId}/{linkId}/{userId}';
 };
 
-export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdErrors = {
+export type DeleteLinkPermissionErrors = {
     /**
      * Default Response
      */
@@ -321,9 +321,9 @@ export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdErrors = {
     };
 };
 
-export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdError = DeleteLinksPermissionsByDomainIdByLinkIdByUserIdErrors[keyof DeleteLinksPermissionsByDomainIdByLinkIdByUserIdErrors];
+export type DeleteLinkPermissionError = DeleteLinkPermissionErrors[keyof DeleteLinkPermissionErrors];
 
-export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponses = {
+export type DeleteLinkPermissionResponses = {
     /**
      * Default Response
      */
@@ -332,9 +332,9 @@ export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponses = {
     };
 };
 
-export type DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponse = DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponses[keyof DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponses];
+export type DeleteLinkPermissionResponse = DeleteLinkPermissionResponses[keyof DeleteLinkPermissionResponses];
 
-export type PostLinksPermissionsByDomainIdByLinkIdByUserIdData = {
+export type AddLinkPermissionData = {
     body?: never;
     path: {
         domainId: string;
@@ -348,7 +348,7 @@ export type PostLinksPermissionsByDomainIdByLinkIdByUserIdData = {
     url: '/links/permissions/{domainId}/{linkId}/{userId}';
 };
 
-export type PostLinksPermissionsByDomainIdByLinkIdByUserIdErrors = {
+export type AddLinkPermissionErrors = {
     /**
      * Default Response
      */
@@ -375,9 +375,9 @@ export type PostLinksPermissionsByDomainIdByLinkIdByUserIdErrors = {
     };
 };
 
-export type PostLinksPermissionsByDomainIdByLinkIdByUserIdError = PostLinksPermissionsByDomainIdByLinkIdByUserIdErrors[keyof PostLinksPermissionsByDomainIdByLinkIdByUserIdErrors];
+export type AddLinkPermissionError = AddLinkPermissionErrors[keyof AddLinkPermissionErrors];
 
-export type PostLinksPermissionsByDomainIdByLinkIdByUserIdResponses = {
+export type AddLinkPermissionResponses = {
     /**
      * Default Response
      */
@@ -392,9 +392,9 @@ export type PostLinksPermissionsByDomainIdByLinkIdByUserIdResponses = {
     };
 };
 
-export type PostLinksPermissionsByDomainIdByLinkIdByUserIdResponse = PostLinksPermissionsByDomainIdByLinkIdByUserIdResponses[keyof PostLinksPermissionsByDomainIdByLinkIdByUserIdResponses];
+export type AddLinkPermissionResponse = AddLinkPermissionResponses[keyof AddLinkPermissionResponses];
 
-export type GetApiLinksData = {
+export type ListLinksData = {
     body?: never;
     headers?: {
         'x-vercel-id'?: string;
@@ -417,7 +417,7 @@ export type GetApiLinksData = {
     url: '/api/links';
 };
 
-export type GetApiLinksErrors = {
+export type ListLinksErrors = {
     /**
      * Default Response
      */
@@ -438,9 +438,9 @@ export type GetApiLinksErrors = {
     };
 };
 
-export type GetApiLinksError = GetApiLinksErrors[keyof GetApiLinksErrors];
+export type ListLinksError = ListLinksErrors[keyof ListLinksErrors];
 
-export type GetApiLinksResponses = {
+export type ListLinksResponses = {
     /**
      * Default Response
      */
@@ -627,9 +627,9 @@ export type GetApiLinksResponses = {
     };
 };
 
-export type GetApiLinksResponse = GetApiLinksResponses[keyof GetApiLinksResponses];
+export type ListLinksResponse = ListLinksResponses[keyof ListLinksResponses];
 
-export type PostLinksQrByLinkIdStringData = {
+export type GenerateQrCodeData = {
     body: {
         color?: string;
         backgroundColor?: string;
@@ -650,14 +650,14 @@ export type PostLinksQrByLinkIdStringData = {
     url: '/links/qr/{linkIdString}';
 };
 
-export type PostLinksQrByLinkIdStringResponses = {
+export type GenerateQrCodeResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type PostLinksQrBulkData = {
+export type GenerateQrCodesBulkData = {
     body: {
         color?: string;
         backgroundColor?: string;
@@ -673,14 +673,14 @@ export type PostLinksQrBulkData = {
     url: '/links/qr/bulk';
 };
 
-export type PostLinksQrBulkResponses = {
+export type GenerateQrCodesBulkResponses = {
     /**
      * ZIP file containing QR codes
      */
     201: unknown;
 };
 
-export type DeleteLinksByLinkIdData = {
+export type DeleteLinkData = {
     body?: never;
     path: {
         /**
@@ -692,7 +692,7 @@ export type DeleteLinksByLinkIdData = {
     url: '/links/{link_id}';
 };
 
-export type DeleteLinksByLinkIdErrors = {
+export type DeleteLinkErrors = {
     /**
      * Default Response
      */
@@ -744,9 +744,9 @@ export type DeleteLinksByLinkIdErrors = {
     };
 };
 
-export type DeleteLinksByLinkIdError = DeleteLinksByLinkIdErrors[keyof DeleteLinksByLinkIdErrors];
+export type DeleteLinkError = DeleteLinkErrors[keyof DeleteLinkErrors];
 
-export type DeleteLinksByLinkIdResponses = {
+export type DeleteLinkResponses = {
     /**
      * Default Response
      */
@@ -760,9 +760,9 @@ export type DeleteLinksByLinkIdResponses = {
     };
 };
 
-export type DeleteLinksByLinkIdResponse = DeleteLinksByLinkIdResponses[keyof DeleteLinksByLinkIdResponses];
+export type DeleteLinkResponse = DeleteLinkResponses[keyof DeleteLinkResponses];
 
-export type DeleteLinksDeleteBulkData = {
+export type DeleteLinksBulkData = {
     body: {
         link_ids: Array<string>;
     };
@@ -771,7 +771,7 @@ export type DeleteLinksDeleteBulkData = {
     url: '/links/delete_bulk';
 };
 
-export type DeleteLinksDeleteBulkResponses = {
+export type DeleteLinksBulkResponses = {
     /**
      * Default Response
      */
@@ -781,9 +781,9 @@ export type DeleteLinksDeleteBulkResponses = {
     };
 };
 
-export type DeleteLinksDeleteBulkResponse = DeleteLinksDeleteBulkResponses[keyof DeleteLinksDeleteBulkResponses];
+export type DeleteLinksBulkResponse = DeleteLinksBulkResponses[keyof DeleteLinksBulkResponses];
 
-export type PostLinksArchiveData = {
+export type ArchiveLinkData = {
     body: {
         link_id: string;
         domain_id?: string;
@@ -793,7 +793,7 @@ export type PostLinksArchiveData = {
     url: '/links/archive';
 };
 
-export type PostLinksArchiveErrors = {
+export type ArchiveLinkErrors = {
     /**
      * Default Response
      */
@@ -839,9 +839,9 @@ export type PostLinksArchiveErrors = {
     };
 };
 
-export type PostLinksArchiveError = PostLinksArchiveErrors[keyof PostLinksArchiveErrors];
+export type ArchiveLinkError = ArchiveLinkErrors[keyof ArchiveLinkErrors];
 
-export type PostLinksArchiveResponses = {
+export type ArchiveLinkResponses = {
     /**
      * Default Response
      */
@@ -851,9 +851,9 @@ export type PostLinksArchiveResponses = {
     };
 };
 
-export type PostLinksArchiveResponse = PostLinksArchiveResponses[keyof PostLinksArchiveResponses];
+export type ArchiveLinkResponse = ArchiveLinkResponses[keyof ArchiveLinkResponses];
 
-export type PostLinksArchiveBulkData = {
+export type ArchiveLinksBulkData = {
     body: {
         link_ids: Array<string>;
         domain_id?: string;
@@ -863,7 +863,7 @@ export type PostLinksArchiveBulkData = {
     url: '/links/archive_bulk';
 };
 
-export type PostLinksArchiveBulkErrors = {
+export type ArchiveLinksBulkErrors = {
     /**
      * Default Response
      */
@@ -911,9 +911,9 @@ export type PostLinksArchiveBulkErrors = {
     };
 };
 
-export type PostLinksArchiveBulkError = PostLinksArchiveBulkErrors[keyof PostLinksArchiveBulkErrors];
+export type ArchiveLinksBulkError = ArchiveLinksBulkErrors[keyof ArchiveLinksBulkErrors];
 
-export type PostLinksArchiveBulkResponses = {
+export type ArchiveLinksBulkResponses = {
     /**
      * Default Response
      */
@@ -923,9 +923,9 @@ export type PostLinksArchiveBulkResponses = {
     };
 };
 
-export type PostLinksArchiveBulkResponse = PostLinksArchiveBulkResponses[keyof PostLinksArchiveBulkResponses];
+export type ArchiveLinksBulkResponse = ArchiveLinksBulkResponses[keyof ArchiveLinksBulkResponses];
 
-export type PostLinksUnarchiveData = {
+export type UnarchiveLinkData = {
     body: {
         link_id: string;
         domain_id?: string;
@@ -935,7 +935,7 @@ export type PostLinksUnarchiveData = {
     url: '/links/unarchive';
 };
 
-export type PostLinksUnarchiveErrors = {
+export type UnarchiveLinkErrors = {
     /**
      * Default Response
      */
@@ -982,9 +982,9 @@ export type PostLinksUnarchiveErrors = {
     };
 };
 
-export type PostLinksUnarchiveError = PostLinksUnarchiveErrors[keyof PostLinksUnarchiveErrors];
+export type UnarchiveLinkError = UnarchiveLinkErrors[keyof UnarchiveLinkErrors];
 
-export type PostLinksUnarchiveResponses = {
+export type UnarchiveLinkResponses = {
     /**
      * Default Response
      */
@@ -994,9 +994,9 @@ export type PostLinksUnarchiveResponses = {
     };
 };
 
-export type PostLinksUnarchiveResponse = PostLinksUnarchiveResponses[keyof PostLinksUnarchiveResponses];
+export type UnarchiveLinkResponse = UnarchiveLinkResponses[keyof UnarchiveLinkResponses];
 
-export type PostLinksUnarchiveBulkData = {
+export type UnarchiveLinksBulkData = {
     body: {
         link_ids: Array<string>;
         domain_id?: string;
@@ -1006,7 +1006,7 @@ export type PostLinksUnarchiveBulkData = {
     url: '/links/unarchive_bulk';
 };
 
-export type PostLinksUnarchiveBulkErrors = {
+export type UnarchiveLinksBulkErrors = {
     /**
      * Default Response
      */
@@ -1052,9 +1052,9 @@ export type PostLinksUnarchiveBulkErrors = {
     };
 };
 
-export type PostLinksUnarchiveBulkError = PostLinksUnarchiveBulkErrors[keyof PostLinksUnarchiveBulkErrors];
+export type UnarchiveLinksBulkError = UnarchiveLinksBulkErrors[keyof UnarchiveLinksBulkErrors];
 
-export type PostLinksUnarchiveBulkResponses = {
+export type UnarchiveLinksBulkResponses = {
     /**
      * Default Response
      */
@@ -1064,9 +1064,9 @@ export type PostLinksUnarchiveBulkResponses = {
     };
 };
 
-export type PostLinksUnarchiveBulkResponse = PostLinksUnarchiveBulkResponses[keyof PostLinksUnarchiveBulkResponses];
+export type UnarchiveLinksBulkResponse = UnarchiveLinksBulkResponses[keyof UnarchiveLinksBulkResponses];
 
-export type GetLinksByLinkIdData = {
+export type GetLinkData = {
     body?: never;
     path: {
         linkId: string;
@@ -1080,7 +1080,7 @@ export type GetLinksByLinkIdData = {
     url: '/links/{linkId}';
 };
 
-export type GetLinksByLinkIdErrors = {
+export type GetLinkErrors = {
     /**
      * Default Response
      */
@@ -1101,9 +1101,9 @@ export type GetLinksByLinkIdErrors = {
     };
 };
 
-export type GetLinksByLinkIdError = GetLinksByLinkIdErrors[keyof GetLinksByLinkIdErrors];
+export type GetLinkError = GetLinkErrors[keyof GetLinkErrors];
 
-export type GetLinksByLinkIdResponses = {
+export type GetLinkResponses = {
     /**
      * Default Response
      */
@@ -1286,9 +1286,9 @@ export type GetLinksByLinkIdResponses = {
     };
 };
 
-export type GetLinksByLinkIdResponse = GetLinksByLinkIdResponses[keyof GetLinksByLinkIdResponses];
+export type GetLinkResponse = GetLinkResponses[keyof GetLinkResponses];
 
-export type PostLinksByLinkIdData = {
+export type UpdateLinkData = {
     body?: {
         /**
          * Cloaking
@@ -1416,7 +1416,7 @@ export type PostLinksByLinkIdData = {
     url: '/links/{linkId}';
 };
 
-export type PostLinksByLinkIdErrors = {
+export type UpdateLinkErrors = {
     /**
      * Default Response
      */
@@ -1469,9 +1469,9 @@ export type PostLinksByLinkIdErrors = {
     };
 };
 
-export type PostLinksByLinkIdError = PostLinksByLinkIdErrors[keyof PostLinksByLinkIdErrors];
+export type UpdateLinkError = UpdateLinkErrors[keyof UpdateLinkErrors];
 
-export type PostLinksByLinkIdResponses = {
+export type UpdateLinkResponses = {
     /**
      * Default Response
      */
@@ -1654,9 +1654,9 @@ export type PostLinksByLinkIdResponses = {
     };
 };
 
-export type PostLinksByLinkIdResponse = PostLinksByLinkIdResponses[keyof PostLinksByLinkIdResponses];
+export type UpdateLinkResponse = UpdateLinkResponses[keyof UpdateLinkResponses];
 
-export type GetLinksExpandData = {
+export type ExpandLinkData = {
     body?: never;
     path?: never;
     query: {
@@ -1672,7 +1672,7 @@ export type GetLinksExpandData = {
     url: '/links/expand';
 };
 
-export type GetLinksExpandErrors = {
+export type ExpandLinkErrors = {
     /**
      * Default Response
      */
@@ -1688,9 +1688,9 @@ export type GetLinksExpandErrors = {
     };
 };
 
-export type GetLinksExpandError = GetLinksExpandErrors[keyof GetLinksExpandErrors];
+export type ExpandLinkError = ExpandLinkErrors[keyof ExpandLinkErrors];
 
-export type GetLinksExpandResponses = {
+export type ExpandLinkResponses = {
     /**
      * Default Response
      */
@@ -1873,9 +1873,9 @@ export type GetLinksExpandResponses = {
     };
 };
 
-export type GetLinksExpandResponse = GetLinksExpandResponses[keyof GetLinksExpandResponses];
+export type ExpandLinkResponse = ExpandLinkResponses[keyof ExpandLinkResponses];
 
-export type GetLinksByOriginalUrlData = {
+export type GetLinkByOriginalUrlData = {
     body?: never;
     path?: never;
     query: {
@@ -1891,14 +1891,14 @@ export type GetLinksByOriginalUrlData = {
     url: '/links/by-original-url';
 };
 
-export type GetLinksByOriginalUrlResponses = {
+export type GetLinkByOriginalUrlResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type GetLinksMultipleByUrlData = {
+export type GetLinksByUrlData = {
     body?: never;
     path?: never;
     query: {
@@ -1914,14 +1914,14 @@ export type GetLinksMultipleByUrlData = {
     url: '/links/multiple-by-url';
 };
 
-export type GetLinksMultipleByUrlResponses = {
+export type GetLinksByUrlResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type PostLinksData = {
+export type CreateLinkData = {
     body?: {
         /**
          * Original URL
@@ -2062,7 +2062,7 @@ export type PostLinksData = {
     url: '/links';
 };
 
-export type PostLinksErrors = {
+export type CreateLinkErrors = {
     /**
      * Default Response
      */
@@ -2122,9 +2122,9 @@ export type PostLinksErrors = {
     };
 };
 
-export type PostLinksError = PostLinksErrors[keyof PostLinksErrors];
+export type CreateLinkError = CreateLinkErrors[keyof CreateLinkErrors];
 
-export type PostLinksResponses = {
+export type CreateLinkResponses = {
     /**
      * Default Response
      */
@@ -2310,9 +2310,9 @@ export type PostLinksResponses = {
     };
 };
 
-export type PostLinksResponse = PostLinksResponses[keyof PostLinksResponses];
+export type CreateLinkResponse = CreateLinkResponses[keyof CreateLinkResponses];
 
-export type GetLinksTweetbotData = {
+export type CreateLinkSimpleData = {
     body?: never;
     path?: never;
     query: {
@@ -2341,14 +2341,14 @@ export type GetLinksTweetbotData = {
     url: '/links/tweetbot';
 };
 
-export type GetLinksTweetbotResponses = {
+export type CreateLinkSimpleResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type PostLinksPublicData = {
+export type CreateLinkPublicData = {
     body: {
         /**
          * Original URL
@@ -2478,7 +2478,7 @@ export type PostLinksPublicData = {
     url: '/links/public';
 };
 
-export type PostLinksPublicErrors = {
+export type CreateLinkPublicErrors = {
     /**
      * Default Response
      */
@@ -2533,9 +2533,9 @@ export type PostLinksPublicErrors = {
     };
 };
 
-export type PostLinksPublicError = PostLinksPublicErrors[keyof PostLinksPublicErrors];
+export type CreateLinkPublicError = CreateLinkPublicErrors[keyof CreateLinkPublicErrors];
 
-export type PostLinksPublicResponses = {
+export type CreateLinkPublicResponses = {
     /**
      * Default Response
      */
@@ -2721,9 +2721,9 @@ export type PostLinksPublicResponses = {
     };
 };
 
-export type PostLinksPublicResponse = PostLinksPublicResponses[keyof PostLinksPublicResponses];
+export type CreateLinkPublicResponse = CreateLinkPublicResponses[keyof CreateLinkPublicResponses];
 
-export type PostLinksBulkData = {
+export type CreateLinksBulkData = {
     body: {
         domain: string;
         allowDuplicates?: boolean;
@@ -2857,14 +2857,14 @@ export type PostLinksBulkData = {
     url: '/links/bulk';
 };
 
-export type PostLinksBulkResponses = {
+export type CreateLinksBulkResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type PostLinksExamplesData = {
+export type CreateExampleLinksData = {
     body: {
         /**
          * Domain hostname to create examples for
@@ -2876,7 +2876,7 @@ export type PostLinksExamplesData = {
     url: '/links/examples';
 };
 
-export type PostLinksExamplesErrors = {
+export type CreateExampleLinksErrors = {
     /**
      * Default Response
      */
@@ -2926,9 +2926,9 @@ export type PostLinksExamplesErrors = {
     };
 };
 
-export type PostLinksExamplesError = PostLinksExamplesErrors[keyof PostLinksExamplesErrors];
+export type CreateExampleLinksError = CreateExampleLinksErrors[keyof CreateExampleLinksErrors];
 
-export type PostLinksExamplesResponses = {
+export type CreateExampleLinksResponses = {
     /**
      * Default Response
      */
@@ -3117,9 +3117,9 @@ export type PostLinksExamplesResponses = {
     };
 };
 
-export type PostLinksExamplesResponse = PostLinksExamplesResponses[keyof PostLinksExamplesResponses];
+export type CreateExampleLinksResponse = CreateExampleLinksResponses[keyof CreateExampleLinksResponses];
 
-export type PostLinksDuplicateByLinkIdData = {
+export type DuplicateLinkData = {
     body?: {
         /**
          * Custom path for duplicated link
@@ -3133,7 +3133,7 @@ export type PostLinksDuplicateByLinkIdData = {
     url: '/links/duplicate/{linkId}';
 };
 
-export type PostLinksDuplicateByLinkIdErrors = {
+export type DuplicateLinkErrors = {
     /**
      * Default Response
      */
@@ -3181,9 +3181,9 @@ export type PostLinksDuplicateByLinkIdErrors = {
     };
 };
 
-export type PostLinksDuplicateByLinkIdError = PostLinksDuplicateByLinkIdErrors[keyof PostLinksDuplicateByLinkIdErrors];
+export type DuplicateLinkError = DuplicateLinkErrors[keyof DuplicateLinkErrors];
 
-export type PostLinksDuplicateByLinkIdResponses = {
+export type DuplicateLinkResponses = {
     /**
      * Default Response
      */
@@ -3374,9 +3374,9 @@ export type PostLinksDuplicateByLinkIdResponses = {
     };
 };
 
-export type PostLinksDuplicateByLinkIdResponse = PostLinksDuplicateByLinkIdResponses[keyof PostLinksDuplicateByLinkIdResponses];
+export type DuplicateLinkResponse = DuplicateLinkResponses[keyof DuplicateLinkResponses];
 
-export type GetApiDomainsData = {
+export type ListDomainsData = {
     body?: never;
     headers?: {
         type?: unknown;
@@ -3393,7 +3393,7 @@ export type GetApiDomainsData = {
     url: '/api/domains';
 };
 
-export type GetApiDomainsResponses = {
+export type ListDomainsResponses = {
     /**
      * Default Response
      */
@@ -3449,9 +3449,9 @@ export type GetApiDomainsResponses = {
     }>;
 };
 
-export type GetApiDomainsResponse = GetApiDomainsResponses[keyof GetApiDomainsResponses];
+export type ListDomainsResponse = ListDomainsResponses[keyof ListDomainsResponses];
 
-export type GetDomainsByDomainIdData = {
+export type GetDomainData = {
     body?: never;
     path: {
         domainId: number;
@@ -3460,7 +3460,7 @@ export type GetDomainsByDomainIdData = {
     url: '/domains/{domainId}';
 };
 
-export type GetDomainsByDomainIdErrors = {
+export type GetDomainErrors = {
     /**
      * Default Response
      */
@@ -3470,9 +3470,9 @@ export type GetDomainsByDomainIdErrors = {
     };
 };
 
-export type GetDomainsByDomainIdError = GetDomainsByDomainIdErrors[keyof GetDomainsByDomainIdErrors];
+export type GetDomainError = GetDomainErrors[keyof GetDomainErrors];
 
-export type GetDomainsByDomainIdResponses = {
+export type GetDomainResponses = {
     /**
      * Default Response
      */
@@ -3530,9 +3530,9 @@ export type GetDomainsByDomainIdResponses = {
     };
 };
 
-export type GetDomainsByDomainIdResponse = GetDomainsByDomainIdResponses[keyof GetDomainsByDomainIdResponses];
+export type GetDomainResponse = GetDomainResponses[keyof GetDomainResponses];
 
-export type PostDomainsSettingsByDomainIdData = {
+export type UpdateDomainSettingsData = {
     body?: {
         httpsLevel?: 'none' | 'redirect' | 'hsts';
         robots?: 'allow' | 'disallow' | 'noindex';
@@ -3582,7 +3582,7 @@ export type PostDomainsSettingsByDomainIdData = {
     url: '/domains/settings/{domainId}';
 };
 
-export type PostDomainsSettingsByDomainIdErrors = {
+export type UpdateDomainSettingsErrors = {
     /**
      * Default Response
      */
@@ -3616,9 +3616,9 @@ export type PostDomainsSettingsByDomainIdErrors = {
     };
 };
 
-export type PostDomainsSettingsByDomainIdError = PostDomainsSettingsByDomainIdErrors[keyof PostDomainsSettingsByDomainIdErrors];
+export type UpdateDomainSettingsError = UpdateDomainSettingsErrors[keyof UpdateDomainSettingsErrors];
 
-export type PostDomainsSettingsByDomainIdResponses = {
+export type UpdateDomainSettingsResponses = {
     /**
      * Default Response
      */
@@ -3627,9 +3627,9 @@ export type PostDomainsSettingsByDomainIdResponses = {
     };
 };
 
-export type PostDomainsSettingsByDomainIdResponse = PostDomainsSettingsByDomainIdResponses[keyof PostDomainsSettingsByDomainIdResponses];
+export type UpdateDomainSettingsResponse = UpdateDomainSettingsResponses[keyof UpdateDomainSettingsResponses];
 
-export type PostTagsBulkData = {
+export type AddTagsBulkData = {
     body: {
         tag: string;
         link_ids: Array<string>;
@@ -3639,14 +3639,14 @@ export type PostTagsBulkData = {
     url: '/tags/bulk';
 };
 
-export type PostTagsBulkResponses = {
+export type AddTagsBulkResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type PostDomainsData = {
+export type CreateDomainData = {
     body: {
         /**
          * Domain hostname
@@ -3660,7 +3660,7 @@ export type PostDomainsData = {
     url: '/domains';
 };
 
-export type PostDomainsErrors = {
+export type CreateDomainErrors = {
     /**
      * Default Response
      */
@@ -3681,9 +3681,9 @@ export type PostDomainsErrors = {
     };
 };
 
-export type PostDomainsError = PostDomainsErrors[keyof PostDomainsErrors];
+export type CreateDomainError = CreateDomainErrors[keyof CreateDomainErrors];
 
-export type PostDomainsResponses = {
+export type CreateDomainResponses = {
     /**
      * Default Response
      */
@@ -3738,9 +3738,9 @@ export type PostDomainsResponses = {
     };
 };
 
-export type PostDomainsResponse = PostDomainsResponses[keyof PostDomainsResponses];
+export type CreateDomainResponse = CreateDomainResponses[keyof CreateDomainResponses];
 
-export type GetLinksFoldersByDomainIdData = {
+export type ListFoldersData = {
     body?: never;
     path: {
         domainId: number;
@@ -3749,14 +3749,14 @@ export type GetLinksFoldersByDomainIdData = {
     url: '/links/folders/{domainId}';
 };
 
-export type GetLinksFoldersByDomainIdResponses = {
+export type ListFoldersResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type GetLinksFoldersByDomainIdByFolderIdData = {
+export type GetFolderData = {
     body?: never;
     path: {
         domainId: number;
@@ -3766,14 +3766,14 @@ export type GetLinksFoldersByDomainIdByFolderIdData = {
     url: '/links/folders/{domainId}/{folderId}';
 };
 
-export type GetLinksFoldersByDomainIdByFolderIdResponses = {
+export type GetFolderResponses = {
     /**
      * Default Response
      */
     200: unknown;
 };
 
-export type PostLinksFoldersData = {
+export type CreateFolderData = {
     body: {
         domainId: number;
         name: string;
@@ -3803,7 +3803,7 @@ export type PostLinksFoldersData = {
     url: '/links/folders';
 };
 
-export type PostLinksFoldersResponses = {
+export type CreateFolderResponses = {
     /**
      * Default Response
      */

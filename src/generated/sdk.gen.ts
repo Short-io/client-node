@@ -2,7 +2,7 @@
 
 import type { Client, Options as Options2, TDataShape } from './client';
 import { client } from './client.gen';
-import type { DeleteLinkCountryByLinkIdByCountryData, DeleteLinkCountryByLinkIdByCountryResponses, DeleteLinkRegionByLinkIdByCountryByRegionData, DeleteLinkRegionByLinkIdByCountryByRegionResponses, DeleteLinksByLinkIdData, DeleteLinksByLinkIdErrors, DeleteLinksByLinkIdResponses, DeleteLinksDeleteBulkData, DeleteLinksDeleteBulkResponses, DeleteLinksPermissionsByDomainIdByLinkIdByUserIdData, DeleteLinksPermissionsByDomainIdByLinkIdByUserIdErrors, DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponses, GetApiDomainsData, GetApiDomainsResponses, GetApiLinksData, GetApiLinksErrors, GetApiLinksResponses, GetDomainsByDomainIdData, GetDomainsByDomainIdErrors, GetDomainsByDomainIdResponses, GetLinkCountryByLinkIdData, GetLinkCountryByLinkIdResponses, GetLinkRegionByLinkIdData, GetLinkRegionByLinkIdResponses, GetLinkRegionListByCountryData, GetLinkRegionListByCountryResponses, GetLinksByLinkIdData, GetLinksByLinkIdErrors, GetLinksByLinkIdResponses, GetLinksByOriginalUrlData, GetLinksByOriginalUrlResponses, GetLinksExpandData, GetLinksExpandErrors, GetLinksExpandResponses, GetLinksFoldersByDomainIdByFolderIdData, GetLinksFoldersByDomainIdByFolderIdResponses, GetLinksFoldersByDomainIdData, GetLinksFoldersByDomainIdResponses, GetLinksMultipleByUrlData, GetLinksMultipleByUrlResponses, GetLinksOpengraphByDomainIdByLinkIdData, GetLinksOpengraphByDomainIdByLinkIdResponses, GetLinksPermissionsByDomainIdByLinkIdData, GetLinksPermissionsByDomainIdByLinkIdErrors, GetLinksPermissionsByDomainIdByLinkIdResponses, GetLinksTweetbotData, GetLinksTweetbotResponses, PostDomainsData, PostDomainsErrors, PostDomainsResponses, PostDomainsSettingsByDomainIdData, PostDomainsSettingsByDomainIdErrors, PostDomainsSettingsByDomainIdResponses, PostLinkCountryBulkByLinkIdData, PostLinkCountryBulkByLinkIdResponses, PostLinkCountryByLinkIdData, PostLinkCountryByLinkIdResponses, PostLinkRegionBulkByLinkIdData, PostLinkRegionBulkByLinkIdResponses, PostLinkRegionByLinkIdData, PostLinkRegionByLinkIdResponses, PostLinksArchiveBulkData, PostLinksArchiveBulkErrors, PostLinksArchiveBulkResponses, PostLinksArchiveData, PostLinksArchiveErrors, PostLinksArchiveResponses, PostLinksBulkData, PostLinksBulkResponses, PostLinksByLinkIdData, PostLinksByLinkIdErrors, PostLinksByLinkIdResponses, PostLinksData, PostLinksDuplicateByLinkIdData, PostLinksDuplicateByLinkIdErrors, PostLinksDuplicateByLinkIdResponses, PostLinksErrors, PostLinksExamplesData, PostLinksExamplesErrors, PostLinksExamplesResponses, PostLinksFoldersData, PostLinksFoldersResponses, PostLinksPermissionsByDomainIdByLinkIdByUserIdData, PostLinksPermissionsByDomainIdByLinkIdByUserIdErrors, PostLinksPermissionsByDomainIdByLinkIdByUserIdResponses, PostLinksPublicData, PostLinksPublicErrors, PostLinksPublicResponses, PostLinksQrBulkData, PostLinksQrBulkResponses, PostLinksQrByLinkIdStringData, PostLinksQrByLinkIdStringResponses, PostLinksResponses, PostLinksUnarchiveBulkData, PostLinksUnarchiveBulkErrors, PostLinksUnarchiveBulkResponses, PostLinksUnarchiveData, PostLinksUnarchiveErrors, PostLinksUnarchiveResponses, PostTagsBulkData, PostTagsBulkResponses, PutLinksOpengraphByDomainIdByLinkIdData, PutLinksOpengraphByDomainIdByLinkIdResponses } from './types.gen';
+import type { AddLinkPermissionData, AddLinkPermissionErrors, AddLinkPermissionResponses, AddTagsBulkData, AddTagsBulkResponses, ArchiveLinkData, ArchiveLinkErrors, ArchiveLinkResponses, ArchiveLinksBulkData, ArchiveLinksBulkErrors, ArchiveLinksBulkResponses, CreateDomainData, CreateDomainErrors, CreateDomainResponses, CreateExampleLinksData, CreateExampleLinksErrors, CreateExampleLinksResponses, CreateFolderData, CreateFolderResponses, CreateLinkCountriesBulkData, CreateLinkCountriesBulkResponses, CreateLinkCountryData, CreateLinkCountryResponses, CreateLinkData, CreateLinkErrors, CreateLinkPublicData, CreateLinkPublicErrors, CreateLinkPublicResponses, CreateLinkRegionData, CreateLinkRegionResponses, CreateLinkRegionsBulkData, CreateLinkRegionsBulkResponses, CreateLinkResponses, CreateLinksBulkData, CreateLinksBulkResponses, CreateLinkSimpleData, CreateLinkSimpleResponses, DeleteLinkCountryData, DeleteLinkCountryResponses, DeleteLinkData, DeleteLinkErrors, DeleteLinkPermissionData, DeleteLinkPermissionErrors, DeleteLinkPermissionResponses, DeleteLinkRegionData, DeleteLinkRegionResponses, DeleteLinkResponses, DeleteLinksBulkData, DeleteLinksBulkResponses, DuplicateLinkData, DuplicateLinkErrors, DuplicateLinkResponses, ExpandLinkData, ExpandLinkErrors, ExpandLinkResponses, GenerateQrCodeData, GenerateQrCodeResponses, GenerateQrCodesBulkData, GenerateQrCodesBulkResponses, GetDomainData, GetDomainErrors, GetDomainResponses, GetFolderData, GetFolderResponses, GetLinkByOriginalUrlData, GetLinkByOriginalUrlResponses, GetLinkCountriesData, GetLinkCountriesResponses, GetLinkData, GetLinkErrors, GetLinkOpengraphData, GetLinkOpengraphResponses, GetLinkPermissionsData, GetLinkPermissionsErrors, GetLinkPermissionsResponses, GetLinkRegionsData, GetLinkRegionsResponses, GetLinkResponses, GetLinksByUrlData, GetLinksByUrlResponses, GetRegionsByCountryData, GetRegionsByCountryResponses, ListDomainsData, ListDomainsResponses, ListFoldersData, ListFoldersResponses, ListLinksData, ListLinksErrors, ListLinksResponses, UnarchiveLinkData, UnarchiveLinkErrors, UnarchiveLinkResponses, UnarchiveLinksBulkData, UnarchiveLinksBulkErrors, UnarchiveLinksBulkResponses, UpdateDomainSettingsData, UpdateDomainSettingsErrors, UpdateDomainSettingsResponses, UpdateLinkData, UpdateLinkErrors, UpdateLinkOpengraphData, UpdateLinkOpengraphResponses, UpdateLinkResponses } from './types.gen';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean> = Options2<TData, ThrowOnError> & {
     /**
@@ -21,7 +21,7 @@ export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends 
 /**
  * Get link opengraph properties
  */
-export const getLinksOpengraphByDomainIdByLinkId = <ThrowOnError extends boolean = false>(options: Options<GetLinksOpengraphByDomainIdByLinkIdData, ThrowOnError>) => (options.client ?? client).get<GetLinksOpengraphByDomainIdByLinkIdResponses, unknown, ThrowOnError>({
+export const getLinkOpengraph = <ThrowOnError extends boolean = false>(options: Options<GetLinkOpengraphData, ThrowOnError>) => (options.client ?? client).get<GetLinkOpengraphResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/opengraph/{domainId}/{linkId}',
     ...options
@@ -30,7 +30,7 @@ export const getLinksOpengraphByDomainIdByLinkId = <ThrowOnError extends boolean
 /**
  * Set link opengraph properties
  */
-export const putLinksOpengraphByDomainIdByLinkId = <ThrowOnError extends boolean = false>(options: Options<PutLinksOpengraphByDomainIdByLinkIdData, ThrowOnError>) => (options.client ?? client).put<PutLinksOpengraphByDomainIdByLinkIdResponses, unknown, ThrowOnError>({
+export const updateLinkOpengraph = <ThrowOnError extends boolean = false>(options: Options<UpdateLinkOpengraphData, ThrowOnError>) => (options.client ?? client).put<UpdateLinkOpengraphResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/opengraph/{domainId}/{linkId}',
     ...options,
@@ -43,7 +43,7 @@ export const putLinksOpengraphByDomainIdByLinkId = <ThrowOnError extends boolean
 /**
  * Get link countries
  */
-export const getLinkCountryByLinkId = <ThrowOnError extends boolean = false>(options: Options<GetLinkCountryByLinkIdData, ThrowOnError>) => (options.client ?? client).get<GetLinkCountryByLinkIdResponses, unknown, ThrowOnError>({
+export const getLinkCountries = <ThrowOnError extends boolean = false>(options: Options<GetLinkCountriesData, ThrowOnError>) => (options.client ?? client).get<GetLinkCountriesResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/link_country/{linkId}',
     ...options
@@ -52,7 +52,7 @@ export const getLinkCountryByLinkId = <ThrowOnError extends boolean = false>(opt
 /**
  * Create link country
  */
-export const postLinkCountryByLinkId = <ThrowOnError extends boolean = false>(options: Options<PostLinkCountryByLinkIdData, ThrowOnError>) => (options.client ?? client).post<PostLinkCountryByLinkIdResponses, unknown, ThrowOnError>({
+export const createLinkCountry = <ThrowOnError extends boolean = false>(options: Options<CreateLinkCountryData, ThrowOnError>) => (options.client ?? client).post<CreateLinkCountryResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/link_country/{linkId}',
     ...options,
@@ -65,7 +65,7 @@ export const postLinkCountryByLinkId = <ThrowOnError extends boolean = false>(op
 /**
  * Create link countries in bulk
  */
-export const postLinkCountryBulkByLinkId = <ThrowOnError extends boolean = false>(options: Options<PostLinkCountryBulkByLinkIdData, ThrowOnError>) => (options.client ?? client).post<PostLinkCountryBulkByLinkIdResponses, unknown, ThrowOnError>({
+export const createLinkCountriesBulk = <ThrowOnError extends boolean = false>(options: Options<CreateLinkCountriesBulkData, ThrowOnError>) => (options.client ?? client).post<CreateLinkCountriesBulkResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/link_country/bulk/{linkId}',
     ...options,
@@ -78,7 +78,7 @@ export const postLinkCountryBulkByLinkId = <ThrowOnError extends boolean = false
 /**
  * Delete link country
  */
-export const deleteLinkCountryByLinkIdByCountry = <ThrowOnError extends boolean = false>(options: Options<DeleteLinkCountryByLinkIdByCountryData, ThrowOnError>) => (options.client ?? client).delete<DeleteLinkCountryByLinkIdByCountryResponses, unknown, ThrowOnError>({
+export const deleteLinkCountry = <ThrowOnError extends boolean = false>(options: Options<DeleteLinkCountryData, ThrowOnError>) => (options.client ?? client).delete<DeleteLinkCountryResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/link_country/{linkId}/{country}',
     ...options
@@ -87,7 +87,7 @@ export const deleteLinkCountryByLinkIdByCountry = <ThrowOnError extends boolean 
 /**
  * Get link regions
  */
-export const getLinkRegionByLinkId = <ThrowOnError extends boolean = false>(options: Options<GetLinkRegionByLinkIdData, ThrowOnError>) => (options.client ?? client).get<GetLinkRegionByLinkIdResponses, unknown, ThrowOnError>({
+export const getLinkRegions = <ThrowOnError extends boolean = false>(options: Options<GetLinkRegionsData, ThrowOnError>) => (options.client ?? client).get<GetLinkRegionsResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/link_region/{linkId}',
     ...options
@@ -98,7 +98,7 @@ export const getLinkRegionByLinkId = <ThrowOnError extends boolean = false>(opti
  *
  * Add region targeting to link
  */
-export const postLinkRegionByLinkId = <ThrowOnError extends boolean = false>(options: Options<PostLinkRegionByLinkIdData, ThrowOnError>) => (options.client ?? client).post<PostLinkRegionByLinkIdResponses, unknown, ThrowOnError>({
+export const createLinkRegion = <ThrowOnError extends boolean = false>(options: Options<CreateLinkRegionData, ThrowOnError>) => (options.client ?? client).post<CreateLinkRegionResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/link_region/{linkId}',
     ...options,
@@ -111,7 +111,7 @@ export const postLinkRegionByLinkId = <ThrowOnError extends boolean = false>(opt
 /**
  * Get all regions by country
  */
-export const getLinkRegionListByCountry = <ThrowOnError extends boolean = false>(options: Options<GetLinkRegionListByCountryData, ThrowOnError>) => (options.client ?? client).get<GetLinkRegionListByCountryResponses, unknown, ThrowOnError>({
+export const getRegionsByCountry = <ThrowOnError extends boolean = false>(options: Options<GetRegionsByCountryData, ThrowOnError>) => (options.client ?? client).get<GetRegionsByCountryResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/link_region/list/{country}',
     ...options
@@ -120,7 +120,7 @@ export const getLinkRegionListByCountry = <ThrowOnError extends boolean = false>
 /**
  * Create link regions in bulk
  */
-export const postLinkRegionBulkByLinkId = <ThrowOnError extends boolean = false>(options: Options<PostLinkRegionBulkByLinkIdData, ThrowOnError>) => (options.client ?? client).post<PostLinkRegionBulkByLinkIdResponses, unknown, ThrowOnError>({
+export const createLinkRegionsBulk = <ThrowOnError extends boolean = false>(options: Options<CreateLinkRegionsBulkData, ThrowOnError>) => (options.client ?? client).post<CreateLinkRegionsBulkResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/link_region/bulk/{linkId}',
     ...options,
@@ -133,7 +133,7 @@ export const postLinkRegionBulkByLinkId = <ThrowOnError extends boolean = false>
 /**
  * Delete link region by country
  */
-export const deleteLinkRegionByLinkIdByCountryByRegion = <ThrowOnError extends boolean = false>(options: Options<DeleteLinkRegionByLinkIdByCountryByRegionData, ThrowOnError>) => (options.client ?? client).delete<DeleteLinkRegionByLinkIdByCountryByRegionResponses, unknown, ThrowOnError>({
+export const deleteLinkRegion = <ThrowOnError extends boolean = false>(options: Options<DeleteLinkRegionData, ThrowOnError>) => (options.client ?? client).delete<DeleteLinkRegionResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/link_region/{linkId}/{country}/{region}',
     ...options
@@ -142,7 +142,7 @@ export const deleteLinkRegionByLinkIdByCountryByRegion = <ThrowOnError extends b
 /**
  * Get link permissions
  */
-export const getLinksPermissionsByDomainIdByLinkId = <ThrowOnError extends boolean = false>(options: Options<GetLinksPermissionsByDomainIdByLinkIdData, ThrowOnError>) => (options.client ?? client).get<GetLinksPermissionsByDomainIdByLinkIdResponses, GetLinksPermissionsByDomainIdByLinkIdErrors, ThrowOnError>({
+export const getLinkPermissions = <ThrowOnError extends boolean = false>(options: Options<GetLinkPermissionsData, ThrowOnError>) => (options.client ?? client).get<GetLinkPermissionsResponses, GetLinkPermissionsErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/permissions/{domainId}/{linkId}',
     ...options
@@ -151,7 +151,7 @@ export const getLinksPermissionsByDomainIdByLinkId = <ThrowOnError extends boole
 /**
  * Delete link permissions
  */
-export const deleteLinksPermissionsByDomainIdByLinkIdByUserId = <ThrowOnError extends boolean = false>(options: Options<DeleteLinksPermissionsByDomainIdByLinkIdByUserIdData, ThrowOnError>) => (options.client ?? client).delete<DeleteLinksPermissionsByDomainIdByLinkIdByUserIdResponses, DeleteLinksPermissionsByDomainIdByLinkIdByUserIdErrors, ThrowOnError>({
+export const deleteLinkPermission = <ThrowOnError extends boolean = false>(options: Options<DeleteLinkPermissionData, ThrowOnError>) => (options.client ?? client).delete<DeleteLinkPermissionResponses, DeleteLinkPermissionErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/permissions/{domainId}/{linkId}/{userId}',
     ...options
@@ -160,7 +160,7 @@ export const deleteLinksPermissionsByDomainIdByLinkIdByUserId = <ThrowOnError ex
 /**
  * Add link permission
  */
-export const postLinksPermissionsByDomainIdByLinkIdByUserId = <ThrowOnError extends boolean = false>(options: Options<PostLinksPermissionsByDomainIdByLinkIdByUserIdData, ThrowOnError>) => (options.client ?? client).post<PostLinksPermissionsByDomainIdByLinkIdByUserIdResponses, PostLinksPermissionsByDomainIdByLinkIdByUserIdErrors, ThrowOnError>({
+export const addLinkPermission = <ThrowOnError extends boolean = false>(options: Options<AddLinkPermissionData, ThrowOnError>) => (options.client ?? client).post<AddLinkPermissionResponses, AddLinkPermissionErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/permissions/{domainId}/{linkId}/{userId}',
     ...options
@@ -171,7 +171,7 @@ export const postLinksPermissionsByDomainIdByLinkIdByUserId = <ThrowOnError exte
  *
  * Get domain links
  */
-export const getApiLinks = <ThrowOnError extends boolean = false>(options: Options<GetApiLinksData, ThrowOnError>) => (options.client ?? client).get<GetApiLinksResponses, GetApiLinksErrors, ThrowOnError>({
+export const listLinks = <ThrowOnError extends boolean = false>(options: Options<ListLinksData, ThrowOnError>) => (options.client ?? client).get<ListLinksResponses, ListLinksErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/api/links',
     ...options
@@ -180,7 +180,7 @@ export const getApiLinks = <ThrowOnError extends boolean = false>(options: Optio
 /**
  * Generate QR code for the link
  */
-export const postLinksQrByLinkIdString = <ThrowOnError extends boolean = false>(options: Options<PostLinksQrByLinkIdStringData, ThrowOnError>) => (options.client ?? client).post<PostLinksQrByLinkIdStringResponses, unknown, ThrowOnError>({
+export const generateQrCode = <ThrowOnError extends boolean = false>(options: Options<GenerateQrCodeData, ThrowOnError>) => (options.client ?? client).post<GenerateQrCodeResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/qr/{linkIdString}',
     ...options,
@@ -195,7 +195,7 @@ export const postLinksQrByLinkIdString = <ThrowOnError extends boolean = false>(
  *
  * Generate QR codes for the link in bulk. Rate limit - 1 request per minute
  */
-export const postLinksQrBulk = <ThrowOnError extends boolean = false>(options: Options<PostLinksQrBulkData, ThrowOnError>) => (options.client ?? client).post<PostLinksQrBulkResponses, unknown, ThrowOnError>({
+export const generateQrCodesBulk = <ThrowOnError extends boolean = false>(options: Options<GenerateQrCodesBulkData, ThrowOnError>) => (options.client ?? client).post<GenerateQrCodesBulkResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/qr/bulk',
     ...options,
@@ -212,7 +212,7 @@ export const postLinksQrBulk = <ThrowOnError extends boolean = false>(options: O
  *
  * **Rate limit**: 20/s
  */
-export const deleteLinksByLinkId = <ThrowOnError extends boolean = false>(options: Options<DeleteLinksByLinkIdData, ThrowOnError>) => (options.client ?? client).delete<DeleteLinksByLinkIdResponses, DeleteLinksByLinkIdErrors, ThrowOnError>({
+export const deleteLink = <ThrowOnError extends boolean = false>(options: Options<DeleteLinkData, ThrowOnError>) => (options.client ?? client).delete<DeleteLinkResponses, DeleteLinkErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/{link_id}',
     ...options
@@ -225,7 +225,7 @@ export const deleteLinksByLinkId = <ThrowOnError extends boolean = false>(option
  *
  * **Rate limit**: 1/s
  */
-export const deleteLinksDeleteBulk = <ThrowOnError extends boolean = false>(options: Options<DeleteLinksDeleteBulkData, ThrowOnError>) => (options.client ?? client).delete<DeleteLinksDeleteBulkResponses, unknown, ThrowOnError>({
+export const deleteLinksBulk = <ThrowOnError extends boolean = false>(options: Options<DeleteLinksBulkData, ThrowOnError>) => (options.client ?? client).delete<DeleteLinksBulkResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/delete_bulk',
     ...options,
@@ -238,7 +238,7 @@ export const deleteLinksDeleteBulk = <ThrowOnError extends boolean = false>(opti
 /**
  * Archive link
  */
-export const postLinksArchive = <ThrowOnError extends boolean = false>(options: Options<PostLinksArchiveData, ThrowOnError>) => (options.client ?? client).post<PostLinksArchiveResponses, PostLinksArchiveErrors, ThrowOnError>({
+export const archiveLink = <ThrowOnError extends boolean = false>(options: Options<ArchiveLinkData, ThrowOnError>) => (options.client ?? client).post<ArchiveLinkResponses, ArchiveLinkErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/archive',
     ...options,
@@ -251,7 +251,7 @@ export const postLinksArchive = <ThrowOnError extends boolean = false>(options: 
 /**
  * Archive links in bulk
  */
-export const postLinksArchiveBulk = <ThrowOnError extends boolean = false>(options: Options<PostLinksArchiveBulkData, ThrowOnError>) => (options.client ?? client).post<PostLinksArchiveBulkResponses, PostLinksArchiveBulkErrors, ThrowOnError>({
+export const archiveLinksBulk = <ThrowOnError extends boolean = false>(options: Options<ArchiveLinksBulkData, ThrowOnError>) => (options.client ?? client).post<ArchiveLinksBulkResponses, ArchiveLinksBulkErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/archive_bulk',
     ...options,
@@ -264,7 +264,7 @@ export const postLinksArchiveBulk = <ThrowOnError extends boolean = false>(optio
 /**
  * Unarchive link
  */
-export const postLinksUnarchive = <ThrowOnError extends boolean = false>(options: Options<PostLinksUnarchiveData, ThrowOnError>) => (options.client ?? client).post<PostLinksUnarchiveResponses, PostLinksUnarchiveErrors, ThrowOnError>({
+export const unarchiveLink = <ThrowOnError extends boolean = false>(options: Options<UnarchiveLinkData, ThrowOnError>) => (options.client ?? client).post<UnarchiveLinkResponses, UnarchiveLinkErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/unarchive',
     ...options,
@@ -277,7 +277,7 @@ export const postLinksUnarchive = <ThrowOnError extends boolean = false>(options
 /**
  * Unarchive links in bulk
  */
-export const postLinksUnarchiveBulk = <ThrowOnError extends boolean = false>(options: Options<PostLinksUnarchiveBulkData, ThrowOnError>) => (options.client ?? client).post<PostLinksUnarchiveBulkResponses, PostLinksUnarchiveBulkErrors, ThrowOnError>({
+export const unarchiveLinksBulk = <ThrowOnError extends boolean = false>(options: Options<UnarchiveLinksBulkData, ThrowOnError>) => (options.client ?? client).post<UnarchiveLinksBulkResponses, UnarchiveLinksBulkErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/unarchive_bulk',
     ...options,
@@ -292,7 +292,7 @@ export const postLinksUnarchiveBulk = <ThrowOnError extends boolean = false>(opt
  *
  * Get link info by link id. Rate limit: 20/s
  */
-export const getLinksByLinkId = <ThrowOnError extends boolean = false>(options: Options<GetLinksByLinkIdData, ThrowOnError>) => (options.client ?? client).get<GetLinksByLinkIdResponses, GetLinksByLinkIdErrors, ThrowOnError>({
+export const getLink = <ThrowOnError extends boolean = false>(options: Options<GetLinkData, ThrowOnError>) => (options.client ?? client).get<GetLinkResponses, GetLinkErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/{linkId}',
     ...options
@@ -305,7 +305,7 @@ export const getLinksByLinkId = <ThrowOnError extends boolean = false>(options: 
  *
  * **Rate limit**: 20/s
  */
-export const postLinksByLinkId = <ThrowOnError extends boolean = false>(options: Options<PostLinksByLinkIdData, ThrowOnError>) => (options.client ?? client).post<PostLinksByLinkIdResponses, PostLinksByLinkIdErrors, ThrowOnError>({
+export const updateLink = <ThrowOnError extends boolean = false>(options: Options<UpdateLinkData, ThrowOnError>) => (options.client ?? client).post<UpdateLinkResponses, UpdateLinkErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/{linkId}',
     ...options,
@@ -320,7 +320,7 @@ export const postLinksByLinkId = <ThrowOnError extends boolean = false>(options:
  *
  * Get link info by path. Rate limit: 20/s
  */
-export const getLinksExpand = <ThrowOnError extends boolean = false>(options: Options<GetLinksExpandData, ThrowOnError>) => (options.client ?? client).get<GetLinksExpandResponses, GetLinksExpandErrors, ThrowOnError>({
+export const expandLink = <ThrowOnError extends boolean = false>(options: Options<ExpandLinkData, ThrowOnError>) => (options.client ?? client).get<ExpandLinkResponses, ExpandLinkErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/expand',
     ...options
@@ -331,7 +331,7 @@ export const getLinksExpand = <ThrowOnError extends boolean = false>(options: Op
  *
  * **DEPRECATED** Get link info by original URL. Rate limit: 20/s
  */
-export const getLinksByOriginalUrl = <ThrowOnError extends boolean = false>(options: Options<GetLinksByOriginalUrlData, ThrowOnError>) => (options.client ?? client).get<GetLinksByOriginalUrlResponses, unknown, ThrowOnError>({
+export const getLinkByOriginalUrl = <ThrowOnError extends boolean = false>(options: Options<GetLinkByOriginalUrlData, ThrowOnError>) => (options.client ?? client).get<GetLinkByOriginalUrlResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/by-original-url',
     ...options
@@ -342,7 +342,7 @@ export const getLinksByOriginalUrl = <ThrowOnError extends boolean = false>(opti
  *
  * Returns all links with the same original URL
  */
-export const getLinksMultipleByUrl = <ThrowOnError extends boolean = false>(options: Options<GetLinksMultipleByUrlData, ThrowOnError>) => (options.client ?? client).get<GetLinksMultipleByUrlResponses, unknown, ThrowOnError>({
+export const getLinksByUrl = <ThrowOnError extends boolean = false>(options: Options<GetLinksByUrlData, ThrowOnError>) => (options.client ?? client).get<GetLinksByUrlResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/multiple-by-url',
     ...options
@@ -363,7 +363,7 @@ export const getLinksMultipleByUrl = <ThrowOnError extends boolean = false>(opti
  *
  * **Rate limit**: 50/s
  */
-export const postLinks = <ThrowOnError extends boolean = false>(options?: Options<PostLinksData, ThrowOnError>) => (options?.client ?? client).post<PostLinksResponses, PostLinksErrors, ThrowOnError>({
+export const createLink = <ThrowOnError extends boolean = false>(options?: Options<CreateLinkData, ThrowOnError>) => (options?.client ?? client).post<CreateLinkResponses, CreateLinkErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links',
     ...options,
@@ -381,7 +381,7 @@ export const postLinks = <ThrowOnError extends boolean = false>(options?: Option
  * **Rate limit**: 50/s
  *
  */
-export const getLinksTweetbot = <ThrowOnError extends boolean = false>(options: Options<GetLinksTweetbotData, ThrowOnError>) => (options.client ?? client).get<GetLinksTweetbotResponses, unknown, ThrowOnError>({
+export const createLinkSimple = <ThrowOnError extends boolean = false>(options: Options<CreateLinkSimpleData, ThrowOnError>) => (options.client ?? client).get<CreateLinkSimpleResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/tweetbot',
     ...options
@@ -397,7 +397,7 @@ export const getLinksTweetbot = <ThrowOnError extends boolean = false>(options: 
  * You can use it with public API key in your frontend applications (client-side javascript, Android & iPhone apps)
  * **Rate limit**: 50/s
  */
-export const postLinksPublic = <ThrowOnError extends boolean = false>(options: Options<PostLinksPublicData, ThrowOnError>) => (options.client ?? client).post<PostLinksPublicResponses, PostLinksPublicErrors, ThrowOnError>({
+export const createLinkPublic = <ThrowOnError extends boolean = false>(options: Options<CreateLinkPublicData, ThrowOnError>) => (options.client ?? client).post<CreateLinkPublicResponses, CreateLinkPublicErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/public',
     ...options,
@@ -422,7 +422,7 @@ export const postLinksPublic = <ThrowOnError extends boolean = false>(options: O
  *
  * **Rate limit**: 5 queries in 10 seconds
  */
-export const postLinksBulk = <ThrowOnError extends boolean = false>(options: Options<PostLinksBulkData, ThrowOnError>) => (options.client ?? client).post<PostLinksBulkResponses, unknown, ThrowOnError>({
+export const createLinksBulk = <ThrowOnError extends boolean = false>(options: Options<CreateLinksBulkData, ThrowOnError>) => (options.client ?? client).post<CreateLinksBulkResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/bulk',
     ...options,
@@ -446,7 +446,7 @@ export const postLinksBulk = <ThrowOnError extends boolean = false>(options: Opt
  *
  * **Rate limit**: 5/10s
  */
-export const postLinksExamples = <ThrowOnError extends boolean = false>(options: Options<PostLinksExamplesData, ThrowOnError>) => (options.client ?? client).post<PostLinksExamplesResponses, PostLinksExamplesErrors, ThrowOnError>({
+export const createExampleLinks = <ThrowOnError extends boolean = false>(options: Options<CreateExampleLinksData, ThrowOnError>) => (options.client ?? client).post<CreateExampleLinksResponses, CreateExampleLinksErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/examples',
     ...options,
@@ -464,7 +464,7 @@ export const postLinksExamples = <ThrowOnError extends boolean = false>(options:
  *
  * **Rate limit**: 50/s
  */
-export const postLinksDuplicateByLinkId = <ThrowOnError extends boolean = false>(options: Options<PostLinksDuplicateByLinkIdData, ThrowOnError>) => (options.client ?? client).post<PostLinksDuplicateByLinkIdResponses, PostLinksDuplicateByLinkIdErrors, ThrowOnError>({
+export const duplicateLink = <ThrowOnError extends boolean = false>(options: Options<DuplicateLinkData, ThrowOnError>) => (options.client ?? client).post<DuplicateLinkResponses, DuplicateLinkErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/duplicate/{linkId}',
     ...options,
@@ -479,7 +479,7 @@ export const postLinksDuplicateByLinkId = <ThrowOnError extends boolean = false>
  *
  * Shows all domains of current user
  */
-export const getApiDomains = <ThrowOnError extends boolean = false>(options?: Options<GetApiDomainsData, ThrowOnError>) => (options?.client ?? client).get<GetApiDomainsResponses, unknown, ThrowOnError>({
+export const listDomains = <ThrowOnError extends boolean = false>(options?: Options<ListDomainsData, ThrowOnError>) => (options?.client ?? client).get<ListDomainsResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/api/domains',
     ...options
@@ -488,7 +488,7 @@ export const getApiDomains = <ThrowOnError extends boolean = false>(options?: Op
 /**
  * Get domain details by id
  */
-export const getDomainsByDomainId = <ThrowOnError extends boolean = false>(options: Options<GetDomainsByDomainIdData, ThrowOnError>) => (options.client ?? client).get<GetDomainsByDomainIdResponses, GetDomainsByDomainIdErrors, ThrowOnError>({
+export const getDomain = <ThrowOnError extends boolean = false>(options: Options<GetDomainData, ThrowOnError>) => (options.client ?? client).get<GetDomainResponses, GetDomainErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/domains/{domainId}',
     ...options
@@ -499,7 +499,7 @@ export const getDomainsByDomainId = <ThrowOnError extends boolean = false>(optio
  *
  * Update domain settings
  */
-export const postDomainsSettingsByDomainId = <ThrowOnError extends boolean = false>(options: Options<PostDomainsSettingsByDomainIdData, ThrowOnError>) => (options.client ?? client).post<PostDomainsSettingsByDomainIdResponses, PostDomainsSettingsByDomainIdErrors, ThrowOnError>({
+export const updateDomainSettings = <ThrowOnError extends boolean = false>(options: Options<UpdateDomainSettingsData, ThrowOnError>) => (options.client ?? client).post<UpdateDomainSettingsResponses, UpdateDomainSettingsErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/domains/settings/{domainId}',
     ...options,
@@ -512,7 +512,7 @@ export const postDomainsSettingsByDomainId = <ThrowOnError extends boolean = fal
 /**
  * Append a single tag to the links in bulk
  */
-export const postTagsBulk = <ThrowOnError extends boolean = false>(options: Options<PostTagsBulkData, ThrowOnError>) => (options.client ?? client).post<PostTagsBulkResponses, unknown, ThrowOnError>({
+export const addTagsBulk = <ThrowOnError extends boolean = false>(options: Options<AddTagsBulkData, ThrowOnError>) => (options.client ?? client).post<AddTagsBulkResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/tags/bulk',
     ...options,
@@ -525,7 +525,7 @@ export const postTagsBulk = <ThrowOnError extends boolean = false>(options: Opti
 /**
  * Create a domain
  */
-export const postDomains = <ThrowOnError extends boolean = false>(options: Options<PostDomainsData, ThrowOnError>) => (options.client ?? client).post<PostDomainsResponses, PostDomainsErrors, ThrowOnError>({
+export const createDomain = <ThrowOnError extends boolean = false>(options: Options<CreateDomainData, ThrowOnError>) => (options.client ?? client).post<CreateDomainResponses, CreateDomainErrors, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/domains',
     ...options,
@@ -538,7 +538,7 @@ export const postDomains = <ThrowOnError extends boolean = false>(options: Optio
 /**
  * Get links folders for the specified domain id
  */
-export const getLinksFoldersByDomainId = <ThrowOnError extends boolean = false>(options: Options<GetLinksFoldersByDomainIdData, ThrowOnError>) => (options.client ?? client).get<GetLinksFoldersByDomainIdResponses, unknown, ThrowOnError>({
+export const listFolders = <ThrowOnError extends boolean = false>(options: Options<ListFoldersData, ThrowOnError>) => (options.client ?? client).get<ListFoldersResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/folders/{domainId}',
     ...options
@@ -547,7 +547,7 @@ export const getLinksFoldersByDomainId = <ThrowOnError extends boolean = false>(
 /**
  * Get links folder for the specified domain id and user id
  */
-export const getLinksFoldersByDomainIdByFolderId = <ThrowOnError extends boolean = false>(options: Options<GetLinksFoldersByDomainIdByFolderIdData, ThrowOnError>) => (options.client ?? client).get<GetLinksFoldersByDomainIdByFolderIdResponses, unknown, ThrowOnError>({
+export const getFolder = <ThrowOnError extends boolean = false>(options: Options<GetFolderData, ThrowOnError>) => (options.client ?? client).get<GetFolderResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/folders/{domainId}/{folderId}',
     ...options
@@ -556,7 +556,7 @@ export const getLinksFoldersByDomainIdByFolderId = <ThrowOnError extends boolean
 /**
  * Create a new folder
  */
-export const postLinksFolders = <ThrowOnError extends boolean = false>(options: Options<PostLinksFoldersData, ThrowOnError>) => (options.client ?? client).post<PostLinksFoldersResponses, unknown, ThrowOnError>({
+export const createFolder = <ThrowOnError extends boolean = false>(options: Options<CreateFolderData, ThrowOnError>) => (options.client ?? client).post<CreateFolderResponses, unknown, ThrowOnError>({
     security: [{ name: 'Authorization', type: 'apiKey' }],
     url: '/links/folders',
     ...options,
