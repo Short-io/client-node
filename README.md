@@ -107,9 +107,8 @@ console.log("Link ID:", result.data.idString);
 #### Create a Link
 
 ```javascript
-import { createLink, postLinks } from "@short.io/client-node";
+import { createLink } from "@short.io/client-node";
 
-// Using the convenience function
 const result = await createLink({
   body: {
     originalURL: "https://example.com",
@@ -121,17 +120,15 @@ const result = await createLink({
     password: "secret123"      // Optional: password protection
   }
 });
-
-// postLinks is the same function (createLink is an alias)
 ```
 
 #### Get Link Information
 
 ```javascript
-import { getLinksByLinkId, getLinksExpand } from "@short.io/client-node";
+import { getLink, expandLink } from "@short.io/client-node";
 
 // Get link by ID
-const linkInfo = await getLinksByLinkId({
+const linkInfo = await getLink({
   path: { linkId: "your-link-id" }
 });
 
@@ -139,7 +136,7 @@ console.log("Original URL:", linkInfo.data.originalURL);
 console.log("Clicks:", linkInfo.data.clicks);
 
 // Get link by domain and path
-const expanded = await getLinksExpand({
+const expanded = await expandLink({
   query: {
     domain: "your-domain.com",
     path: "my-link"
@@ -150,9 +147,9 @@ const expanded = await getLinksExpand({
 #### Update a Link
 
 ```javascript
-import { postLinksByLinkId } from "@short.io/client-node";
+import { updateLink } from "@short.io/client-node";
 
-const updated = await postLinksByLinkId({
+const updated = await updateLink({
   path: { linkId: "your-link-id" },
   body: {
     originalURL: "https://new-destination.com",
@@ -164,9 +161,9 @@ const updated = await postLinksByLinkId({
 #### Delete a Link
 
 ```javascript
-import { deleteLinksByLinkId } from "@short.io/client-node";
+import { deleteLink } from "@short.io/client-node";
 
-await deleteLinksByLinkId({
+await deleteLink({
   path: { link_id: "your-link-id" }
 });
 ```
@@ -174,9 +171,9 @@ await deleteLinksByLinkId({
 #### Duplicate a Link
 
 ```javascript
-import { postLinksDuplicateByLinkId } from "@short.io/client-node";
+import { duplicateLink } from "@short.io/client-node";
 
-const duplicate = await postLinksDuplicateByLinkId({
+const duplicate = await duplicateLink({
   path: { linkId: "your-link-id" },
   body: {
     path: "new-custom-path" // Optional: specify new path
@@ -187,15 +184,15 @@ const duplicate = await postLinksDuplicateByLinkId({
 #### Archive/Unarchive Links
 
 ```javascript
-import { postLinksArchive, postLinksUnarchive } from "@short.io/client-node";
+import { archiveLink, unarchiveLink } from "@short.io/client-node";
 
 // Archive a link
-await postLinksArchive({
+await archiveLink({
   body: { link_id: "your-link-id" }
 });
 
 // Unarchive a link
-await postLinksUnarchive({
+await unarchiveLink({
   body: { link_id: "your-link-id" }
 });
 ```
@@ -203,9 +200,9 @@ await postLinksUnarchive({
 #### List Links
 
 ```javascript
-import { getApiLinks } from "@short.io/client-node";
+import { listLinks } from "@short.io/client-node";
 
-const links = await getApiLinks({
+const links = await listLinks({
   query: {
     domain_id: "your-domain-id",
     limit: 50,
@@ -220,30 +217,30 @@ console.log("Total links:", links.data.length);
 
 ```javascript
 import {
-  getApiDomains,
-  getDomainsByDomainId,
-  postDomains,
-  postDomainsSettingsByDomainId
+  listDomains,
+  getDomain,
+  createDomain,
+  updateDomainSettings
 } from "@short.io/client-node";
 
 // List all domains
-const domains = await getApiDomains();
+const domains = await listDomains();
 console.log("Domains:", domains.data);
 
 // Get specific domain
-const domain = await getDomainsByDomainId({
+const domain = await getDomain({
   path: { domainId: "your-domain-id" }
 });
 
 // Create a new domain
-const newDomain = await postDomains({
+const newDomain = await createDomain({
   body: {
     hostname: "links.example.com"
   }
 });
 
 // Update domain settings
-await postDomainsSettingsByDomainId({
+await updateDomainSettings({
   path: { domainId: "your-domain-id" },
   body: {
     hideReferer: true,
@@ -257,10 +254,10 @@ await postDomainsSettingsByDomainId({
 #### Create Multiple Links
 
 ```javascript
-import { postLinksBulk } from "@short.io/client-node";
+import { createLinksBulk } from "@short.io/client-node";
 
 // Create up to 1000 links at once
-const bulkResult = await postLinksBulk({
+const bulkResult = await createLinksBulk({
   body: [
     { originalURL: "https://example1.com", domain: "your-domain.com" },
     { originalURL: "https://example2.com", domain: "your-domain.com", path: "custom" },
@@ -281,9 +278,9 @@ bulkResult.data.forEach((item, index) => {
 #### Delete Multiple Links
 
 ```javascript
-import { deleteLinksDeleteBulk } from "@short.io/client-node";
+import { deleteLinksBulk } from "@short.io/client-node";
 
-await deleteLinksDeleteBulk({
+await deleteLinksBulk({
   body: {
     links: ["link-id-1", "link-id-2", "link-id-3"]
   }
@@ -293,15 +290,15 @@ await deleteLinksDeleteBulk({
 #### Archive Multiple Links
 
 ```javascript
-import { postLinksArchiveBulk, postLinksUnarchiveBulk } from "@short.io/client-node";
+import { archiveLinksBulk, unarchiveLinksBulk } from "@short.io/client-node";
 
 // Archive multiple links
-await postLinksArchiveBulk({
+await archiveLinksBulk({
   body: { links: ["link-id-1", "link-id-2"] }
 });
 
 // Unarchive multiple links
-await postLinksUnarchiveBulk({
+await unarchiveLinksBulk({
   body: { links: ["link-id-1", "link-id-2"] }
 });
 ```
@@ -309,9 +306,9 @@ await postLinksUnarchiveBulk({
 #### Bulk Tagging
 
 ```javascript
-import { postTagsBulk } from "@short.io/client-node";
+import { addTagsBulk } from "@short.io/client-node";
 
-await postTagsBulk({
+await addTagsBulk({
   body: {
     links: ["link-id-1", "link-id-2"],
     tag: "marketing-campaign"
@@ -322,10 +319,10 @@ await postTagsBulk({
 ### QR Codes
 
 ```javascript
-import { postLinksQrByLinkIdString, postLinksQrBulk } from "@short.io/client-node";
+import { generateQrCode, generateQrCodesBulk } from "@short.io/client-node";
 
 // Generate QR code for a single link
-const qrCode = await postLinksQrByLinkIdString({
+const qrCode = await generateQrCode({
   path: { linkIdString: "your-link-id" },
   body: {
     size: 300,
@@ -334,7 +331,7 @@ const qrCode = await postLinksQrByLinkIdString({
 });
 
 // Bulk QR code generation (rate limited: 1 request per minute)
-const bulkQr = await postLinksQrBulk({
+const bulkQr = await generateQrCodesBulk({
   body: {
     links: ["link-id-1", "link-id-2"],
     size: 200,
@@ -349,14 +346,14 @@ const bulkQr = await postLinksQrBulk({
 
 ```javascript
 import {
-  postLinkCountryByLinkId,
-  getLinkCountryByLinkId,
-  deleteLinkCountryByLinkIdByCountry,
-  postLinkCountryBulkByLinkId
+  createLinkCountry,
+  getLinkCountries,
+  deleteLinkCountry,
+  createLinkCountriesBulk
 } from "@short.io/client-node";
 
 // Set country-specific redirect
-await postLinkCountryByLinkId({
+await createLinkCountry({
   path: { linkId: "your-link-id" },
   body: {
     country: "US",
@@ -365,12 +362,12 @@ await postLinkCountryByLinkId({
 });
 
 // Get all country redirects for a link
-const countries = await getLinkCountryByLinkId({
+const countries = await getLinkCountries({
   path: { linkId: "your-link-id" }
 });
 
 // Remove country targeting
-await deleteLinkCountryByLinkIdByCountry({
+await deleteLinkCountry({
   path: {
     linkId: "your-link-id",
     country: "US"
@@ -378,7 +375,7 @@ await deleteLinkCountryByLinkIdByCountry({
 });
 
 // Bulk country targeting
-await postLinkCountryBulkByLinkId({
+await createLinkCountriesBulk({
   path: { linkId: "your-link-id" },
   body: [
     { country: "US", url: "https://us.example.com" },
@@ -392,19 +389,19 @@ await postLinkCountryBulkByLinkId({
 
 ```javascript
 import {
-  postLinkRegionByLinkId,
-  getLinkRegionByLinkId,
-  getLinkRegionListByCountry,
-  postLinkRegionBulkByLinkId
+  createLinkRegion,
+  getLinkRegions,
+  getRegionsByCountry,
+  createLinkRegionsBulk
 } from "@short.io/client-node";
 
 // Get available regions for a country
-const regions = await getLinkRegionListByCountry({
+const regions = await getRegionsByCountry({
   path: { country: "US" }
 });
 
 // Set region-specific redirect
-await postLinkRegionByLinkId({
+await createLinkRegion({
   path: { linkId: "your-link-id" },
   body: {
     country: "US",
@@ -414,12 +411,12 @@ await postLinkRegionByLinkId({
 });
 
 // Get all region redirects for a link
-const linkRegions = await getLinkRegionByLinkId({
+const linkRegions = await getLinkRegions({
   path: { linkId: "your-link-id" }
 });
 
 // Bulk region targeting
-await postLinkRegionBulkByLinkId({
+await createLinkRegionsBulk({
   path: { linkId: "your-link-id" },
   body: [
     { country: "US", region: "CA", url: "https://ca.example.com" },
@@ -432,18 +429,18 @@ await postLinkRegionBulkByLinkId({
 
 ```javascript
 import {
-  getLinksFoldersByDomainId,
-  getLinksFoldersByDomainIdByFolderId,
-  postLinksFolders
+  listFolders,
+  getFolder,
+  createFolder
 } from "@short.io/client-node";
 
 // List all folders for a domain
-const folders = await getLinksFoldersByDomainId({
+const folders = await listFolders({
   path: { domainId: "your-domain-id" }
 });
 
 // Get specific folder
-const folder = await getLinksFoldersByDomainIdByFolderId({
+const folder = await getFolder({
   path: {
     domainId: "your-domain-id",
     folderId: "your-folder-id"
@@ -451,7 +448,7 @@ const folder = await getLinksFoldersByDomainIdByFolderId({
 });
 
 // Create a new folder
-const newFolder = await postLinksFolders({
+const newFolder = await createFolder({
   body: {
     domainId: "your-domain-id",
     name: "Marketing Links"
@@ -463,12 +460,12 @@ const newFolder = await postLinksFolders({
 
 ```javascript
 import {
-  getLinksOpengraphByDomainIdByLinkId,
-  putLinksOpengraphByDomainIdByLinkId
+  getLinkOpengraph,
+  updateLinkOpengraph
 } from "@short.io/client-node";
 
 // Get OpenGraph properties
-const og = await getLinksOpengraphByDomainIdByLinkId({
+const og = await getLinkOpengraph({
   path: {
     domainId: "your-domain-id",
     linkId: "your-link-id"
@@ -476,7 +473,7 @@ const og = await getLinksOpengraphByDomainIdByLinkId({
 });
 
 // Set OpenGraph properties
-await putLinksOpengraphByDomainIdByLinkId({
+await updateLinkOpengraph({
   path: {
     domainId: "your-domain-id",
     linkId: "your-link-id"
@@ -493,13 +490,13 @@ await putLinksOpengraphByDomainIdByLinkId({
 
 ```javascript
 import {
-  getLinksPermissionsByDomainIdByLinkId,
-  postLinksPermissionsByDomainIdByLinkIdByUserId,
-  deleteLinksPermissionsByDomainIdByLinkIdByUserId
+  getLinkPermissions,
+  addLinkPermission,
+  deleteLinkPermission
 } from "@short.io/client-node";
 
 // Get link permissions
-const permissions = await getLinksPermissionsByDomainIdByLinkId({
+const permissions = await getLinkPermissions({
   path: {
     domainId: "your-domain-id",
     linkId: "your-link-id"
@@ -507,7 +504,7 @@ const permissions = await getLinksPermissionsByDomainIdByLinkId({
 });
 
 // Add user permission
-await postLinksPermissionsByDomainIdByLinkIdByUserId({
+await addLinkPermission({
   path: {
     domainId: "your-domain-id",
     linkId: "your-link-id",
@@ -519,7 +516,7 @@ await postLinksPermissionsByDomainIdByLinkIdByUserId({
 });
 
 // Remove user permission
-await deleteLinksPermissionsByDomainIdByLinkIdByUserId({
+await deleteLinkPermission({
   path: {
     domainId: "your-domain-id",
     linkId: "your-link-id",
@@ -534,83 +531,83 @@ await deleteLinksPermissionsByDomainIdByLinkIdByUserId({
 
 | Function | Description | Rate Limit |
 |----------|-------------|------------|
-| `postLinks` / `createLink` | Create a new short link | 50/s |
-| `getApiLinks` | List all links for a domain | - |
-| `getLinksByLinkId` | Get link info by ID | 20/s |
-| `postLinksByLinkId` | Update an existing link | 20/s |
-| `deleteLinksByLinkId` | Delete a link | 20/s |
-| `getLinksExpand` | Get link info by domain and path | 20/s |
-| `getLinksByOriginalUrl` | Get link by original URL (deprecated) | 20/s |
-| `getLinksMultipleByUrl` | Get all links with same original URL | - |
-| `postLinksDuplicateByLinkId` | Duplicate an existing link | 50/s |
-| `postLinksArchive` | Archive a link | - |
-| `postLinksUnarchive` | Unarchive a link | - |
-| `postLinksPublic` | Create link using public API key | 50/s |
-| `getLinksTweetbot` | Create link (GET method) | 50/s |
-| `postLinksExamples` | Generate example links | 5/10s |
+| `createLink` | Create a new short link | 50/s |
+| `listLinks` | List all links for a domain | - |
+| `getLink` | Get link info by ID | 20/s |
+| `updateLink` | Update an existing link | 20/s |
+| `deleteLink` | Delete a link | 20/s |
+| `expandLink` | Get link info by domain and path | 20/s |
+| `getLinkByOriginalUrl` | Get link by original URL (deprecated) | 20/s |
+| `getLinksByUrl` | Get all links with same original URL | - |
+| `duplicateLink` | Duplicate an existing link | 50/s |
+| `archiveLink` | Archive a link | - |
+| `unarchiveLink` | Unarchive a link | - |
+| `createLinkPublic` | Create link using public API key | 50/s |
+| `createLinkSimple` | Create link (GET method) | 50/s |
+| `createExampleLinks` | Generate example links | 5/10s |
 
 ### Bulk Operations
 
 | Function | Description | Rate Limit |
 |----------|-------------|------------|
-| `postLinksBulk` | Create up to 1000 links | 5/10s |
-| `deleteLinksDeleteBulk` | Delete multiple links | 1/s |
-| `postLinksArchiveBulk` | Archive multiple links | - |
-| `postLinksUnarchiveBulk` | Unarchive multiple links | - |
-| `postTagsBulk` | Add tag to multiple links | - |
+| `createLinksBulk` | Create up to 1000 links | 5/10s |
+| `deleteLinksBulk` | Delete multiple links | 1/s |
+| `archiveLinksBulk` | Archive multiple links | - |
+| `unarchiveLinksBulk` | Unarchive multiple links | - |
+| `addTagsBulk` | Add tag to multiple links | - |
 
 ### Domain Operations
 
 | Function | Description |
 |----------|-------------|
-| `getApiDomains` | List all domains |
-| `getDomainsByDomainId` | Get domain details |
-| `postDomains` | Create a new domain |
-| `postDomainsSettingsByDomainId` | Update domain settings |
+| `listDomains` | List all domains |
+| `getDomain` | Get domain details |
+| `createDomain` | Create a new domain |
+| `updateDomainSettings` | Update domain settings |
 
 ### QR Code Operations
 
 | Function | Description | Rate Limit |
 |----------|-------------|------------|
-| `postLinksQrByLinkIdString` | Generate QR code for a link | - |
-| `postLinksQrBulk` | Generate QR codes in bulk | 1/min |
+| `generateQrCode` | Generate QR code for a link | - |
+| `generateQrCodesBulk` | Generate QR codes in bulk | 1/min |
 
 ### Geographic Targeting
 
 | Function | Description |
 |----------|-------------|
-| `getLinkCountryByLinkId` | Get country redirects |
-| `postLinkCountryByLinkId` | Set country redirect |
-| `postLinkCountryBulkByLinkId` | Set multiple country redirects |
-| `deleteLinkCountryByLinkIdByCountry` | Remove country redirect |
-| `getLinkRegionByLinkId` | Get region redirects |
-| `postLinkRegionByLinkId` | Set region redirect |
-| `postLinkRegionBulkByLinkId` | Set multiple region redirects |
-| `deleteLinkRegionByLinkIdByCountryByRegion` | Remove region redirect |
-| `getLinkRegionListByCountry` | List available regions |
+| `getLinkCountries` | Get country redirects |
+| `createLinkCountry` | Set country redirect |
+| `createLinkCountriesBulk` | Set multiple country redirects |
+| `deleteLinkCountry` | Remove country redirect |
+| `getLinkRegions` | Get region redirects |
+| `createLinkRegion` | Set region redirect |
+| `createLinkRegionsBulk` | Set multiple region redirects |
+| `deleteLinkRegion` | Remove region redirect |
+| `getRegionsByCountry` | List available regions |
 
 ### Folder Operations
 
 | Function | Description |
 |----------|-------------|
-| `getLinksFoldersByDomainId` | List folders for a domain |
-| `getLinksFoldersByDomainIdByFolderId` | Get folder details |
-| `postLinksFolders` | Create a new folder |
+| `listFolders` | List folders for a domain |
+| `getFolder` | Get folder details |
+| `createFolder` | Create a new folder |
 
 ### OpenGraph Operations
 
 | Function | Description |
 |----------|-------------|
-| `getLinksOpengraphByDomainIdByLinkId` | Get OpenGraph properties |
-| `putLinksOpengraphByDomainIdByLinkId` | Set OpenGraph properties |
+| `getLinkOpengraph` | Get OpenGraph properties |
+| `updateLinkOpengraph` | Set OpenGraph properties |
 
 ### Permission Operations
 
 | Function | Description |
 |----------|-------------|
-| `getLinksPermissionsByDomainIdByLinkId` | Get link permissions |
-| `postLinksPermissionsByDomainIdByLinkIdByUserId` | Add user permission |
-| `deleteLinksPermissionsByDomainIdByLinkIdByUserId` | Remove user permission |
+| `getLinkPermissions` | Get link permissions |
+| `addLinkPermission` | Add user permission |
+| `deleteLinkPermission` | Remove user permission |
 
 ## Advanced Configuration
 
@@ -632,7 +629,7 @@ client.setConfig({
 
 ```javascript
 import { createClient } from "@short.io/client-node";
-import { postLinks } from "@short.io/client-node";
+import { createLink } from "@short.io/client-node";
 
 const customClient = createClient({
   baseUrl: "https://api.short.io",
@@ -641,7 +638,7 @@ const customClient = createClient({
   }
 });
 
-const result = await postLinks({
+const result = await createLink({
   client: customClient,
   body: {
     originalURL: "https://example.com",
@@ -656,14 +653,14 @@ The SDK provides comprehensive TypeScript definitions for all operations:
 
 ```typescript
 import {
-  PostLinksData,
-  PostLinksResponse,
-  GetApiLinksResponse,
+  CreateLinkData,
+  CreateLinkResponse,
+  ListLinksResponse,
   type Options
 } from "@short.io/client-node";
 
 // Typed request
-const linkData: PostLinksData = {
+const linkData: CreateLinkData = {
   body: {
     originalURL: "https://example.com",
     domain: "your-domain.com",
@@ -672,7 +669,7 @@ const linkData: PostLinksData = {
 };
 
 // Typed response
-const result: PostLinksResponse = await createLink(linkData);
+const result: CreateLinkResponse = await createLink(linkData);
 
 if (result.data) {
   console.log(result.data.shortURL);  // TypeScript knows this is a string
