@@ -41,5 +41,8 @@
         "typescript": "^5.9.3",
         "typescript-eslint": "^8.53.1"
     },
+    "dependencies": {
+        "zod": "^4.3.6"
+    },
     "packageManager": "yarn@1.22.22+sha256.c17d3797fb9a9115bf375e31bfd30058cac6bc9c3b8807a3d8cb2094794b51ca"
 }

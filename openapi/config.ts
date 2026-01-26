@@ -88,5 +88,10 @@ export default defineConfig({
             enums: "javascript",
             name: "@hey-api/typescript",
         },
+        {
+            name: "zod",
+            compatibilityVersion: 4,
+            exportFromIndex: true,
+        },
     ],
 });

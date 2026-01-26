@@ -1,6 +1,7 @@
 import { client } from "./generated/client.gen"
 export * from './generated/types.gen';
 export * from './generated/sdk.gen';
+export * from './generated/zod.gen';
 
 client.setConfig({
     baseUrl: "https://api.short.io"
