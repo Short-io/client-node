@@ -1,6 +1,6 @@
 {
     "name": "@short.io/client-node",
-    "version": "3.0.0",
+    "version": "3.0.2",
     "description": "Official Short.io Node.js SDK for URL shortening, link management, QR codes, analytics, and geographic targeting",
     "main": "dist/index.js",
     "type": "module",
@@ -40,9 +40,6 @@
         "tsc-alias": "^1.8.16",
         "typescript": "^5.9.3",
         "typescript-eslint": "^8.53.1"
-    },
-    "dependencies": {
-        "@hey-api/client-fetch": "^0.13.1"
     },
     "packageManager": "yarn@1.22.22+sha256.c17d3797fb9a9115bf375e31bfd30058cac6bc9c3b8807a3d8cb2094794b51ca"
 }
