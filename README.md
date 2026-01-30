@@ -21,6 +21,7 @@ Official Node.js SDK for the [Short.io](https://short.io) URL shortening and lin
 - [Advanced Configuration](#advanced-configuration)
 - [TypeScript Support](#typescript-support)
 - [Rate Limits](#rate-limits)
+- [Rate Limit Handling](#rate-limit-handling)
 - [Error Handling](#error-handling)
 - [Support](#support)
 - [License](#license)
@@ -38,6 +39,7 @@ Official Node.js SDK for the [Short.io](https://short.io) URL shortening and lin
 - **Permissions Management** - Control user access to links
 - **Full TypeScript Support** - Comprehensive type definitions included
 - **Modern ESM** - Built with ES modules
+- **Automatic Rate Limit Handling** - Built-in retry logic for 429 responses with exponential backoff
 
 ## Requirements
 
@@ -700,6 +702,100 @@ interface Response<T> {
 | Bulk Delete | 1 request/second |
 | QR Bulk Generation | 1 request/minute |
 | Public API | 50 requests/second |
+
+## Rate Limit Handling
+
+The SDK provides optional automatic retry logic for HTTP 429 (Too Many Requests) responses with exponential backoff.
+
+**Default behavior:** No automatic retries. When a 429 response is received, it is returned immediately (or thrown if `throwOnError` is enabled). You must explicitly enable rate limit handling to get automatic retries.
+
+### Enable Global Rate Limiting
+
+```javascript
+import { setApiKey, enableRateLimiting } from "@short.io/client-node";
+
+setApiKey("YOUR_API_KEY");
+
+// Enable with default settings
+enableRateLimiting();
+// Defaults: maxRetries=3, baseDelayMs=1000, maxDelayMs=60000
+
+// Or customize the behavior
+enableRateLimiting({
+  maxRetries: 5,           // Maximum retry attempts (default: 3)
+  baseDelayMs: 1000,       // Initial delay in ms (default: 1000)
+  maxDelayMs: 60000,       // Maximum delay cap in ms (default: 60000)
+  onRateLimited: (info) => {
+    console.log(`Rate limited. Retry ${info.attempt} in ${info.delayMs}ms`);
+    console.log(`Limit: ${info.rateLimitLimit}, Remaining: ${info.rateLimitRemaining}`);
+  }
+});
+```
+
+### Disable Rate Limiting
+
+```javascript
+import { disableRateLimiting } from "@short.io/client-node";
+
+disableRateLimiting();
+```
+
+### Per-Request Rate Limiting
+
+Create a rate-limited client for specific requests:
+
+```javascript
+import { createRateLimitedClient, createLink } from "@short.io/client-node";
+
+const client = createRateLimitedClient({
+  maxRetries: 5,
+  onRateLimited: (info) => console.log(`Retry ${info.attempt}...`)
+});
+
+const result = await createLink({
+  client,
+  body: {
+    originalURL: "https://example.com",
+    domain: "your-domain.com"
+  }
+});
+```
+
+### Rate Limit Info
+
+The `onRateLimited` callback receives detailed information:
+
+```typescript
+interface RateLimitInfo {
+  status: number;            // HTTP status (429)
+  attempt: number;           // Current retry attempt (1, 2, 3...)
+  delayMs: number;           // Delay before next retry in ms
+  retryAfter?: number;       // Seconds from Retry-After header
+  rateLimitLimit?: number;   // Request limit per window (X-RateLimit-Limit)
+  rateLimitRemaining?: number; // Remaining requests (X-RateLimit-Remaining)
+  rateLimitReset?: number;   // Unix timestamp when limit resets (X-RateLimit-Reset)
+  request: Request;          // The request that was rate limited
+}
+```
+
+### Configuration Options
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `maxRetries` | `3` | Maximum number of retry attempts before returning the 429 response |
+| `baseDelayMs` | `1000` | Initial delay in milliseconds for exponential backoff |
+| `maxDelayMs` | `60000` | Maximum delay cap in milliseconds (1 minute) |
+| `onRateLimited` | `undefined` | Optional callback invoked before each retry |
+
+### Backoff Strategy
+
+The SDK uses exponential backoff with jitter:
+
+1. If `Retry-After` header is present, uses that value (capped at `maxDelayMs`)
+2. Otherwise, calculates delay as: `baseDelayMs * 2^(attempt-1) + random jitter`
+3. All delays are capped at `maxDelayMs`
+
+After exhausting all retries, the 429 response is returned normally (or thrown if `throwOnError` is enabled).
 
 ## Error Handling
 
