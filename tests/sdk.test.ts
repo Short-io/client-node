@@ -15,6 +15,7 @@ import {
   enableRateLimiting,
   disableRateLimiting,
   getRateLimitConfig,
+  createEncryptedLink,
   type RateLimitInfo,
   type SleepFunction,
 } from '../src/index';
@@ -618,5 +619,109 @@ describe('Rate limiting', () => {
     });
 
     expect(mockSleep).toHaveBeenCalledWith(5000); // Capped at maxDelayMs
+  });
+});
+
+// ── 5. Encrypted link creation ──────────────────────────────────────────
+
+describe('Encrypted link creation', () => {
+  it('encrypts URL and creates link with key in shortURL', async () => {
+    let capturedBody: Record<string, unknown> | null = null;
+
+    server.use(
+      http.post(`${BASE_URL}/links`, async ({ request }) => {
+        capturedBody = await request.json() as Record<string, unknown>;
+        return HttpResponse.json({
+          originalURL: capturedBody.originalURL,
+          path: 'enc123',
+          shortURL: 'https://short.io/enc123',
+          secureShortURL: 'https://short.io/enc123',
+          idString: 'lnk_enc_123',
+        });
+      }),
+    );
+
+    const result = await createEncryptedLink({
+      client: makeClient(),
+      body: {
+        originalURL: 'https://example.com/secret',
+        domain: 'short.io',
+      },
+    });
+
+    // API should receive shortsecure:// URL, not the original
+    expect(capturedBody).not.toBeNull();
+    expect((capturedBody as Record<string, unknown>).originalURL).toMatch(/^shortsecure:\/\//);
+
+    // Response should have key appended as hash fragment
+    expect(result.data).toBeDefined();
+    const data = result.data as Record<string, unknown>;
+    expect(data.shortURL).toMatch(/#.+$/);
+    expect(data.secureShortURL).toMatch(/#.+$/);
+    expect(data.encryptionKey).toBeDefined();
+    expect(typeof data.encryptionKey).toBe('string');
+  });
+
+  it('preserves other body options (title, path)', async () => {
+    let capturedBody: Record<string, unknown> | null = null;
+
+    server.use(
+      http.post(`${BASE_URL}/links`, async ({ request }) => {
+        capturedBody = await request.json() as Record<string, unknown>;
+        return HttpResponse.json({
+          originalURL: capturedBody.originalURL,
+          path: 'custom-path',
+          title: 'My Title',
+          shortURL: 'https://short.io/custom-path',
+          secureShortURL: 'https://short.io/custom-path',
+          idString: 'lnk_custom_123',
+        });
+      }),
+    );
+
+    await createEncryptedLink({
+      client: makeClient(),
+      body: {
+        originalURL: 'https://example.com/secret',
+        domain: 'short.io',
+        path: 'custom-path',
+        title: 'My Title',
+      },
+    });
+
+    expect(capturedBody).not.toBeNull();
+    expect((capturedBody as Record<string, unknown>).path).toBe('custom-path');
+    expect((capturedBody as Record<string, unknown>).title).toBe('My Title');
+    expect((capturedBody as Record<string, unknown>).domain).toBe('short.io');
+  });
+
+  it('returned encryptionKey is a valid base64 string', async () => {
+    server.use(
+      http.post(`${BASE_URL}/links`, () => {
+        return HttpResponse.json({
+          originalURL: 'shortsecure://test',
+          path: 'b64test',
+          shortURL: 'https://short.io/b64test',
+          secureShortURL: 'https://short.io/b64test',
+          idString: 'lnk_b64_123',
+        });
+      }),
+    );
+
+    const result = await createEncryptedLink({
+      client: makeClient(),
+      body: {
+        originalURL: 'https://example.com',
+        domain: 'short.io',
+      },
+    });
+
+    const data = result.data as Record<string, unknown>;
+    const key = data.encryptionKey as string;
+
+    // Valid base64: decode and re-encode should round-trip
+    const decoded = Buffer.from(key, 'base64');
+    expect(decoded.length).toBe(16); // 128-bit AES key = 16 bytes
+    expect(decoded.toString('base64')).toBe(key);
   });
 });

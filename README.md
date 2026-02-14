@@ -17,6 +17,7 @@ Official Node.js SDK for the [Short.io](https://short.io) URL shortening and lin
   - [Folders](#folders)
   - [OpenGraph](#opengraph)
   - [Permissions](#permissions)
+  - [Encrypted Links](#encrypted-links)
 - [API Reference](#api-reference)
 - [Advanced Configuration](#advanced-configuration)
 - [TypeScript Support](#typescript-support)
@@ -39,6 +40,7 @@ Official Node.js SDK for the [Short.io](https://short.io) URL shortening and lin
 - **Permissions Management** - Control user access to links
 - **Full TypeScript Support** - Comprehensive type definitions included
 - **Modern ESM** - Built with ES modules
+- **Encrypted Links** - End-to-end encrypted links with client-side AES-GCM encryption
 - **Automatic Rate Limit Handling** - Built-in retry logic for 429 responses with exponential backoff
 
 ## Requirements
@@ -527,6 +529,33 @@ await deleteLinkPermission({
 });
 ```
 
+### Encrypted Links
+
+Create end-to-end encrypted links where the destination URL is encrypted client-side before being sent to the API. The decryption key is embedded in the URL hash fragment (`#key`), which browsers never send to servers, ensuring true e2e encryption.
+
+```javascript
+import { setApiKey, createEncryptedLink } from "@short.io/client-node";
+
+setApiKey("YOUR_API_KEY");
+
+const result = await createEncryptedLink({
+  body: {
+    originalURL: "https://secret-destination.com/private-page",
+    domain: "your-domain.com",
+    path: "secure-link",   // Optional
+    title: "Secret Link"   // Optional
+  }
+});
+
+console.log("Encrypted short URL:", result.data.shortURL);
+// => https://your-domain.com/secure-link#<base64-encryption-key>
+
+console.log("Encryption key:", result.data.encryptionKey);
+// => base64-encoded AES-GCM key (included in the URL hash fragment)
+```
+
+The original URL is encrypted with AES-128-GCM before being sent to the Short.io API. The API only ever sees the encrypted payload (`shortsecure://...`), never the actual destination URL. The decryption key is appended as a hash fragment to the short URL, so it is only available to the end user's browser.
+
 ## API Reference
 
 ### Link Operations
@@ -547,6 +576,7 @@ await deleteLinkPermission({
 | `createLinkPublic` | Create link using public API key | 50/s |
 | `createLinkSimple` | Create link (GET method) | 50/s |
 | `createExampleLinks` | Generate example links | 5/10s |
+| `createEncryptedLink` | Create an e2e encrypted link | 50/s |
 
 ### Bulk Operations
 

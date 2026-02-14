@@ -189,3 +189,58 @@ export const setApiKey = (apiKey: string) => {
         }
     })
 }
+
+// ─── Encrypted Links ─────────────────────────────────────────────────────────
+
+import type { Options } from "./generated/sdk.gen"
+import type { CreateLinkData } from "./generated/types.gen"
+import { createLink } from "./generated/sdk.gen"
+import { webcrypto } from "node:crypto"
+
+function arrayBufferToBase64(buffer: ArrayBuffer): string {
+    return Buffer.from(buffer).toString('base64');
+}
+
+async function encryptURL(originalURL: string): Promise<{ encryptedURL: string; key: string }> {
+    const subtle = webcrypto.subtle;
+    const cryptoKey = await subtle.generateKey({ name: "AES-GCM", length: 128 }, true, [
+        "encrypt",
+        "decrypt",
+    ]);
+    const iv = webcrypto.getRandomValues(new Uint8Array(12));
+    const urlData = new TextEncoder().encode(originalURL);
+    const encryptedUrl = await subtle.encrypt({ name: "AES-GCM", iv }, cryptoKey, urlData);
+    const encryptedUrlBase64 = arrayBufferToBase64(encryptedUrl);
+    const encryptedIvBase64 = arrayBufferToBase64(iv.buffer);
+    const encryptedURL = `shortsecure://${encryptedUrlBase64}?${encryptedIvBase64}`;
+    const exportedKey = await subtle.exportKey("raw", cryptoKey);
+    const key = arrayBufferToBase64(exportedKey);
+    return { encryptedURL, key };
+}
+
+export async function createEncryptedLink(
+    options: Options<CreateLinkData, false> & { body: { originalURL: string } }
+) {
+    const { encryptedURL, key } = await encryptURL(options.body.originalURL);
+
+    const result = await createLink({
+        ...options,
+        body: {
+            ...options.body,
+            originalURL: encryptedURL,
+        },
+    });
+
+    if (result.data) {
+        const data = result.data as Record<string, unknown>;
+        if (typeof data.shortURL === 'string') {
+            data.shortURL = `${data.shortURL}#${key}`;
+        }
+        if (typeof data.secureShortURL === 'string') {
+            data.secureShortURL = `${data.secureShortURL}#${key}`;
+        }
+        return { ...result, data: { ...data, encryptionKey: key } };
+    }
+
+    return result;
+}
