@@ -643,6 +643,28 @@ The original URL is encrypted with AES-128-GCM before being sent to the Short.io
 
 ## Advanced Configuration
 
+### Alternative API Hosts
+
+The SDK connects to `https://api.short.io` by default. Short.io also provides alternative hosts for enterprise and China-region users:
+
+| Host | Use Case |
+|------|----------|
+| `https://api.short.io` | Default |
+| `https://enterprise-api.short.io` | Enterprise customers |
+| `https://api.shortio.cn` | China region |
+
+To use an alternative host, set the `baseUrl` when configuring the client:
+
+```javascript
+import { client, setApiKey } from "@short.io/client-node";
+
+setApiKey("YOUR_API_KEY");
+
+client.setConfig({
+  baseUrl: "https://enterprise-api.short.io"
+});
+```
+
 ### Custom Client Configuration
 
 ```javascript
