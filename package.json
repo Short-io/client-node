@@ -35,19 +35,19 @@
     "homepage": "https://github.com/Short-io/client-node#readme",
     "prettier": "@short.io/eslint-config/prettier",
     "devDependencies": {
-        "@eslint/js": "^9.39.2",
-        "@hey-api/openapi-ts": "^0.90.4",
-        "@types/node": "^25.0.9",
-        "eslint": "^9.39.2",
-        "globals": "^17.0.0",
-        "msw": "^2.12.7",
+        "@eslint/js": "^10.0.1",
+        "@hey-api/openapi-ts": "^0.96.1",
+        "@types/node": "^25.6.0",
+        "eslint": "^10.2.1",
+        "globals": "^17.5.0",
+        "msw": "^2.13.4",
         "tsc-alias": "^1.8.16",
-        "typescript": "^5.9.3",
-        "typescript-eslint": "^8.53.1",
-        "vitest": "^4.0.18"
+        "typescript": "^6.0.3",
+        "typescript-eslint": "^8.59.0",
+        "vitest": "^4.1.5"
     },
     "dependencies": {
         "zod": "^4.3.6"
     },
-    "packageManager": "yarn@1.22.22+sha256.c17d3797fb9a9115bf375e31bfd30058cac6bc9c3b8807a3d8cb2094794b51ca"
+    "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
 }
