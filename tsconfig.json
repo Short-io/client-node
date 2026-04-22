@@ -2,9 +2,9 @@
     "compilerOptions": {
         "rootDir": "./src",
         "outDir": "./dist",
-        "module": "ESNext",
+        "module": "Preserve",
         "target": "ESNext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "experimentalDecorators": true,
         "allowSyntheticDefaultImports": true,
         "incremental": true,
@@ -14,7 +14,9 @@
         "noUnusedLocals": true,
         "sourceMap": true,
         "inlineSources": true,
-        "declaration": true
+        "declaration": true,
+        "types": ["node"],
+        "skipLibCheck": true
     },
     "include": ["src/**/*"],
     "tsc-alias": {
